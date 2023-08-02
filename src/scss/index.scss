@@ -25,7 +25,7 @@ html, body {
 
 html {
     background-color: #efefef;
-    background-image: url("/resources/debut_light.png");
+    background-image: url("/static/resources/debut_light.png");
 }
 
 body {
@@ -70,7 +70,7 @@ body > main {
 #logo {
     padding-left: 80px;
     height: 64px;
-    background-image: url("/resources/logos/FMBQ-logo.png");
+    background-image: url("/static/resources/logos/FMBQ-logo.png");
     background-repeat: no-repeat;
     background-size: contain;
     /* color: white; */

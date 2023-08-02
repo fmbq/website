@@ -1,5 +1,5 @@
 use maud::{Markup, html};
-use super::layout;
+use crate::components::layout::layout;
 
 pub fn render() -> Markup {
     layout(

@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 dotenv = "0.15"
 env_logger = "0.9"
+flume = "0.10.14"
 log = "0.4"
 maud = "0.25"
 once_cell = "1"
@@ -40,3 +41,7 @@ features = ["formatting", "serde-well-known"]
 [dependencies.tokio]
 version = "1.18.5"
 features = ["rt-multi-thread", "macros", "signal"]
+
+[dependencies.tokio-stream]
+version = "0.1.14"
+features = ["sync"]
