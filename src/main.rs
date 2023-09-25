@@ -11,8 +11,10 @@ use poem::{
 use std::env;
 
 mod components;
+mod markdown;
 mod pages;
 mod sse;
+mod url;
 
 #[poem::handler]
 fn home() -> Html<String> {

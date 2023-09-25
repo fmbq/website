@@ -1,5 +1,7 @@
 @use 'footer';
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Caprasimo&display=swap');
+@use 'hero';
+
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Caprasimo&family=Oi&family=Modak&display=swap');
 
 :root {
     --color-blue: #03a9fa;
@@ -11,6 +13,9 @@
     --color-yellow: hsl(53, 88%, 57%);
     --color-red: hsl(360, 84%, 55%);
     --color-green: hsl(147, 92%, 15%); /* this color is awful... */
+    --color-brown: hsl(25, 18%, 57%);
+    --color-orange: hsl(24, 100%, 40%);
+    --color-baby-blue: hsl(208, 100%, 65%);
 }
 
 *, ::before, ::after {
@@ -24,8 +29,10 @@ html, body {
 }
 
 html {
-    background-color: #efefef;
-    background-image: url("/static/resources/debut_light.png");
+    // background-color: #efefef;
+    background-color: var(--color-brown);
+    background-image: url("/static/resources/cardboard.png");
+    background-blend-mode: multiply;
 }
 
 body {
@@ -39,12 +46,13 @@ body > * {
     width: 100%;
 }
 
-body > header > nav, body > main, .container {
+body > header > nav, .container {
     margin: 0 auto;
     max-width: 1200px;
 }
 
 body > header {
+    mix-blend-mode: hard-light;
     background-color: var(--color-purple);
     background-image: linear-gradient(170deg, var(--color-deep-purple) 0%, var(--color-purple) 70%);
     color: white;
@@ -99,11 +107,12 @@ h2, h3 {
 }
 
 h1 {
-    font-family: 'Calistoga', sans-serif;
+    font-family: 'Oi', sans-serif;
     text-transform: uppercase;
     color: var(--color-purple);
     font-size: 3em;
     font-weight: normal;
+    mix-blend-mode: hard-light;
     /* color: transparent; */
     /* -webkit-text-stroke: 3px var(--color-deep-purple); */
     /* text-shadow:
