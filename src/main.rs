@@ -1,47 +1,50 @@
+use maud::Markup;
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use poem::{
     endpoint::StaticFilesEndpoint,
-    get,
+    get, handler,
     web::{
         sse::{Event, SSE},
         Html,
     },
-    IntoResponse, Route,
+    EndpointExt, IntoResponse, Route,
 };
 use std::env;
 
 mod components;
+mod db;
 mod markdown;
 mod pages;
+mod routes;
 mod sse;
 mod url;
 
-#[poem::handler]
-fn home() -> Html<String> {
-    Html(pages::home::render().into_string())
+#[handler]
+fn home() -> Html<Markup> {
+    Html(pages::home::render())
 }
 
-#[poem::handler]
-fn about() -> Html<String> {
-    Html(pages::about().into_string())
+#[handler]
+fn about() -> Html<Markup> {
+    Html(pages::about())
 }
 
-#[poem::handler]
-fn playground() -> Html<String> {
-    Html(pages::playground::render().into_string())
+#[handler]
+fn playground() -> Html<Markup> {
+    Html(pages::playground::render())
 }
 
-#[poem::handler]
+#[handler]
 fn events() -> SSE {
     sse::subscribe()
 }
 
-#[poem::handler]
+#[handler]
 fn css() -> impl IntoResponse {
     grass::include!("src/scss/index.scss").with_content_type("text/css")
 }
 
-#[poem::handler]
+#[handler]
 fn time() -> impl IntoResponse {
     OffsetDateTime::now_utc().format(&Rfc2822).unwrap()
 }
@@ -51,14 +54,22 @@ async fn main() -> Result<(), std::io::Error> {
     dotenv::dotenv().ok();
     env_logger::init();
 
+    log::info!("initializing database");
+    db::init().await;
+
     let app = Route::new()
         .at("/", get(home))
         .at("/about", get(about))
         .at("/playground", get(playground))
         .at("/time", get(time))
         .at("/events", get(events))
+        .at(
+            "/login",
+            get(routes::login::get).post(routes::login::submit),
+        )
         .at("/styles/site.css", get(css))
-        .nest("/static", StaticFilesEndpoint::new("wwwroot/static"));
+        .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
+        .data(db::create_connection_pool());
 
     tokio::task::spawn(async {
         loop {
