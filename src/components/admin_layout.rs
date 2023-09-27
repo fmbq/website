@@ -1,7 +1,7 @@
 use maud::{html, Markup, DOCTYPE};
 use time::OffsetDateTime;
 
-pub fn layout(title: &str, body: Markup) -> Markup {
+pub fn admin_layout(title: &str, body: Markup) -> Markup {
     html! {
         (DOCTYPE)
         head lang="en" {
@@ -10,10 +10,16 @@ pub fn layout(title: &str, body: Markup) -> Markup {
 
             title { (title) }
 
-            link rel="stylesheet" href="/styles/site.css";
+            link rel="stylesheet" href="/styles/admin.css";
         }
         body {
-            (crate::components::header::header())
+            header {
+                a href="/" { "Home" }
+
+                .flex-end {
+                    a href="/admin/login" { "Log In" }
+                }
+            }
 
             main role="main" {
                 (body)
@@ -21,9 +27,6 @@ pub fn layout(title: &str, body: Markup) -> Markup {
 
             footer {
                 div class="container" {
-                    p { a href="/api" { "API Documentation" } }
-                    p { a href="/admin/login" { "Log In" } }
-                    p { a href="/playground" { "Playground" } }
                     p class="center copyright" {
                         "© " (OffsetDateTime::now_utc().year()) " Free Methodist Bible Quizzing"
                     }

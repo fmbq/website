@@ -16,6 +16,7 @@ mod db;
 mod markdown;
 mod pages;
 mod routes;
+mod session;
 mod sse;
 mod url;
 
@@ -45,12 +46,17 @@ fn css() -> impl IntoResponse {
 }
 
 #[handler]
+fn admin_css() -> impl IntoResponse {
+    grass::include!("src/scss/admin.scss").with_content_type("text/css")
+}
+
+#[handler]
 fn time() -> impl IntoResponse {
     OffsetDateTime::now_utc().format(&Rfc2822).unwrap()
 }
 
 #[tokio::main]
-async fn main() -> Result<(), std::io::Error> {
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv::dotenv().ok();
     env_logger::init();
 
@@ -64,12 +70,15 @@ async fn main() -> Result<(), std::io::Error> {
         .at("/time", get(time))
         .at("/events", get(events))
         .at(
-            "/login",
+            "/admin/login",
             get(routes::login::get).post(routes::login::submit),
         )
         .at("/styles/site.css", get(css))
+        .at("/styles/admin.css", get(admin_css))
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
         .data(db::create_connection_pool());
+
+    let app = session::configure_session(app).await?;
 
     tokio::task::spawn(async {
         loop {
@@ -81,6 +90,7 @@ async fn main() -> Result<(), std::io::Error> {
     let addr = env::var("LISTEN_ADDR").unwrap_or_else(|_| String::from("127.0.0.1:80"));
 
     log::info!("listening on http://{}", addr);
+
     poem::Server::new(poem::listener::TcpListener::bind(addr))
         .run_with_graceful_shutdown(
             app,
@@ -89,5 +99,7 @@ async fn main() -> Result<(), std::io::Error> {
             },
             None,
         )
-        .await
+        .await?;
+
+    Ok(())
 }

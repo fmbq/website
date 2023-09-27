@@ -1,11 +1,20 @@
-use sqlx::{AnyConnection, FromRow, Row};
+use sqlx::{AnyConnection, FromRow};
+use uuid::Uuid;
 
 #[derive(FromRow, Debug)]
 pub struct User {
-    id: String,
-    email: String,
-    password_hash: String,
-    require_password_reset: bool,
+    pub(crate) id: String,
+    pub(crate) email: String,
+    pub(crate) password_hash: String,
+
+    #[sqlx(default)]
+    require_password_reset: Option<i32>,
+}
+
+impl User {
+    pub fn require_password_reset(&self) -> bool {
+        self.require_password_reset == Some(1)
+    }
 }
 
 #[derive(Debug)]
@@ -32,6 +41,26 @@ pub async fn get_by_email(connection: &mut AnyConnection, email: &str) -> Option
         .unwrap()
 }
 
+pub async fn create(
+    connection: &mut AnyConnection,
+    email: &str,
+    password: &str,
+) -> Result<String, sqlx::Error> {
+    let id = Uuid::new_v4().to_string();
+    let password_hash = password_auth::generate_hash(password);
+
+    sqlx::query(
+        "INSERT INTO user (id, email, password_hash, require_password_reset) VALUES (?, ?, ?, 0)",
+    )
+    .bind(&id)
+    .bind(email)
+    .bind(password_hash)
+    .execute(connection)
+    .await?;
+
+    Ok(id)
+}
+
 pub async fn reset_password(connection: &mut AnyConnection, id: &str) -> bool {
     sqlx::query("UPDATE user SET require_password_reset = 1 WHERE id = ?")
         .bind(id)
@@ -46,17 +75,49 @@ pub async fn validate_credentials(
     connection: &mut AnyConnection,
     email: &str,
     password: &str,
-) -> LoginResult {
+) -> sqlx::Result<LoginResult> {
     if let Some(user) = get_by_email(connection, email).await {
-        if user.require_password_reset {
-            return LoginResult::PasswordResetRequired;
+        if user.require_password_reset() {
+            return Ok(LoginResult::PasswordResetRequired);
         }
 
         match password_auth::verify_password(password, &user.password_hash) {
-            Ok(()) => LoginResult::Success(user.id.clone()),
-            Err(_) => LoginResult::InvalidCredentials,
+            Ok(()) => {
+                // If password hash version is out of date, update it now.
+                if password_auth::is_hash_obsolete(&user.password_hash) == Ok(true) {
+                    sqlx::query("UPDATE user SET password_hash = ? WHERE id = ?")
+                        .bind(password_auth::generate_hash(password))
+                        .bind(&user.id)
+                        .execute(connection)
+                        .await?;
+                }
+
+                Ok(LoginResult::Success(user.id.clone()))
+            }
+            Err(_) => Ok(LoginResult::InvalidCredentials),
         }
     } else {
-        LoginResult::UnknownUser
+        Ok(LoginResult::UnknownUser)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn login_reset() {
+        let email = "foo@example.org";
+        let mut db = crate::db::create_test_connection().await;
+
+        assert!(get_by_email(&mut db, email).await.is_none());
+
+        let id = create(&mut db, email, "test").await.unwrap();
+
+        let user = get_by_id(&mut db, &id).await.unwrap();
+        assert_eq!(user.id, id);
+
+        let user = get_by_email(&mut db, email).await.unwrap();
+        assert_eq!(user.id, id);
     }
 }

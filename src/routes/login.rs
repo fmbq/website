@@ -1,13 +1,17 @@
 use maud::{html, Markup};
 use poem::{
     handler,
-    web::{Data, Form, Html, Redirect},
+    session::Session,
+    web::{Data, Form, Html, Query, Redirect},
     IntoResponse, Response,
 };
 use serde::Deserialize;
 use sqlx::AnyPool;
 
-use crate::db::users::{self, LoginResult};
+use crate::{
+    components::admin_layout::admin_layout,
+    db::users::{self, LoginResult},
+};
 
 #[derive(Deserialize)]
 pub struct LoginForm {
@@ -17,32 +21,59 @@ pub struct LoginForm {
 
 #[handler]
 pub fn get() -> Html<Markup> {
-    Html(html! {
-        h1 { "Log in" }
+    Html(admin_layout(
+        "Log In",
+        html! {
+            form.login method="post" action="" {
+                h1 { "Log in" }
 
-        form method="post" action="/login" {
-            label for="email" { "Email" }
-            input id="email" type="email" name="email" required;
+                label for="email" { "Email" }
+                input id="email" type="email" name="email" required;
 
-            label for="password" { "Password" }
-            input id="password" type="password" name="password" required;
+                label for="password" { "Password" }
+                input id="password" type="password" name="password" required;
 
-            button type="submit" { "Log in" }
-        }
-    })
+                button type="submit" { "Log in" }
+            }
+        },
+    ))
+}
+
+#[derive(Deserialize)]
+pub struct LoginParams {
+    redirect: Option<String>,
 }
 
 #[handler]
-pub async fn submit(Data(db): Data<&AnyPool>, Form(f): Form<LoginForm>) -> Response {
+pub async fn submit(
+    Data(db): Data<&AnyPool>,
+    session: &Session,
+    Form(f): Form<LoginForm>,
+    Query(params): Query<LoginParams>,
+) -> Response {
     let mut conn = db.acquire().await.unwrap();
 
-    match users::validate_credentials(&mut conn, &f.email, &f.password).await {
-        LoginResult::Success(_id) => Redirect::temporary("/").into_response(),
-        _ => Html(html! {
-            h1 { "Log in" }
+    match users::validate_credentials(&mut conn, &f.email, &f.password)
+        .await
+        .unwrap()
+    {
+        LoginResult::Success(id) => {
+            session.set("user-id", id);
 
-            "Error"
-        })
+            if let Some(redirect) = params.redirect {
+                Redirect::temporary(redirect).into_response()
+            } else {
+                Redirect::temporary("/").into_response()
+            }
+        }
+        _ => Html(admin_layout(
+            "Log In",
+            html! {
+                h1 { "Log in" }
+
+                "Error"
+            },
+        ))
         .into_response(),
     }
 }

@@ -1,0 +1,29 @@
+:root {
+    --color-blue: #03a9fa;
+    --color-cream: hsl(53, 88%, 93%);
+
+    /* taken from logo */
+    --color-purple: hsl(247, 43%, 44%);
+    --color-deep-purple: hsl(263, 50%, 20%);
+    --color-yellow: hsl(53, 88%, 57%);
+    --color-red: hsl(360, 84%, 55%);
+    --color-green: hsl(147, 92%, 15%); /* this color is awful... */
+    --color-brown: hsl(25, 18%, 57%);
+    --color-orange: hsl(24, 100%, 40%);
+    --color-baby-blue: hsl(208, 100%, 65%);
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+}

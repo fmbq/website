@@ -1,0 +1,20 @@
+@use 'base';
+@use 'forms';
+@use 'login';
+
+header {
+    display: flex;
+    padding: 1rem;
+    background-color: var(--color-purple);
+
+    .flex-end {
+        margin-left: auto;
+        display: flex;
+    }
+
+    a {
+        display: block;
+        color: white;
+        margin: 0 0.5rem;
+    }
+}
