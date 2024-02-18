@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 async-trait = "0.1"
+chrono = "0.4.34"
 dashmap = "5.5"
 dotenv = "0.15"
 env_logger = "0.9"
@@ -17,6 +18,7 @@ pulldown-cmark = "0.9"
 regex = "1"
 serde_json = "1"
 sha1 = "0.10"
+thiserror = "1"
 
 [dependencies.grass]
 version = "0.13"
@@ -41,7 +43,7 @@ features = ["derive"]
 
 [dependencies.sqlx]
 version = "0.7"
-features = ["any", "migrate", "sqlite", "runtime-tokio-rustls"]
+features = ["chrono", "migrate", "sqlite", "runtime-tokio-rustls"]
 
 [dependencies.time]
 version = "0.3"

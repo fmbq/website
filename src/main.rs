@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use maud::Markup;
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use poem::{
@@ -13,6 +15,7 @@ use std::env;
 
 mod components;
 mod db;
+mod domain;
 mod markdown;
 mod pages;
 mod routes;

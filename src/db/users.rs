@@ -1,5 +1,8 @@
-use sqlx::{AnyConnection, FromRow};
+use crate::db::Connection;
+use sqlx::FromRow;
 use uuid::Uuid;
+
+pub mod reset_password_token;
 
 #[derive(FromRow, Debug)]
 pub struct User {
@@ -17,15 +20,7 @@ impl User {
     }
 }
 
-#[derive(Debug)]
-pub enum LoginResult {
-    Success(String),
-    InvalidCredentials,
-    UnknownUser,
-    PasswordResetRequired,
-}
-
-pub async fn get_by_id(connection: &mut AnyConnection, id: &str) -> Option<User> {
+pub async fn get_by_id(connection: &mut Connection, id: &str) -> Option<User> {
     sqlx::query_as("SELECT * FROM user WHERE id = ?")
         .bind(id)
         .fetch_optional(connection)
@@ -33,7 +28,7 @@ pub async fn get_by_id(connection: &mut AnyConnection, id: &str) -> Option<User>
         .unwrap()
 }
 
-pub async fn get_by_email(connection: &mut AnyConnection, email: &str) -> Option<User> {
+pub async fn get_by_email(connection: &mut Connection, email: &str) -> Option<User> {
     sqlx::query_as("SELECT * FROM user WHERE email = ?")
         .bind(email)
         .fetch_optional(connection)
@@ -41,27 +36,54 @@ pub async fn get_by_email(connection: &mut AnyConnection, email: &str) -> Option
         .unwrap()
 }
 
+pub async fn update_password_hash(
+    connection: &mut Connection,
+    id: &str,
+    password_hash: String,
+) -> sqlx::Result<()> {
+    sqlx::query("UPDATE user SET password_hash = ? WHERE id = ?")
+        .bind(password_hash)
+        .bind(id)
+        .execute(connection)
+        .await?;
+
+    Ok(())
+}
+
+#[derive(thiserror::Error, Debug)]
+pub enum CreateAccountError {
+    #[error("email address is already in use")]
+    EmailAlreadyInUse,
+    #[error("unknown database error")]
+    Sql(#[from] sqlx::Error),
+}
+
 pub async fn create(
-    connection: &mut AnyConnection,
+    connection: &mut Connection,
     email: &str,
     password: &str,
-) -> Result<String, sqlx::Error> {
+) -> Result<String, CreateAccountError> {
     let id = Uuid::new_v4().to_string();
     let password_hash = password_auth::generate_hash(password);
 
-    sqlx::query(
+    match sqlx::query(
         "INSERT INTO user (id, email, password_hash, require_password_reset) VALUES (?, ?, ?, 0)",
     )
     .bind(&id)
     .bind(email)
     .bind(password_hash)
     .execute(connection)
-    .await?;
-
-    Ok(id)
+    .await
+    {
+        Ok(_) => Ok(id),
+        Err(sqlx::Error::Database(e)) if e.is_unique_violation() => {
+            Err(CreateAccountError::EmailAlreadyInUse)
+        }
+        Err(e) => Err(e.into()),
+    }
 }
 
-pub async fn reset_password(connection: &mut AnyConnection, id: &str) -> bool {
+pub async fn reset_password(connection: &mut Connection, id: &str) -> bool {
     sqlx::query("UPDATE user SET require_password_reset = 1 WHERE id = ?")
         .bind(id)
         .execute(connection)
@@ -69,36 +91,6 @@ pub async fn reset_password(connection: &mut AnyConnection, id: &str) -> bool {
         .unwrap()
         .rows_affected()
         > 0
-}
-
-pub async fn validate_credentials(
-    connection: &mut AnyConnection,
-    email: &str,
-    password: &str,
-) -> sqlx::Result<LoginResult> {
-    if let Some(user) = get_by_email(connection, email).await {
-        if user.require_password_reset() {
-            return Ok(LoginResult::PasswordResetRequired);
-        }
-
-        match password_auth::verify_password(password, &user.password_hash) {
-            Ok(()) => {
-                // If password hash version is out of date, update it now.
-                if password_auth::is_hash_obsolete(&user.password_hash) == Ok(true) {
-                    sqlx::query("UPDATE user SET password_hash = ? WHERE id = ?")
-                        .bind(password_auth::generate_hash(password))
-                        .bind(&user.id)
-                        .execute(connection)
-                        .await?;
-                }
-
-                Ok(LoginResult::Success(user.id.clone()))
-            }
-            Err(_) => Ok(LoginResult::InvalidCredentials),
-        }
-    } else {
-        Ok(LoginResult::UnknownUser)
-    }
 }
 
 #[cfg(test)]

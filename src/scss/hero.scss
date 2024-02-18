@@ -1,6 +1,8 @@
 @use "sass:list";
 
 .hero {
+    --max-width: 1200px;
+
     background-image: linear-gradient(black, black), url("/static/resources/banner-index.jpg");
     background-blend-mode: saturation;
     background-size: cover;

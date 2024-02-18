@@ -1,4 +1,5 @@
 @use 'base';
+@use 'layout';
 @use 'footer';
 @use 'hero';
 
@@ -22,7 +23,7 @@ body > * {
 
 body > header > nav, .container {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: var(--max-width);
 }
 
 body > header {

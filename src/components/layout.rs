@@ -15,7 +15,7 @@ pub fn layout(title: &str, body: Markup) -> Markup {
         body {
             (crate::components::header::header())
 
-            main role="main" {
+            main role="main" class="content-grid" {
                 (body)
             }
 

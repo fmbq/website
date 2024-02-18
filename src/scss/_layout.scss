@@ -1,0 +1,13 @@
+.content-grid, .content-grid > .full-width {
+    display: grid;
+    grid-template-columns:
+        minmax(1rem, 1fr) [content-start] minmax(auto, var(--max-width)) [content-end] minmax(1rem, 1fr);
+
+    & > * {
+        grid-column: content;
+    }
+
+    .full-width {
+        grid-column: 1 / -1;
+    }
+}

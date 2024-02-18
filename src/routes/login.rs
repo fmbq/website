@@ -6,11 +6,11 @@ use poem::{
     IntoResponse, Response,
 };
 use serde::Deserialize;
-use sqlx::AnyPool;
 
 use crate::{
     components::admin_layout::admin_layout,
-    db::users::{self, LoginResult},
+    db::Pool,
+    domain::users::{self, LoginResult},
 };
 
 #[derive(Deserialize)]
@@ -19,24 +19,15 @@ pub struct LoginForm {
     password: String,
 }
 
+#[derive(Deserialize)]
+pub struct ResetPasswordForm {
+    password: String,
+    password_confirmation: String,
+}
+
 #[handler]
 pub fn get() -> Html<Markup> {
-    Html(admin_layout(
-        "Log In",
-        html! {
-            form.login method="post" action="" {
-                h1 { "Log in" }
-
-                label for="email" { "Email" }
-                input id="email" type="email" name="email" required;
-
-                label for="password" { "Password" }
-                input id="password" type="password" name="password" required;
-
-                button type="submit" { "Log in" }
-            }
-        },
-    ))
+    Html(crate::pages::login::login())
 }
 
 #[derive(Deserialize)]
@@ -46,14 +37,14 @@ pub struct LoginParams {
 
 #[handler]
 pub async fn submit(
-    Data(db): Data<&AnyPool>,
+    Data(db): Data<&Pool>,
     session: &Session,
     Form(f): Form<LoginForm>,
     Query(params): Query<LoginParams>,
 ) -> Response {
     let mut conn = db.acquire().await.unwrap();
 
-    match users::validate_credentials(&mut conn, &f.email, &f.password)
+    match users::login(&mut conn, &f.email, &f.password)
         .await
         .unwrap()
     {
@@ -66,14 +57,31 @@ pub async fn submit(
                 Redirect::temporary("/").into_response()
             }
         }
-        _ => Html(admin_layout(
+        result => Html(admin_layout(
             "Log In",
             html! {
                 h1 { "Log in" }
 
-                "Error"
+                (format!("Error: {:?}", result))
             },
         ))
         .into_response(),
     }
+}
+
+#[derive(Deserialize)]
+pub struct ResetPasswordParams {
+    redirect: Option<String>,
+}
+
+#[handler]
+pub async fn submit_reset_password(
+    Data(db): Data<&Pool>,
+    session: &Session,
+    Form(f): Form<ResetPasswordForm>,
+    Query(params): Query<ResetPasswordParams>,
+) -> Response {
+    let mut conn = db.acquire().await.unwrap();
+
+    todo!()
 }
