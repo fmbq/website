@@ -76,6 +76,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             "/admin/login",
             get(routes::login::get).post(routes::login::submit),
         )
+        .at(
+            "/admin/articles",
+            get(routes::admin::get_article_management),
+        )
         .at("/styles/site.css", get(css))
         .at("/styles/admin.css", get(admin_css))
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))

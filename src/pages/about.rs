@@ -23,6 +23,10 @@ pub fn about() -> Markup {
                 "Free Methodist Bible Quizzing uses the NIV-2011 translation of the Holy Bible. Our
                 current season (2021-2022) is over " b { "1&2 Timothy, Titus, Matthew 1-13" } "."
             }
+
+            div {
+                (crate::components::admin::editor::editor())
+            }
         },
     )
 }

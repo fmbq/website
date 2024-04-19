@@ -6,6 +6,7 @@ use sqlx::{
 };
 use std::env;
 
+pub mod articles;
 pub mod users;
 
 static URL: Lazy<String> = Lazy::new(|| env::var("DATABASE_URL").unwrap());
