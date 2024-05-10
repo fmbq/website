@@ -5,10 +5,20 @@ pub fn header() -> Markup {
         header {
             nav hx-boost="true" {
                 a id="logo" class="title" href="/" { "Free Methodist Bible Quizzing" }
-                div class="links" {
-                    a class="button" href="/about" { "About" }
-                    a class="button" href="/media" { "Media" }
-                    a class="button" href="/finals" { "Finals" }
+                a href="/about" {
+                    span { "About" }
+                }
+                a href="/news" {
+                    span { "News" }
+                }
+                a href="/get-started" {
+                    span { "Get Started" }
+                }
+                a href="/resources" {
+                    span { "Resources" }
+                }
+                a href="/contact" {
+                    span { "Contact" }
                 }
             }
         }

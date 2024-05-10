@@ -3,12 +3,12 @@
 .hero {
     --max-width: 1200px;
 
-    background-image: linear-gradient(black, black), url("/static/resources/banner-index.jpg");
-    background-blend-mode: saturation;
+    background-image: url("/static/resources/Film-Grain-Textures-FREE-Pack-8K/AU-FG-Texture1-8K.jpg"), url("/static/resources/banner-index.jpg");
+    background-blend-mode: difference;
     background-size: cover;
     mix-blend-mode: hard-light;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 
     h1 {
         font-size: 6rem;

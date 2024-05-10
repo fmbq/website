@@ -1,9 +1,9 @@
 @use 'base';
 @use 'layout';
+@use 'fonts';
+@use 'header';
 @use 'footer';
 @use 'hero';
-
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Caprasimo&family=Oi&family=Modak&display=swap');
 
 html {
     // background-color: #efefef;
@@ -21,29 +21,9 @@ body > * {
     width: 100%;
 }
 
-body > header > nav, .container {
+/* body > header > nav ,*/ .container {
     margin: 0 auto;
     max-width: var(--max-width);
-}
-
-body > header {
-    mix-blend-mode: hard-light;
-    background-color: var(--color-purple);
-    background-image: linear-gradient(170deg, var(--color-deep-purple) 0%, var(--color-purple) 70%);
-    color: white;
-    box-shadow: inset 1px 1px 8px rgba(0, 0, 0, 0.3);
-
-    & > nav {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        padding: 2rem 1rem;
-    }
-
-    .links .button {
-        margin-left: 1.5rem;
-    }
 }
 
 body > main {
