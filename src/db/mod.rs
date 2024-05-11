@@ -15,16 +15,18 @@ static MIGRATOR: Migrator = sqlx::migrate!();
 pub type Connection = SqliteConnection;
 pub type Pool = SqlitePool;
 
-pub async fn init() {
-    Sqlite::create_database(&URL).await.unwrap();
+pub async fn init() -> anyhow::Result<()> {
+    Sqlite::create_database(&URL).await?;
 
-    let pool = create_connection_pool();
+    let pool = create_connection_pool()?;
 
-    MIGRATOR.run(&pool).await.unwrap();
+    MIGRATOR.run(&pool).await?;
+
+    Ok(())
 }
 
-pub fn create_connection_pool() -> Pool {
-    SqlitePoolOptions::new().connect_lazy(&URL).unwrap()
+pub fn create_connection_pool() -> anyhow::Result<Pool> {
+    SqlitePoolOptions::new().connect_lazy(&URL).map_err(Into::into)
 }
 
 #[cfg(test)]

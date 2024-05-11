@@ -60,11 +60,14 @@ fn time() -> impl IntoResponse {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    dotenv::dotenv().ok();
+    if dotenv::dotenv().is_err() {
+        eprintln!("no .env file found, did you need to create one?");
+    }
+
     env_logger::init();
 
     log::info!("initializing database");
-    db::init().await;
+    db::init().await?;
 
     let app = Route::new()
         .at("/", get(home))
@@ -83,7 +86,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .at("/styles/site.css", get(css))
         .at("/styles/admin.css", get(admin_css))
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
-        .data(db::create_connection_pool());
+        .data(db::create_connection_pool()?);
 
     let app = session::configure_session(app).await?;
 
