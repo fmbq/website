@@ -1,22 +1,26 @@
-use once_cell::sync::Lazy;
+use anyhow::Context;
+use once_cell::sync::OnceCell;
 use sqlx::{
     migrate::{MigrateDatabase, Migrator},
     sqlite::SqlitePoolOptions,
     Sqlite, SqliteConnection, SqlitePool,
 };
-use std::env;
+use std::{env};
 
 pub mod articles;
 pub mod users;
 
-static URL: Lazy<String> = Lazy::new(|| env::var("DATABASE_URL").unwrap());
+static URL: OnceCell<String> = OnceCell::new();
 static MIGRATOR: Migrator = sqlx::migrate!();
 
 pub type Connection = SqliteConnection;
 pub type Pool = SqlitePool;
 
 pub async fn init() -> anyhow::Result<()> {
-    Sqlite::create_database(&URL).await?;
+    let url = URL.get_or_try_init(|| env::var("DATABASE_URL"))
+        .context("DATABASE_URL environment variable must be set to find database")?;
+
+    Sqlite::create_database(url).await?;
 
     let pool = create_connection_pool()?;
 
@@ -26,7 +30,9 @@ pub async fn init() -> anyhow::Result<()> {
 }
 
 pub fn create_connection_pool() -> anyhow::Result<Pool> {
-    SqlitePoolOptions::new().connect_lazy(&URL).map_err(Into::into)
+    let url = URL.get_or_try_init(|| env::var("DATABASE_URL"))?;
+
+    SqlitePoolOptions::new().connect_lazy(url).map_err(Into::into)
 }
 
 #[cfg(test)]
