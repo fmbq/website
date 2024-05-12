@@ -11,8 +11,14 @@ pub fn layout(title: &str, body: Markup) -> Markup {
             title { (title) }
 
             link rel="stylesheet" href="/styles/site.css";
+
+            script src="/static/js/vendor/htmx/1.9.3/htmx.min.js" {}
+            script src="/static/js/vendor/htmx/1.9.3/ext/sse.js" {}
+            script src="/static/js/vendor/hyperscript/0.9.12/_hyperscript.min.js" {}
         }
-        body {
+
+        // Trigger all menus that may be open to close on losing focus.
+        body _="on click send menuclose to <menu/>" {
             (crate::components::header::header())
 
             main role="main" class="content-grid" {
@@ -29,9 +35,6 @@ pub fn layout(title: &str, body: Markup) -> Markup {
                     }
                 }
             }
-
-            script src="/static/js/vendor/htmx/1.9.3/htmx.min.js" {}
-            script src="/static/js/vendor/htmx/1.9.3/ext/sse.js" {}
         }
     }
 }

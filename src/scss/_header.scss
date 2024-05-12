@@ -20,54 +20,94 @@
 
 
 body > header {
+    position: sticky;
+    top: 0;
     background-color: var(--color-vintage-white);
     --border-width: 2px;
-    border-bottom: var(--border-width) solid black;
+    border-bottom: var(--border-width) solid var(--color-vintage-black);
+    z-index: 2;
 
     & > nav {
         display: flex;
-        flex-wrap: wrap;
         align-items: stretch;
         justify-content: flex-end;
+        flex-direction: row;
 
-        #logo {
+        & > :first-child {
             flex-grow: 1;
-            margin-left: 2rem;
         }
 
-        a {
+        .menu-container:focus menu, menu.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .menu-toggle {
+            display: block;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        menu {
             display: flex;
-            align-items: center;
-            border-width: 0 0 0 var(--border-width);
-            border-color: var(--color-vintage-black);
-            border-style: solid;
-            border-collapse: collapse;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.2s ease-in-out;
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            flex-direction: column;
+            border-bottom: var(--border-width) solid var(--color-vintage-black);
+            background-color: var(--color-vintage-white);
+            transition: visibility 0.2s linear, opacity 0.2s ease-in-out;
 
-            &, &:visited {
-                color: var(--color-vintage-black);
+            a {
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 1rem;
+                border-color: var(--color-vintage-black);
+                border-style: solid;
+                border-width: var(--border-width) 0 0 0;
+                transition: background-color 0.2s ease-in-out;
+
+                &, &:visited {
+                    color: var(--color-vintage-black);
+                }
+
+                &:hover {
+                    // background-color: hsla(45, 10%, 5%, 0.2);
+                    background-color: hsla(24, 100%, 40%, 0.2);
+                }
+
+                span {
+                    margin: 0 1rem;
+                    font-size: 1rem;
+                    text-wrap: nowrap;
+                }
+            }
+        }
+
+        @media (min-width: 900px) {
+            .menu-toggle {
+                display: none;
             }
 
-            &:hover {
-                // background-color: hsla(45, 10%, 5%, 0.2);
-                background-color: hsla(24, 100%, 40%, 0.2);
-            }
+            menu {
+                visibility: visible;
+                opacity: 1;
+                position: static;
+                flex-direction: row;
+                border-width: 0;
+                transition: none;
 
-            span {
-                font-size: 1.125rem;
-                margin: 0 3rem;
+                a {
+                    display: flex;
+                    align-items: center;
+                    border-width: 0 0 0 var(--border-width);
+                }
             }
-
-            &:first-of-type {
-                border-left-width: 0;
-            }
-
-            // &:last-of-type {
-            //     border-right-width: var(--border-width);
-            // }
         }
     }
 }
