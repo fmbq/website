@@ -12,9 +12,9 @@ pub fn layout(title: &str, body: Markup) -> Markup {
 
             link rel="stylesheet" href="/styles/site.css";
 
-            script src="/static/js/vendor/htmx/1.9.3/htmx.min.js" {}
-            script src="/static/js/vendor/htmx/1.9.3/ext/sse.js" {}
-            script src="/static/js/vendor/hyperscript/0.9.12/_hyperscript.min.js" {}
+            script src="/js/vendor/htmx/1.9.3/htmx.min.js" {}
+            script src="/js/vendor/htmx/1.9.3/ext/sse.js" {}
+            script src="/js/vendor/hyperscript/0.9.12/_hyperscript.min.js" {}
         }
 
         // Trigger all menus that may be open to close on losing focus.

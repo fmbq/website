@@ -1,9 +1,10 @@
 #![allow(dead_code)]
 
 use maud::Markup;
+use rust_embed::Embed;
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use poem::{
-    endpoint::StaticFilesEndpoint,
+    endpoint::{EmbeddedFilesEndpoint, StaticFilesEndpoint},
     get, handler,
     web::{
         sse::{Event, SSE},
@@ -58,6 +59,10 @@ fn time() -> impl IntoResponse {
     OffsetDateTime::now_utc().format(&Rfc2822).unwrap()
 }
 
+#[derive(Embed)]
+#[folder = "js"]
+struct JsDirectory;
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if dotenv::dotenv().is_err() {
@@ -85,6 +90,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         )
         .at("/styles/site.css", get(css))
         .at("/styles/admin.css", get(admin_css))
+        .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
         .data(db::create_connection_pool()?);
 

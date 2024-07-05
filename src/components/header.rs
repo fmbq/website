@@ -5,7 +5,11 @@ pub fn header() -> Markup {
         header {
             nav hx-boost="true" {
                 div {
-                    a id="logo" class="title" href="/" { "Free Methodist Bible Quizzing" }
+                    a id="logo" class="title" href="/" {
+                        img src="/static/resources/logos/FMBQ-logo.png";
+
+                        "Free Methodist Bible Quizzing"
+                    }
                 }
 
                 div.menu-container {

@@ -20,12 +20,31 @@
 
 
 body > header {
+    --border-width: 1px;
+
     position: sticky;
     top: 0;
     background-color: var(--color-vintage-white);
-    --border-width: 2px;
     border-bottom: var(--border-width) solid var(--color-vintage-black);
+    margin-top: 6px;
     z-index: 2;
+    box-shadow: 0 -2px 0 var(--color-deep-purple), 0 -6px 0 var(--color-purple);
+
+    a#logo, a#logo:visited {
+        display: block;
+        color: var(--color-vintage-black);
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+
+        img {
+            height: 48px;
+            padding-right: 0.5rem;
+            vertical-align: middle;
+        }
+    }
 
     & > nav {
         display: flex;
@@ -35,6 +54,11 @@ body > header {
 
         & > :first-child {
             flex-grow: 1;
+        }
+
+        .menu-container {
+            display: flex;
+            align-items: stretch;
         }
 
         .menu-container:focus menu, menu.open {
@@ -60,7 +84,7 @@ body > header {
             flex-direction: column;
             border-bottom: var(--border-width) solid var(--color-vintage-black);
             background-color: var(--color-vintage-white);
-            transition: visibility 0.2s linear, opacity 0.2s ease-in-out;
+            transition: visibility 150ms linear, opacity 150ms ease-in-out;
 
             a {
                 text-transform: uppercase;
