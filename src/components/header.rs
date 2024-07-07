@@ -28,8 +28,8 @@ pub fn header() -> Markup {
                         a href="/resources" {
                             span { "Resources" }
                         }
-                        a href="/contact" {
-                            span { "Contact" }
+                        a href="/contacts" {
+                            span { "Contacts" }
                         }
                     }
                 }

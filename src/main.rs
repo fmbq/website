@@ -32,7 +32,12 @@ fn home() -> Html<Markup> {
 
 #[handler]
 fn about() -> Html<Markup> {
-    Html(pages::about())
+    Html(pages::about::render())
+}
+
+#[handler]
+fn contacts() -> Html<Markup> {
+    Html(pages::contacts::render())
 }
 
 #[handler]
@@ -84,6 +89,7 @@ async fn main() -> Result<()> {
     let app = Route::new()
         .at("/", get(home))
         .at("/about", get(about))
+        .at("/contacts", get(contacts))
         .at("/playground", get(playground))
         .at("/time", get(time))
         .at("/events", get(events))
