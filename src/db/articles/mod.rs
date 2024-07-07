@@ -9,13 +9,13 @@ pub use self::image::*;
 
 #[derive(FromRow, Debug)]
 pub struct Article {
-    id: String,
-    slug: String,
-    title: String,
+    pub(crate) id: String,
+    pub(crate) slug: String,
+    pub(crate) title: String,
     pub(crate) created_time: DateTime<Utc>,
     pub(crate) updated_time: DateTime<Utc>,
     pub(crate) publish_time: Option<DateTime<Utc>>,
-    markdown: String,
+    pub(crate) markdown: String,
 }
 
 /// A summary of an article, containing only the metadata.
@@ -77,4 +77,40 @@ pub async fn create(connection: &mut Connection, title: &str) -> Result<String, 
         .await?;
 
     Ok(id)
+}
+
+pub async fn get_by_id(
+    connection: &mut Connection,
+    id: &str,
+) -> Result<Option<Article>, sqlx::Error> {
+    sqlx::query_as("SELECT * FROM article WHERE id = ?")
+        .bind(id)
+        .fetch_optional(connection)
+        .await
+}
+
+pub async fn update(
+    connection: &mut Connection,
+    id: &str,
+    title: Option<&str>,
+    markdown: Option<&str>,
+) -> Result<(), sqlx::Error> {
+    let mut query = QueryBuilder::new("UPDATE article SET");
+
+    if let Some(title) = title {
+        query.push(" title = ").push_bind(title).push(",");
+    }
+
+    if let Some(markdown) = markdown {
+        query.push(" markdown = ").push_bind(markdown).push(",");
+    }
+
+    query
+        .push(" updated_time = now()")
+        .push(" WHERE id = ")
+        .push_bind(id);
+
+    query.build().execute(connection).await?;
+
+    Ok(())
 }

@@ -1,10 +1,10 @@
-use serde::{Deserialize, Serialize};
-
 use crate::db::{
     self,
     articles::{ArticleSummary, SortOrder},
     Connection,
 };
+use serde::{Deserialize, Serialize};
+use sqlx::Acquire;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct ArticleContents {
@@ -47,7 +47,9 @@ pub async fn create(connection: &mut Connection) -> String {
         .unwrap()
 }
 
+/// Request to update an existing article.
 pub struct UpdateArticle {
+    /// The ID of the article to update.
     id: String,
 
     /// If present, replaces the article title with the given string.
@@ -58,7 +60,45 @@ pub struct UpdateArticle {
     markdown: Option<String>,
 }
 
-pub async fn update_article(connection: &mut Connection, update: UpdateArticle) {}
+#[derive(thiserror::Error, Debug)]
+pub enum UpdateArticleError {
+    #[error("article not found with ID `{0}`")]
+    ArticleNotFound(String),
+
+    #[error("unknown database error")]
+    Sql(#[from] sqlx::Error),
+}
+
+/// Update an existing article according to the given new values.
+pub async fn update_article(
+    connection: &mut Connection,
+    update: UpdateArticle,
+) -> Result<(), UpdateArticleError> {
+    let mut tx = connection.begin().await?;
+
+    let Some(_article) = db::articles::get_by_id(&mut tx, &update.id).await? else {
+        return Err(UpdateArticleError::ArticleNotFound(update.id));
+    };
+
+    // TODO: Who has permission to update an article?
+
+    if update.title.is_none() && update.markdown.is_none() {
+        // Nothing to do.
+        return Ok(());
+    }
+
+    db::articles::update(
+        &mut tx,
+        &update.id,
+        update.title.as_deref(),
+        update.markdown.as_deref(),
+    )
+    .await?;
+
+    tx.commit().await?;
+
+    Ok(())
+}
 
 #[cfg(test)]
 mod tests {
