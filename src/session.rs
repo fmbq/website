@@ -1,5 +1,4 @@
 use poem::{
-    error::Result,
     session::{CookieConfig, MemoryStorage, RedisStorage, ServerSession},
     Endpoint, EndpointExt, Response,
 };
@@ -8,7 +7,7 @@ use std::env;
 
 pub async fn configure_session<'a, T>(
     endpoint: T,
-) -> Result<impl Endpoint<Output = Response> + 'a, Box<dyn std::error::Error>>
+) -> anyhow::Result<impl Endpoint<Output = Response> + 'a>
 where
     T: Endpoint + 'a,
 {

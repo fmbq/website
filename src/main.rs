@@ -1,8 +1,8 @@
 #![allow(dead_code)]
 
-use maud::Markup;
-use rust_embed::Embed;
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
+use anyhow::{bail, Result};
+use maud::Markup;
 use poem::{
     endpoint::{EmbeddedFilesEndpoint, StaticFilesEndpoint},
     get, handler,
@@ -12,6 +12,7 @@ use poem::{
     },
     EndpointExt, IntoResponse, Route,
 };
+use rust_embed::Embed;
 use std::env;
 
 mod components;
@@ -64,12 +65,18 @@ fn time() -> impl IntoResponse {
 struct JsDirectory;
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> Result<()> {
     if dotenv::dotenv().is_err() {
         eprintln!("no .env file found, did you need to create one?");
     }
 
     env_logger::init();
+
+    let Some(project_dirs) =
+        directories::ProjectDirs::from("org.fmquizzing", "FM Quizzing", "FM Quizzing Website")
+    else {
+        bail!("failed to locate project directories");
+    };
 
     log::info!("initializing database");
     db::init().await?;
@@ -91,7 +98,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .at("/styles/site.css", get(css))
         .at("/styles/admin.css", get(admin_css))
         .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
+        .at(
+            "/static/resources/images/:image",
+            get(routes::images::get_image),
+        )
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
+        .data(project_dirs)
         .data(db::create_connection_pool()?);
 
     let app = session::configure_session(app).await?;
