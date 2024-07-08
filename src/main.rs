@@ -105,8 +105,8 @@ async fn main() -> Result<()> {
         .at("/styles/admin.css", get(admin_css))
         .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
         .at(
-            "/static/resources/images/:image",
-            get(routes::images::get_image),
+            "/static/resources/photos/:image",
+            get(routes::photos::get_photo),
         )
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
         .data(project_dirs)

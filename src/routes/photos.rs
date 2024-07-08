@@ -11,11 +11,11 @@ use std::path::{Path, PathBuf};
 use tokio::{fs::File, task::spawn_blocking};
 
 #[handler]
-pub async fn get_image(
+pub async fn get_photo(
     Data(dirs): Data<&ProjectDirs>,
     RequestPath(file_name): RequestPath<String>,
 ) -> Response {
-    let wwwroot = std::path::Path::new("wwwroot/static/resources/images");
+    let wwwroot = std::path::Path::new("wwwroot/static/resources/photos");
     let image_path = file_name.trim_start_matches('/');
     let image_path = wwwroot.join(image_path);
 
