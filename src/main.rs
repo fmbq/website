@@ -46,6 +46,16 @@ fn playground() -> Html<Markup> {
 }
 
 #[handler]
+fn resources() -> Html<Markup> {
+    Html(pages::resources::render())
+}
+
+#[handler]
+fn quotes2024() -> Html<Markup> {
+    Html(pages::quotes::quotes_2024::render())
+}
+
+#[handler]
 fn events() -> SSE {
     sse::subscribe()
 }
@@ -90,6 +100,8 @@ async fn main() -> Result<()> {
         .at("/", get(home))
         .at("/about", get(about))
         .at("/contacts", get(contacts))
+        .at("/resources", get(resources))
+        .at("/quotes/quotes_2024", get(quotes2024))
         .at("/playground", get(playground))
         .at("/time", get(time))
         .at("/events", get(events))

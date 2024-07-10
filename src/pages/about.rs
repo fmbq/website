@@ -72,6 +72,7 @@ pub fn render() -> Markup {
                 Finals is an annual week-long competition that occurs at the end of June.
                 Teams start studying in September." 
             }
+            div.about-map { }
             
             h2 { "The Cost" }
             p {
