@@ -11,7 +11,7 @@ pub fn render() -> Markup {
             p {
                 ul {
                     li {"2024 - 2025 Romans & James "
-                        a href="/quotes/quotes_2024" {"Quote List"}
+                        a href="/quotes/" {"Quote List"}
                     }
                     li {"2023 - 2024 Matthew 14 - 28, 1 Thessalonians, 2 Thessalonians"}
                     }                 

@@ -52,7 +52,7 @@ fn resources() -> Html<Markup> {
 
 #[handler]
 fn quotes2024() -> Html<Markup> {
-    Html(pages::quotes::quotes_2024::render())
+    Html(pages::quotes::render())
 }
 
 #[handler]

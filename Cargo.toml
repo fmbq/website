@@ -42,6 +42,10 @@ features = ["embed", "redis-session", "session", "static-files"]
 version = "5.0"
 features = ["redoc", "time"]
 
+[dependencies.quick-xml]
+version = "0.36"
+features = ["serialize"]
+
 [dependencies.redis]
 version = "0.25"
 features = ["aio", "connection-manager", "tokio-rustls-comp"]
