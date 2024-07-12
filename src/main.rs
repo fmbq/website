@@ -51,8 +51,13 @@ fn resources() -> Html<Markup> {
 }
 
 #[handler]
-fn quotes2024() -> Html<Markup> {
+fn quotes() -> Html<Markup> {
     Html(pages::quotes::render())
+}
+
+#[handler]
+fn rules() -> Html<Markup> {
+    Html(pages::rules::render())
 }
 
 #[handler]
@@ -101,7 +106,8 @@ async fn main() -> Result<()> {
         .at("/about", get(about))
         .at("/contacts", get(contacts))
         .at("/resources", get(resources))
-        .at("/quotes/quotes_2024", get(quotes2024))
+        .at("/quotes", get(quotes))
+        .at("/rules", get(rules))
         .at("/playground", get(playground))
         .at("/time", get(time))
         .at("/events", get(events))

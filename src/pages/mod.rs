@@ -5,3 +5,4 @@ pub mod login;
 pub mod playground;
 pub mod resources;
 pub mod quotes;
+pub mod rules;

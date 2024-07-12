@@ -16,37 +16,114 @@ pub fn render() -> Markup {
                     li {"2023 - 2024 Matthew 14 - 28, 1 Thessalonians, 2 Thessalonians"}
                     }                 
             }
-            
-            h2 { "Quote List" }
-            p {                
-                "The qoutBible Quizzing is a Free Methodist Church ministry that encourages 6th through 12th grade students to
-                study and memorize Scripture through competition. A quizmaster asks questions in a series of 
-                rounds where teams compete for the most points. Coaches help train the teams and take them to
-                monthly competitions."
-            }
 
             h2 { "Rules" }
 
             p {
-                "Each year a specific portion of scripture is chosen and quizzers will
-                study that text in monthly increments throughout the school year. The competition
-                comes when quizzers are matched with other quizzers to see who can answer the most
-                questions in a series of 15-question quiz rounds. Each question is worth 20 points
-                and the team with the highest score wins!"
+                "2021 Update Highlights: "
+                ul {
+                    li {"In Rookie quizzes (after the first jump) a quizzer can ask for the question to be repeated within their 20-second answer period."}
+                    li {"Divisions will include Mixed Rookie unless numbers allow for ST/YT subdivisions."}
+                }
+                a href="/rules/" {"HTML"} " " 
+                a href="/static/resources/docs/Rules 2021 final.pdf" {"PDF"} " "
+                a href="https://docs.google.com/document/d/1LJnDxaJz6UKr92RSTxcgJJiaHt-Jj_BM/edit" target="_blank" {"WORD"}
+                
+
+            }
+            p {
+                img src="/static/resources/photos/rules-1.png" height="200px" {""}
+            }
+ 
+            h2 { "Study Supplies" }
+            h3 { "QuizOut Publications"}
+            p { "Portions, practice questions, software (using Bible Quiz Shop), and other study aides from Laura Colberg. 
+                Materials can be ordered using forms in "
+                a href="https://docs.google.com/spreadsheets/d/1g9F4NHcvAMSy5yTiJYhInYQpiQmy1TRv/edit?usp=drive_link&ouid=115433134049665356815&rtpof=true&sd=true" target="_blank" {"Excel"}
+                " or "
+                a href="https://drive.google.com/file/d/1gfm49iBPXMe_1QV4lSeMdtoFlp5ZTLcd/view?usp=drive_link" target="_blank" {"PDF"}
+                "."
+            }
+            p {
+                img src="/static/resources/photos/laura-book-1.png" height="200px" {""}
+                img src="/static/resources/photos/laura-book-2.png" height="200px" {""}
+                img src="/static/resources/photos/laura-book-3.png" height="200px" {""}
+                img src="/static/resources/photos/laura-book-4.png" height="200px" {""}
+            }
+            
+            h3 { "Wilmore Computer Associates"}
+            p {"Portions, concordances, quote lists, practice questions, and other study aides from Paul Stackhouse.
+                Materials can be ordered at " 
+                a href="https://biblequizzer.square.site/" target="_blank" {"biblequizzer"}
+                "."
+            }
+            p {
+                img src="/static/resources/photos/paul-book-1.png" height="200px" {""}
+                img src="/static/resources/photos/paul-book-2.png" height="200px" {""}
             }
 
-            h2 { "Study Supplies" }
-                         
-                p { 
-                    "In order to determine which quizzer gets to answer first, quizzers use jump seats. These are 
-                    electronic seat pads connected to a display that registers the first four persons to jump, in order."
-                }
-          
-            h2 { "Electronics" }
-            p {
-                "Teams are comprised of 2 to 5 quizzers from the same church or city. Teams practice
-                together for a monthly competition against other teams from other churches. " 
+            h3 { "ACME Quiz Products"}
+            p {"Portions, activity sheets, listening CDs, and other study aides. Materials can be ordered at " 
+                a href="https://acmequiz.com" {"ACME"}
+                ". Please make sure you are ordering the NIV2011 version."
             }
+            p {
+                img src="/static/resources/photos/acme-book-1.png" height="200px" {""}
+                img src="/static/resources/photos/acme-book-2.png" height="200px" {""}
+                img src="/static/resources/photos/acme-book-3.png" height="200px" {""}
+                img src="/static/resources/photos/acme-book-4.png" height="200px" {""}
+            }
+
+            h3 { "Light & Life Publishing"}
+            p {"Free Methodist Triplicate Scoresheets can be ordered from the  "
+                a href="https://freemethodistbooks.com/product/bible-quiz-scoresheet-pad-of-100" {"Light and Life Bookstore"}
+            }
+            p {img src="/static/resources/photos/scorepad-3.png" height="200px" {""}}
+
+            h2 { "Electronics" }
+            h3 { "Bierdeman Box"}
+            p {"This is a small digital box less than 6\" wide x 3\" tall and 1\" thick. It is available in 2 models, 
+                the traditional "Single" where the quiz box sits between the two sets of chairs, and the 
+                Quizmaster "Dual" model where the display box sits on the front edge of the quizmaster's table and has 
+                a readout on both sides. Contact Paul Bierdeman at "  
+                a href="mailto:bierdeman.paul.w@gmail.com" {"bierdeman.paul.w@gmail.com"}
+                "."
+            }
+            p {img src="/static/resources/photos/bierdeman-box-1.png" height="200px" {""}}
+
+            h3 { "Kirkman Quiz Equipment"}
+            p {"Free Methodist Quiz Box and seatpads (select the individual options with RCA plugs). 
+                Contact Steve Kirkman through his website at " 
+                a href="http://www.quizequipment.com/information.htm" {"quizequipment.com"}
+                "."
+            }
+            p {img src="/static/resources/photos/kirkman-box-1.png" height="200px" {""}}
+
+
+            h3 { "ACME Quiz Products"}
+            p {"VersaPad jump pads that work with Kirkman and Bierdeman boxes. VersaPad can be ordered at " 
+                a href="https://www.acmequiz.com/index.php?l=product_detail&p=2023" {"acmequiz.com"}
+                "."
+            }
+            p {img src="/static/resources/photos/acme-pad-1.png" height="200px" {""}}
+
+
+            h3 { "McCoon Seatpads"}
+            p {"Seatpads using fabric from SEED Ministries a Free Methodist ministry helping women become self-sustaining 
+                through micro-businesses creating hand-made goods sold world-wide. Cost is $10/seat pad (as of 2023). 
+                Contact Lyle McCoon, Sr. at "  
+                a href="mailto:lmccoon@ameritech.net" {"lmccoon@ameritech.net"}
+                "."
+            }
+            p {img src="/static/resources/photos/lyle-pad-2.png" height="200px" {""}}
+
+            h2 { "Software" }
+            h3 { "FMBQ Timer"}
+            p {"This is an Android app for Free Methodist quizzing. Provides simple timers for jumps, prejumps, appeals,
+                and timeouts. Go to the Play Store and search for " 
+                a href="https://play.google.com/store/apps/details?id=org.fmbq.timer&hl=en_US" {"FMBQ Timer"} ". The app was written by Stephen Coakley."  
+            }
+            p {img src="/static/resources/photos/fmbq-timer.png" height="200px" {""}}
 
         },
     )
