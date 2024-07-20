@@ -5,3 +5,4 @@
 pub mod articles;
 pub mod users;
 pub mod quotes;
+pub mod rules;

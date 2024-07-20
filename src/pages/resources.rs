@@ -11,7 +11,7 @@ pub fn render() -> Markup {
             p {
                 ul {
                     li {"2024 - 2025 Romans & James "
-                        a href="/quotes/" {"Quote List"}
+                        a href="/quotes" {"Quote List"}
                     }
                     li {"2023 - 2024 Matthew 14 - 28, 1 Thessalonians, 2 Thessalonians"}
                     }                 
@@ -25,7 +25,7 @@ pub fn render() -> Markup {
                     li {"In Rookie quizzes (after the first jump) a quizzer can ask for the question to be repeated within their 20-second answer period."}
                     li {"Divisions will include Mixed Rookie unless numbers allow for ST/YT subdivisions."}
                 }
-                a href="/rules/" {"HTML"} " " 
+                a href="/rules" {"HTML"} " " 
                 a href="/static/resources/docs/Rules 2021 final.pdf" {"PDF"} " "
                 a href="https://docs.google.com/document/d/1LJnDxaJz6UKr92RSTxcgJJiaHt-Jj_BM/edit" target="_blank" {"WORD"}
                 
@@ -75,25 +75,21 @@ pub fn render() -> Markup {
             }
 
             h3 { "Light & Life Publishing"}
-            p {"Free Methodist Triplicate Scoresheets can be ordered from the  "
+            p {"Free Methodist Triplicate Scoresheets can be ordered from the "
                 a href="https://freemethodistbooks.com/product/bible-quiz-scoresheet-pad-of-100" {"Light and Life Bookstore"}
             }
             p {img src="/static/resources/photos/scorepad-3.png" height="200px" {""}}
 
             h2 { "Electronics" }
             h3 { "Bierdeman Box"}
-            p {"This is a small digital box less than 6\" wide x 3\" tall and 1\" thick. It is available in 2 models, 
-                the traditional "Single" where the quiz box sits between the two sets of chairs, and the 
-                Quizmaster "Dual" model where the display box sits on the front edge of the quizmaster's table and has 
-                a readout on both sides. Contact Paul Bierdeman at "  
+            p {"This is a small digital box less than 6\" wide x 3\" tall and 1\" thick. It is available in 2 models: the traditional "Single" where the quiz box sits between the two sets of chairs, and the  Quizmaster "Dual" model where the display box sits on the front edge of the quizmaster's table and has a readout on both sides. Contact Paul Bierdeman at "
                 a href="mailto:bierdeman.paul.w@gmail.com" {"bierdeman.paul.w@gmail.com"}
-                "."
+              "."
             }
             p {img src="/static/resources/photos/bierdeman-box-1.png" height="200px" {""}}
 
             h3 { "Kirkman Quiz Equipment"}
-            p {"Free Methodist Quiz Box and seatpads (select the individual options with RCA plugs). 
-                Contact Steve Kirkman through his website at " 
+            p {"Free Methodist Quiz Box and seatpads (select the individual options with RCA plugs). Contact Steve Kirkman through his website at " 
                 a href="http://www.quizequipment.com/information.htm" {"quizequipment.com"}
                 "."
             }
@@ -109,9 +105,7 @@ pub fn render() -> Markup {
 
 
             h3 { "McCoon Seatpads"}
-            p {"Seatpads using fabric from SEED Ministries a Free Methodist ministry helping women become self-sustaining 
-                through micro-businesses creating hand-made goods sold world-wide. Cost is $10/seat pad (as of 2023). 
-                Contact Lyle McCoon, Sr. at "  
+            p {"Seatpads using fabric from SEED Ministries a Free Methodist ministry helping women become self-sustaining through micro-businesses creating hand-made goods sold world-wide. Cost is $10/seat pad (as of 2023). Contact Lyle McCoon, Sr. at "  
                 a href="mailto:lmccoon@ameritech.net" {"lmccoon@ameritech.net"}
                 "."
             }
@@ -119,9 +113,9 @@ pub fn render() -> Markup {
 
             h2 { "Software" }
             h3 { "FMBQ Timer"}
-            p {"This is an Android app for Free Methodist quizzing. Provides simple timers for jumps, prejumps, appeals,
-                and timeouts. Go to the Play Store and search for " 
-                a href="https://play.google.com/store/apps/details?id=org.fmbq.timer&hl=en_US" {"FMBQ Timer"} ". The app was written by Stephen Coakley."  
+            p {"This is an Android app for Free Methodist quizzing. Provides simple timers for jumps, prejumps, appeals, and timeouts. Go to the Play Store and search for " 
+                a href="https://play.google.com/store/apps/details?id=org.fmbq.timer&hl=en_US" {"FMBQ Timer"} 
+                ". The app was written by Stephen Coakley."  
             }
             p {img src="/static/resources/photos/fmbq-timer.png" height="200px" {""}}
 
