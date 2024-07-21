@@ -24,6 +24,7 @@ mod routes;
 mod session;
 mod sse;
 mod url;
+mod util;
 
 #[handler]
 fn home() -> Html<Markup> {
