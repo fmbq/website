@@ -69,7 +69,7 @@ pub struct Note{
 #[derive(Clone, Debug, Deserialize)]
 pub struct Section{
     #[serde(rename = "$text")]
-    text: String,        
+    pub text: String,        
 }
 
 
@@ -99,7 +99,7 @@ pub enum RuleChild {
 pub struct Rule{
     #[serde(rename = "@id")]
     pub id: u16,
-    // header
+    // header,hidden
     #[serde(rename = "@type")]
     pub r#type: Option<String>,
     #[serde(rename = "@title")]

@@ -1,37 +1,127 @@
 use crate::{components::layout::layout, 
-domain::rules::{get_rulebook, Rule}};
+domain::rules::{get_rulebook, Rule, RuleChild, List, ListItem, ListOption, ContentData}};
 
 use maud::{html, Markup};
-fn make_index_number(ids: &[u16]) -> String {
-	"0.0.0.0".to_string()
+
+trait JoinIterator {
+    fn join(self, sep: &str) -> String;
 }
 
-fn render_rule(rule: &Rule, ids: &[u16]) -> Markup {
-	let mut my_ids: Vec<u16> = ids.into();
+impl<I, T> JoinIterator for I
+where
+    I: IntoIterator<Item = T>,
+    T: std::fmt::Display,
+{
+    fn join(self, sep: &str) -> String {
+        use std::fmt::Write;
+
+        let mut it = self.into_iter();
+        let first = it.next().map(|f| f.to_string()).unwrap_or_default();
+
+        it.fold(first, |mut acc, s| {
+            write!(acc, "{}{}", sep, s).expect("Writing in a String shouldn't fail");
+            acc
+        })
+    }
+}
+
+//fn make_index_number(ids: &[u16]) -> String {
+//	//ids.join(".").into();
+//}
+
+fn render_rule(rule: &Rule, ids: &Vec<u16>) -> Markup {
+	let mut my_ids: Vec<u16> = ids.clone();
 	my_ids.push(rule.id);
+	let id_string: String = my_ids.clone().join(".");
 
 	html! {	
 		@if let Some(title) = &rule.title {
-			div.rule_title { 
-				h1 { (make_index_number(&my_ids)) }
-				h2 { (title) }
+			@if ids.len() == 0 {
+				div.rule_title { (id_string) }
+				div.rule_title { (title) }
+				hr;
+			} @else {
+				br;
+				div.rule_subtitle { (id_string) }
+				div.rule_subtitle { (title) }
 			}
-		}
-		@else{
-			// recurse rules/children 
-			div.rule { 
-				h1 { (make_index_number(&my_ids)) }
-				h2 { "child markup from recursion"}
+		} @else {
+			//only print the rule
+			@if let Some(t) = &rule.r#type {
+				@if !t.eq_ignore_ascii_case("hidden") {
+					div.rule_normal { (id_string) }
+				}
+			} @else {
+				div.rule_normal { (id_string) }
 			}
 		}
 
-		hr;
+		@for child in &rule.children {
+			@match child {
+				RuleChild::Rule(r) => {					
+					div { (render_rule(&r, &my_ids)) }
+				},
+				RuleChild::List(l) => {
+					div { (render_list(l)) }
+				},
+				RuleChild::Note(n) => {
+					p { (n.text) }
+				},
+				RuleChild::Section(s) => {
+					div.rule_normal { (s.text) }
+				}
+			}
+		}		
+	}
+}
+
+fn render_list(list: &List) -> Markup {
+	html! {	
+		// need to parse the list type
+		@if let Some(opt) = &list.option {
+			@match opt {
+				ListOption::Unordered => {
+					ul { (render_list_items(&list)) }
+				},
+				ListOption::Numeric => {
+					ol { (render_list_items(&list)) }
+				},
+				ListOption::AlphaLowercase => {
+					ol type="a" { (render_list_items(&list)) }
+				},
+				ListOption::AlphaUppercase => {
+					ol type="A" { (render_list_items(&list)) }
+				}
+			}
+		}
+	}
+}
+
+fn render_list_items(list: &List) -> Markup {
+	html! {	
+		@for item in &list.items {
+			li { (item.text) }
+			@for section in &item.sections {
+				@match section {
+					ContentData::List(l) => {
+						div { (render_list(l)) }
+					},
+					ContentData::Note(n) => {
+						p { (n.text) }
+					},
+					ContentData::Section(s) => {
+						p { (s.text) }
+					}
+				}
+			}
+		}
 	}
 }
 
 pub fn render() -> Markup {
     let rulebook = get_rulebook();
-	dbg!(rulebook);
+	let vec: Vec<u16> = Vec::new();
+	//dbg!(rulebook);
 	layout(
         "Rules",
         html! {
@@ -54,8 +144,11 @@ pub fn render() -> Markup {
 			hr;
 
 			@for rule in &rulebook.contents.rules {
-				div { (render_rule(rule, &[])) }
+				div { (render_rule(rule, &vec)) }
 			}
+
+			p;
+			p;
 
         },
     )

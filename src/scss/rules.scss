@@ -1,0 +1,39 @@
+div.rule_title {
+    display: inline;
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+    text-transform: uppercase;
+    color: var(--color-purple);
+    font-size: 1.4em;
+    font-weight: bold;
+    mix-blend-mode: hard-light;
+}
+
+div.rule_subtitle {
+    display: inline;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: var(--color-purple);
+    font-size: 1.2em;
+    font-weight: bold;
+    mix-blend-mode: hard-light;
+}
+
+div.rule_normal:first-child {
+    display: inline;
+    padding: 25px;
+    font-size: 1.0em;
+    font-weight: bold;
+    mix-blend-mode: hard-light;
+}
+
+div.rule_normal {
+    display: inline;
+    padding: 5px;
+    font-size: 1.0em;
+    font-weight: normal;
+    mix-blend-mode: hard-light;
+}

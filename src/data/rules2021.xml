@@ -22,7 +22,7 @@
 		<!-- *************************************************************************** -->
 		<rule id="1" type="header" title="GENERAL INFORMATION">
 			<rule id="1" type="header" title="ELIGIBILITY FOR PARTICIPATION">
-				<rule id="4">
+				<rule id="0" type="hidden">
 					<rule id="1">
 						<section>Quizzers and participating churches and teams are not required to be members of the Free Methodist Church.</section>
 					</rule>
@@ -31,7 +31,7 @@
 						<list option="alpha-lowercase">
 							<item>Quizzers who will reach the age of 11 before September 1 are permitted to participate during that season, even if they have not yet entered the 6th grade.  Therefore, eligibility begins when students reach the age of 11 by September 1st or enter 6th grade, whichever occurs first.</item>
 							<item>Quizzers who will reach the age of 19 before September 1, but have not yet graduated from high school are permitted to quiz until the end of that quiz season. In special cases (i.e., remaining in high school after age 19 due to illness or disability), quizzers may petition the denominational leadership for additional eligibility.  Therefore, eligibility ends when a student graduates from high school or reaches the age of 20, whichever occurs first.  This does not prohibit students who are taking college courses from participation, as long as they have not yet graduated from high school.</item>
-							<item>(c) Conferences and regions are encouraged to set up various divisions of competition according to the needs of their area and desires of their coaches.  This may include allowing quizzers younger than 6th grade to compete, but should never prevent quizzers otherwise eligible from participating.  While exceptions may be made by conference tournament directors during the regular season, youth under the age of 11 who are not yet in 6th grade will not be allowed to compete at Denominational Quiz Finals</item>
+							<item>Conferences and regions are encouraged to set up various divisions of competition according to the needs of their area and desires of their coaches.  This may include allowing quizzers younger than 6th grade to compete, but should never prevent quizzers otherwise eligible from participating.  While exceptions may be made by conference tournament directors during the regular season, youth under the age of 11 who are not yet in 6th grade will not be allowed to compete at Denominational Quiz Finals</item>
 							<item>The quiz season is from September 1 through August 31.</item>
 						</list>
 					</rule>
@@ -512,7 +512,7 @@
 				<rule id="4">
 					<section>**Pronunciation.**  Words which are mispronounced shall be counted correct if they are still recognizable and can be distinguished from all similar words in that season's text.  A Quizmaster may ask for a mispronounced word or name to be spelled even after the answer period is closed to be sure of what a quizzer intended.</section>
 				</rule>
-				<rule id="5" type="content" title="Correct Answers">
+				<rule id="5">
 					<section>__**An Answer is Correct when**__ . . .</section>
 					<rule id="1">
 						<section>It gives exactly the information asked for.</section>
@@ -540,7 +540,7 @@
 						<section>The answer to a question is ambiguous due to a variety of interpretations of a passage; points are awarded to the first quizzer giving a possible correct answer.</section>
 					</rule>
 				</rule>
-				<rule id="6" type="content" title="Incorrect Answers">
+				<rule id="6">
 					<section>__**An Answer is Incorrect when**__ . . .</section>
 					<rule id="1">
 						<section>It contains inaccurate information for the whole answer or any part thereof.</section>
@@ -569,7 +569,7 @@
 						<section>Pronouns are incorrectly defined. If the question asks who did something, then the quizzer must identify, without prompting, who the passage is talking about, even if the verse in question does not specifically mention the name or group.  Quizmasters may have to decide whether other questions require identifying a pronoun, but typically the answer sheet will give guidance.  When pronouns need to be clarified and are not, and if the rest of the answer is correct, the quizmaster is encouraged to ask the quizzer to clarify the unidentified pronoun.  If they are clarified correctly, the answer is correct.  If they incorrectly identify the pronoun, the answer is incorrect.</section>
 					</rule>
 				</rule>
-				<rule id="7" type="content" title="Corrections">
+				<rule id="7">
 					<section>**Corrections allowed.**  Quizzers may correct themselves at any time during the answer period. They must use the word "correction" to make any changes in an answer, and must clearly indicate what is to be corrected to the satisfaction of the Quizmaster. If a quizzer says "correction," and time runs out before the correction is made, the answer will be ruled correct if the original answer was correct and if no incorrect information was inserted within the time limit. No corrections made after the time limit will be considered.</section>
 				</rule>
 				<rule id="8">
@@ -581,19 +581,19 @@
 				<rule id="1">
 					<section>**Defined.**  In Team Competition, a "prejump" shall be called any time a quizzer's light comes on after the first word of the question has been started and before the final word has been completed. (For an exception, see Equipment Malfunction.)  If the final word is simply "in progress" when the jump occurs, the Quizmaster shall be the sole judge of whether or not to finish the word or call a prejump. </section>
 				</rule>
-				<rule id="2" type="content" title="Confirmation">
+				<rule id="2">
 					<section>**Confirm prejump.**  Because a prejump can sometimes be mistaken for a completed question, when recognizing a Quizzer, the Quizmaster must indicate that the question has been prejumped and requires a completion, not an answer.  Stating the word "prejump" before the quizzer's name is sufficient, or asking the quizzer to finish (versus answer) the question. If this designation of a prejump is not made, an appeal of procedure may be in order if points are placed in jeopardy.</section>
 				</rule>
 				<rule id="3">
 					<section>**Completion required.**  On a prejump, the contestant must finish the question to the satisfaction of the Quizmaster within 20 seconds, and then (if told to proceed) answer the question within 20 additional seconds. An exact, word-for-word completion is not required, but it must require the same answer as written on the Question page.</section>
 				</rule>
-				<rule id="4" type="content" title="Re-Reading">
+				<rule id="4">
 					<section>**Question re-read if missed.**  On a prejump, if either the completed question or answer is incorrectly stated by the prejumping quizzer, all quizzers will take their seats, and the question will be re-read for the opposing team only. Regular rules for jumping, timing, and scoring apply when the question is re-read.  If the same question is pre-jumped while being re-read, only the person who prejumped will be called upon to both complete the question and, if sufficiently completed, to give an answer.</section>
 				</rule>
 				<rule id="5">
 					<section>**Completion not required.**  Quote questions which contain words or phrases from the Quote, or which ask questions intended to lead to the correct passage, will be treated as follows:  The prejumping quizzer, when called upon, will be asked to give the answer without having to finish the question. If missed, it shall be treated as a missed prejump.</section>
 				</rule>
-				<rule id="6" type="content" title="Correct Prejump Completion">
+				<rule id="6">
 					<section>__**A Prejump is correct when**__ ...</section>
 					<rule id="1">
 						<section>The exact question is given.</section>
@@ -633,7 +633,7 @@
 				<rule id="9">
 					<section>**May ask if the question can be complete.**  If a quizzer jumps at such a place in a question where the question could be considered complete but according to the Question page is not complete, when asked to finish the question, the quizzer may say to the Quizmaster, "My question is complete" or "May the question be considered complete as is?" or something similar.  After the completion period is over, the Quizmaster may accept that as a sufficient completion if grammar and context allow.  Silence is not to be construed as a request to allow the question to be considered complete; this must be stated as the quizzer's intention.</section>
 				</rule>
-				<rule id="10" type="content" title="Incorrect Prejump Completion">
+				<rule id="10">
 					<section>__**A Prejump is Incorrect when**__ . . .</section>
 					<rule id="1">
 						<section>The correct question word (or its acceptable equivalent) is not given.</section>
