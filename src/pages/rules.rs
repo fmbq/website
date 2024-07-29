@@ -3,36 +3,10 @@ domain::rules::{get_rulebook, Rule, RuleChild, List, ListItem, ListOption, Conte
 
 use maud::{html, Markup};
 
-trait JoinIterator {
-    fn join(self, sep: &str) -> String;
-}
-
-impl<I, T> JoinIterator for I
-where
-    I: IntoIterator<Item = T>,
-    T: std::fmt::Display,
-{
-    fn join(self, sep: &str) -> String {
-        use std::fmt::Write;
-
-        let mut it = self.into_iter();
-        let first = it.next().map(|f| f.to_string()).unwrap_or_default();
-
-        it.fold(first, |mut acc, s| {
-            write!(acc, "{}{}", sep, s).expect("Writing in a String shouldn't fail");
-            acc
-        })
-    }
-}
-
-//fn make_index_number(ids: &[u16]) -> String {
-//	//ids.join(".").into();
-//}
-
 fn render_rule(rule: &Rule, ids: &[u16]) -> Markup {
     let mut my_ids: Vec<u16> = ids.to_vec();
     my_ids.push(rule.id);
-    let id_string: String = my_ids.clone().join(".");
+    let id_string: String = my_ids.iter().map(|x| x.to_string()).collect::<Vec<_>>().join(".");
 
     html! {
         @if let Some(title) = &rule.title {

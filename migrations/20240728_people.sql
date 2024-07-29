@@ -5,7 +5,7 @@ CREATE TABLE person_type (
 );
 
 CREATE TABLE person (
-    id TEXT NOT NULL PRIMARY KEY,
+    id INTEGER NOT NULL PRIMARY KEY,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
     middle TEXT,
