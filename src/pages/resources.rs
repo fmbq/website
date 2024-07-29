@@ -34,6 +34,23 @@ pub fn render() -> Markup {
             p {
                 img src="/static/resources/photos/rules-1.png" height="200px" {""}
             }
+
+            h2 { "Scoring" }
+            p {
+                div { "Each correct answer is worth 20 points. For details, see " b {"2.5 POINTS AND SCORING"} " and " b {"2.6 SCORESHEET INSTRUCTIONS"} " in the 2021 Rules"}
+                div {
+                    a href="/static/resources/docs/Score Sheet Instructions.pdf" target="_blank" { 
+                        img src="/static/resources/photos/score-sheet-instructions.jpg" height="400px" {" "} 
+                    }
+                    a href="/static/resources/docs/Score Sheet.pdf" target="_blank" { 
+                        img src="/static/resources/photos/scorepad-3.png" height="400px" {" "}
+                    }
+                    a href="/static/resources/docs/Rules 2021 final.pdf" target="_blank" { 
+                        img src="/static/resources/photos/scoring-rules.png" height="400px" {" "}
+                    }
+                }
+            }
+
  
             h2 { "Study Supplies" }
             h3 { "QuizOut Publications"}
@@ -46,7 +63,6 @@ pub fn render() -> Markup {
             }
             p {
                 img src="/static/resources/photos/laura-book-1.png" height="200px" {""}
-                img src="/static/resources/photos/laura-book-2.png" height="200px" {""}
                 img src="/static/resources/photos/laura-book-3.png" height="200px" {""}
                 img src="/static/resources/photos/laura-book-4.png" height="200px" {""}
             }
@@ -69,7 +85,6 @@ pub fn render() -> Markup {
             }
             p {
                 img src="/static/resources/photos/acme-book-1.png" height="200px" {""}
-                img src="/static/resources/photos/acme-book-2.png" height="200px" {""}
                 img src="/static/resources/photos/acme-book-3.png" height="200px" {""}
                 img src="/static/resources/photos/acme-book-4.png" height="200px" {""}
             }
@@ -78,7 +93,6 @@ pub fn render() -> Markup {
             p {"Free Methodist Triplicate Scoresheets can be ordered from the "
                 a href="https://freemethodistbooks.com/product/bible-quiz-scoresheet-pad-of-100" {"Light and Life Bookstore"}
             }
-            p {img src="/static/resources/photos/scorepad-3.png" height="200px" {""}}
 
             h2 { "Electronics" }
             h3 { "Bierdeman Box"}
