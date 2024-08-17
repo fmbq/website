@@ -1,4 +1,4 @@
-// quizzer, quizmaster, coach, conference_director, regional_director, director, guest
+-- quizzer, quizmaster, coach, conference_director, regional_director, director, guest
 CREATE TABLE person_type (
     id INTEGER NOT NULL PRIMARY KEY,
     name TEXT NOT NULL
