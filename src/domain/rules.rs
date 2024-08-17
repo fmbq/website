@@ -1,5 +1,4 @@
 use serde::Deserialize;
-use sqlx::Acquire;
 use std::sync::OnceLock;
 use chrono::NaiveDate;
 use crate::util::date_serialization::my_date_format;
@@ -69,7 +68,7 @@ pub struct Note{
 #[derive(Clone, Debug, Deserialize)]
 pub struct Section{
     #[serde(rename = "$text")]
-    pub text: String,        
+    pub text: String,
 }
 
 
@@ -138,5 +137,4 @@ fn load() -> Rulebook {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
 }

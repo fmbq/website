@@ -32,7 +32,7 @@ pub async fn get_photo(
             let encoded = encoder.encode(75.0);
 
             std::fs::create_dir_all(cache_path.parent().unwrap())?;
-            std::fs::write(cache_path, encoded.as_ref())?;
+            std::fs::write(cache_path, &*encoded)?;
 
             Ok::<_, anyhow::Error>(())
         })

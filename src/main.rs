@@ -21,6 +21,7 @@ mod domain;
 mod markdown;
 mod pages;
 mod routes;
+mod services;
 mod session;
 mod sse;
 mod url;
@@ -54,11 +55,6 @@ fn resources() -> Html<Markup> {
 #[handler]
 fn quotes() -> Html<Markup> {
     Html(pages::quotes::render())
-}
-
-#[handler]
-fn rules() -> Html<Markup> {
-    Html(pages::rules::render())
 }
 
 #[handler]
@@ -108,7 +104,8 @@ async fn main() -> Result<()> {
         .at("/contacts", get(contacts))
         .at("/resources", get(resources))
         .at("/quotes", get(quotes))
-        .at("/rules", get(rules))
+        .at("/rules", get(routes::rules::get_html))
+        .at("/rules/rules.pdf", get(routes::rules::get_pdf))
         .at("/playground", get(playground))
         .at("/time", get(time))
         .at("/events", get(events))

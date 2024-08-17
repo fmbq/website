@@ -1,5 +1,4 @@
 use serde::Deserialize;
-use sqlx::Acquire;
 use std::sync::OnceLock;
 
 static QUOTES_XML: &str = include_str!("../data/quotes2024.xml");
@@ -71,5 +70,4 @@ fn load() -> Quotes {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
 }

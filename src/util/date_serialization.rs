@@ -1,8 +1,8 @@
 pub mod my_date_format {
-    use chrono::{DateTime, Utc, NaiveDate};
+    use chrono::NaiveDate;
     use serde::{self, Deserialize, Serializer, Deserializer};
 
-    const FORMAT: &'static str = "%m/%d/%Y";
+    const FORMAT: &str = "%m/%d/%Y";
 
     // The signature of a serialize_with function must follow the pattern:
     //
