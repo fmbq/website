@@ -5,7 +5,7 @@ use crate::url;
 use dashmap::DashMap;
 use once_cell::sync::Lazy;
 use pulldown_cmark::{html, Event, LinkType, Options, Parser, Tag};
-use sha1::{Sha1, Digest};
+use sha1::{Digest, Sha1};
 use std::iter;
 
 /// Render a block of Markdown into HTML.

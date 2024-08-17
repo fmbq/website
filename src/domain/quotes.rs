@@ -41,7 +41,7 @@ pub struct QuoteMonth {
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct QuoteVerse{
+pub struct QuoteVerse {
     #[serde(rename = "@reference")]
     pub reference: String,
     #[serde(rename = "$text")]
@@ -54,9 +54,7 @@ pub struct Quotes {
 }
 
 pub fn get_season_by_id(season_id: u64) -> Option<&'static QuoteSeason> {
-    get_all()
-        .iter()
-        .find(|season| season.id == season_id)
+    get_all().iter().find(|season| season.id == season_id)
 }
 
 /// Get all quote seasons.
@@ -69,5 +67,4 @@ fn load() -> Quotes {
 }
 
 #[cfg(test)]
-mod tests {
-}
+mod tests {}

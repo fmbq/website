@@ -1,6 +1,6 @@
 pub mod my_date_format {
     use chrono::NaiveDate;
-    use serde::{self, Deserialize, Serializer, Deserializer};
+    use serde::{self, Deserialize, Deserializer, Serializer};
 
     const FORMAT: &str = "%m/%d/%Y";
 
@@ -11,10 +11,7 @@ pub mod my_date_format {
     //        S: Serializer
     //
     // although it may also be generic over the input types T.
-    pub fn serialize<S>(
-        date: &NaiveDate,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
+    pub fn serialize<S>(date: &NaiveDate, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
     {
@@ -29,9 +26,7 @@ pub mod my_date_format {
     //        D: Deserializer<'de>
     //
     // although it may also be generic over the output types T.
-    pub fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<NaiveDate, D::Error>
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<NaiveDate, D::Error>
     where
         D: Deserializer<'de>,
     {

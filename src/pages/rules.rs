@@ -1,12 +1,18 @@
-use crate::{components::layout::layout,
-domain::rules::{get_rulebook, Rule, RuleChild, List, ListItem, ListOption, ContentData}};
+use crate::{
+    components::layout::layout,
+    domain::rules::{get_rulebook, ContentData, List, ListItem, ListOption, Rule, RuleChild},
+};
 
 use maud::{html, Markup};
 
 fn render_rule(rule: &Rule, ids: &[u16]) -> Markup {
     let mut my_ids: Vec<u16> = ids.to_vec();
     my_ids.push(rule.id);
-    let id_string: String = my_ids.iter().map(|x| x.to_string()).collect::<Vec<_>>().join(".");
+    let id_string: String = my_ids
+        .iter()
+        .map(|x| x.to_string())
+        .collect::<Vec<_>>()
+        .join(".");
 
     html! {
         @if let Some(title) = &rule.title {

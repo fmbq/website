@@ -17,6 +17,9 @@ pub fn get_pdf() -> Response {
 
     Response::builder()
         .content_type("application/pdf")
-        .header("Content-Disposition", format!("inline; filename={filename}"))
+        .header(
+            "Content-Disposition",
+            format!("inline; filename={filename}"),
+        )
         .body(pdf_bytes)
 }

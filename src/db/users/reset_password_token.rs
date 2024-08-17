@@ -36,10 +36,7 @@ pub async fn get_by_token(
         .await
 }
 
-pub async fn delete(
-    connection: &mut Connection,
-    token: &str,
-) -> Result<bool, sqlx::Error> {
+pub async fn delete(connection: &mut Connection, token: &str) -> Result<bool, sqlx::Error> {
     let result = sqlx::query("DELETE FROM reset_password_token WHERE token = ?")
         .bind(token)
         .execute(connection)

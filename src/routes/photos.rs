@@ -3,7 +3,10 @@
 use directories::ProjectDirs;
 use image::DynamicImage;
 use poem::{
-    handler, http::StatusCode, web::{Data, Path as RequestPath}, Body, Response
+    handler,
+    http::StatusCode,
+    web::{Data, Path as RequestPath},
+    Body, Response,
 };
 use serde::Serialize;
 use sha1::{Digest, Sha1};
@@ -41,7 +44,11 @@ pub async fn get_photo(
 
     File::open(cache_path)
         .await
-        .map(|file| Response::builder().content_type(content_type).body(Body::from_async_read(file)))
+        .map(|file| {
+            Response::builder()
+                .content_type(content_type)
+                .body(Body::from_async_read(file))
+        })
         .unwrap_or_else(|e| {
             Response::builder()
                 .status(StatusCode::NOT_FOUND)
@@ -69,9 +76,7 @@ fn cache_file_path(cache_dir: &Path, file_name: &str, content_type: &str) -> Pat
     cache_dir.join("images").join(hash_string)
 }
 
-async fn load_image_async(
-    path: impl AsRef<Path>,
-) -> anyhow::Result<DynamicImage> {
+async fn load_image_async(path: impl AsRef<Path>) -> anyhow::Result<DynamicImage> {
     let path = path.as_ref().to_path_buf();
 
     spawn_blocking(move || load_image(path)).await?

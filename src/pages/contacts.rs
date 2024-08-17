@@ -15,7 +15,7 @@ pub fn render() -> Markup {
             h3 { "Scott Sittig" }
             i { "Eastern" }
             a href="mailto:pastorscott@newhopefree.org" { "pastorscott@newhopefree.org" }
-            
+
             h3 { "Paul Stackhouse" }
             i { "Mid-East" }
             a href="mailto:paul@stackhouse.org" { "paul@stackhouse.org" }
@@ -30,7 +30,7 @@ pub fn render() -> Markup {
 
 
             h2 { "Conference Directors" }
-            
+
             h3 { "Bob Swank" }
             i { "Wabash" }
             a href="mailto:rswank47591@gmail.com" { "rswank47591@gmail.com" }

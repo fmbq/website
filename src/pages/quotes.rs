@@ -25,7 +25,7 @@ pub fn render() -> Markup {
                 p{
                     a.button href="/static/resources/docs/2024 Quote List Romans and James.pdf" {"pdf"}
                     a.button href="/static/resources/docs/2024 Quote List Romans and James.txt" {"txt"}
-                }          
+                }
             }
             @else {
                 h2 { "Season not found!" }

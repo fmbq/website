@@ -6,11 +6,7 @@ use poem::{
 };
 use serde::Deserialize;
 
-use crate::{
-    components::admin_layout::admin_layout,
-    db::Pool,
-    db::users,
-};
+use crate::{components::admin_layout::admin_layout, db::users, db::Pool};
 
 #[derive(Deserialize)]
 pub struct CreateAccountForm {

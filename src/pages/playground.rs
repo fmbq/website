@@ -1,7 +1,7 @@
 //! A hidden page for testing out features.
 
-use maud::{Markup, html};
 use crate::components::layout::layout;
+use maud::{html, Markup};
 
 pub fn render() -> Markup {
     layout(

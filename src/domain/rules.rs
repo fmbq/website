@@ -1,7 +1,7 @@
+use crate::util::date_serialization::my_date_format;
+use chrono::NaiveDate;
 use serde::Deserialize;
 use std::sync::OnceLock;
-use chrono::NaiveDate;
-use crate::util::date_serialization::my_date_format;
 
 static RULEBOOK_XML: &str = include_str!("../data/rules2021.xml");
 static RULEBOOK: OnceLock<Rulebook> = OnceLock::new();
@@ -27,13 +27,12 @@ pub struct TitlePage {
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct SubTitlePage{
+pub struct SubTitlePage {
     pub section: Vec<String>,
 }
 
-
 #[derive(Clone, Debug, Deserialize)]
-pub struct ListItem{
+pub struct ListItem {
     #[serde(rename = "$text")]
     pub text: String,
     #[serde(default)]
@@ -43,7 +42,7 @@ pub struct ListItem{
 
 #[derive(Clone, Debug, Deserialize)]
 #[serde(rename_all = "kebab-case")]
-pub enum ListOption{
+pub enum ListOption {
     Unordered,
     Numeric,
     AlphaLowercase,
@@ -51,29 +50,27 @@ pub enum ListOption{
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct List{
+pub struct List {
     #[serde(rename = "@option")]
     pub option: Option<ListOption>,
     #[serde(rename = "item")]
     pub items: Vec<ListItem>,
-
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Note{
+pub struct Note {
     #[serde(rename = "$text")]
     pub text: String,
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Section{
+pub struct Section {
     #[serde(rename = "$text")]
     pub text: String,
 }
 
-
 #[derive(Clone, Debug, Deserialize)]
-pub enum ContentData{
+pub enum ContentData {
     #[serde(rename = "list")]
     List(List),
     #[serde(rename = "note")]
@@ -95,7 +92,7 @@ pub enum RuleChild {
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Rule{
+pub struct Rule {
     #[serde(rename = "@id")]
     pub id: u16,
     // header,hidden
@@ -110,7 +107,7 @@ pub struct Rule{
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Content{
+pub struct Content {
     #[serde(rename = "rule")]
     pub rules: Vec<Rule>,
 }
@@ -136,5 +133,4 @@ fn load() -> Rulebook {
 }
 
 #[cfg(test)]
-mod tests {
-}
+mod tests {}

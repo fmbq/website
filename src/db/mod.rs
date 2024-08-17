@@ -5,7 +5,7 @@ use sqlx::{
     sqlite::SqlitePoolOptions,
     Sqlite, SqliteConnection, SqlitePool,
 };
-use std::{env};
+use std::env;
 
 pub mod articles;
 pub mod users;
@@ -17,7 +17,8 @@ pub type Connection = SqliteConnection;
 pub type Pool = SqlitePool;
 
 pub async fn init() -> anyhow::Result<()> {
-    let url = URL.get_or_try_init(|| env::var("DATABASE_URL"))
+    let url = URL
+        .get_or_try_init(|| env::var("DATABASE_URL"))
         .context("DATABASE_URL environment variable must be set to find database")?;
 
     Sqlite::create_database(url).await?;
@@ -32,7 +33,9 @@ pub async fn init() -> anyhow::Result<()> {
 pub fn create_connection_pool() -> anyhow::Result<Pool> {
     let url = URL.get_or_try_init(|| env::var("DATABASE_URL"))?;
 
-    SqlitePoolOptions::new().connect_lazy(url).map_err(Into::into)
+    SqlitePoolOptions::new()
+        .connect_lazy(url)
+        .map_err(Into::into)
 }
 
 #[cfg(test)]

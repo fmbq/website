@@ -6,12 +6,12 @@ pub fn render() -> Markup {
         "About",
         html! {
             h1 { "About" }
- 
+
             h2 { "The Mission" }
             p {
-                "INSTILL BIBLICAL TRUTH | ESTABLISH IN FAITH | PREPARE FOR SERVICE" 
+                "INSTILL BIBLICAL TRUTH | ESTABLISH IN FAITH | PREPARE FOR SERVICE"
             }
-            
+
             h2 { "The Players" }
             p {
                 "Bible Quizzing is a Free Methodist Church ministry that encourages 6th through 12th grade students to
@@ -31,31 +31,31 @@ pub fn render() -> Markup {
             }
 
             h2 { "The Basics" }
-            p { 
+            p {
                 "In FM Bible Quizzing, two teams of three persons compete against each other, and up to four persons may attempt to give a correct answer to the question."
             }
 
-            p { 
+            p {
                 "Quizzes are facilitated by a quizmaster, who reads the questions and then determines whether the answers are correct or incorrect. Answers other than Quote questions do not have to be word-perfect to earn full points (20 points)."
             }
-            p { 
+            p {
                 "Monthly quiz meets occur on Saturdays and include 6-8 rounds of quizzing. Each team round is made up of 15 questions worth 20 points each. Unless there is a tie, then a three-question overtime is used to break the tie. "
             }
-            p { 
+            p {
                 "In order to determine which quizzer gets to answer first, quizzers use jump seats. These are electronic seat pads connected to a display that registers the first four persons to jump, in order."
             }
 
             h2 { "The Competition" }
             p {
-                "Teams are comprised of 2 to 5 quizzers from the same church or city. Teams practice together for a monthly competition against other teams from other churches. " 
+                "Teams are comprised of 2 to 5 quizzers from the same church or city. Teams practice together for a monthly competition against other teams from other churches. "
             }
 
             h2 { "The Schedule" }
             p {
-                "Monthly competitions run from October to April. Competitions a held a participating churches across the country. Online competitions are also available. A regional finals prep quiz is held in May. Finals is an annual week-long competition that occurs at the end of June. Teams start studying in September." 
+                "Monthly competitions run from October to April. Competitions a held a participating churches across the country. Online competitions are also available. A regional finals prep quiz is held in May. Finals is an annual week-long competition that occurs at the end of June. Teams start studying in September."
             }
             div.about-map { }
-            
+
             h2 { "The Expenses" }
             h3 { "Season"}
             p {
@@ -65,15 +65,15 @@ pub fn render() -> Markup {
                 travel expenses may be necessary. Some churches offer overnight housing for free. Practice questions
                 are available for purchase as well as other study aides." 
             }
-            
+
             h3 { "Finals"}
             p {
-                "The cost of quiz finals can be broken down to per person, per team, and travel. The per person cost is around $400. The per team cost is around $300. Travel costs vary based on the number attending and the distance from your church to the finals host school." 
+                "The cost of quiz finals can be broken down to per person, per team, and travel. The per person cost is around $400. The per team cost is around $300. Travel costs vary based on the number attending and the distance from your church to the finals host school."
             }
-            
+
             h3 { "Scholarships"}
             p {
-                "For quizzers who attend finals, college scholarships are available. 
+                "For quizzers who attend finals, college scholarships are available.
                 Scholarships are up to $20,000! The scholarships may change each year, so check the finals
                 page for details on the current scholarships.
                 The following schools have provided scholarhips: Corban University, Northwest University,
