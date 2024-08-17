@@ -28,7 +28,7 @@ webp = "0.3"
 
 [dependencies.grass]
 version = "0.13"
-no-default-features = true
+default-features = false
 features = ["macro"]
 
 [dependencies.image]
@@ -48,7 +48,7 @@ version = "0.36"
 features = ["serialize"]
 
 [dependencies.redis]
-version = "0.25"
+version = "0.26"
 features = ["aio", "connection-manager", "tokio-rustls-comp"]
 
 [dependencies.serde]
