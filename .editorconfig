@@ -1,10 +1,16 @@
-[*.rs]
-indent_size = 4
-indent_style = space
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-[*.svg]
-tab_width = 4
-
-[*.xml]
-indent_size = 4
+[*.{rs,sql,css,scss,svg,xml}]
 indent_style = space
+indent_size = 4
+
+[{*.yaml,*.yml}]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
