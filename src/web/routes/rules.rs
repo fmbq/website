@@ -3,7 +3,7 @@ use poem::{handler, web::Html, Response};
 
 #[handler]
 pub fn get_html() -> Html<Markup> {
-    Html(crate::pages::rules::render())
+    Html(crate::web::pages::rules::render())
 }
 
 /// Download the current rulebook as a PDF.

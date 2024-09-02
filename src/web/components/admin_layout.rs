@@ -1,3 +1,4 @@
+use crate::web::components::scripts::scripts;
 use maud::{html, Markup, DOCTYPE};
 use time::OffsetDateTime;
 
@@ -11,13 +12,15 @@ pub fn admin_layout(title: &str, body: Markup) -> Markup {
             title { (title) }
 
             link rel="stylesheet" href="/styles/admin.css";
+
+            (scripts())
         }
         body {
             header {
                 a href="/" { "Home" }
 
                 .flex-end {
-                    a href="/admin/login" { "Log In" }
+                    a href="/admin/logout" { "Log Out" }
                 }
             }
 
@@ -32,9 +35,6 @@ pub fn admin_layout(title: &str, body: Markup) -> Markup {
                     }
                 }
             }
-
-            script src="/static/js/vendor/htmx/1.9.3/htmx.min.js" {}
-            script src="/static/js/vendor/htmx/1.9.3/ext/sse.js" {}
         }
     }
 }

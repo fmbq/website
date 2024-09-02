@@ -7,7 +7,7 @@ use std::env;
 
 pub async fn configure_session<'a, T>(
     endpoint: T,
-) -> anyhow::Result<impl Endpoint<Output = Response> + 'a>
+) -> color_eyre::eyre::Result<impl Endpoint<Output = Response> + 'a>
 where
     T: Endpoint + 'a,
 {
@@ -16,7 +16,7 @@ where
     if let Ok(redis_host) = env::var("REDIS_HOST") {
         let redis_port = env::var("REDIS_PORT").unwrap_or("6379".to_string());
 
-        log::info!(
+        tracing::info!(
             "using redis session storage at {}:{}",
             redis_host,
             redis_port
@@ -32,7 +32,7 @@ where
 
         Ok(endpoint.with(server_session).boxed())
     } else {
-        log::warn!("redis not configured, using in-memory session storage");
+        tracing::warn!("redis not configured, using in-memory session storage");
 
         let server_session = ServerSession::new(cookie_config, MemoryStorage::new());
 

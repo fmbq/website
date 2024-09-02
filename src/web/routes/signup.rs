@@ -1,3 +1,4 @@
+use crate::{web::components::admin_layout::admin_layout, db::users, db::Pool};
 use maud::{html, Markup};
 use poem::{
     handler,
@@ -5,8 +6,6 @@ use poem::{
     IntoResponse, Response,
 };
 use serde::Deserialize;
-
-use crate::{components::admin_layout::admin_layout, db::users, db::Pool};
 
 #[derive(Deserialize)]
 pub struct CreateAccountForm {

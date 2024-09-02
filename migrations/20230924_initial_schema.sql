@@ -6,7 +6,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE reset_password_token (
-    user_id TEXT NOT NULL PRIMARY KEY,
-    token TEXT NOT NULL UNIQUE,
+    token TEXT NOT NULL PRIMARY KEY,
+    user_id TEXT NOT NULL,
     created_time TEXT NOT NULL
 );

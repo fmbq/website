@@ -1,81 +1,26 @@
 #![allow(dead_code)]
 
-use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
-use anyhow::{bail, Result};
-use maud::Markup;
+use color_eyre::eyre::{bail, Result};
 use poem::{
     endpoint::{EmbeddedFilesEndpoint, StaticFilesEndpoint},
-    get, handler,
-    web::{
-        sse::{Event, SSE},
-        Html,
-    },
-    EndpointExt, IntoResponse, Route,
+    get,
+    web::sse::Event,
+    EndpointExt, Route,
 };
 use rust_embed::Embed;
 use std::env;
+use web::{middleware::auth::LoginCheckMiddleware, routes};
 
-mod components;
+mod config;
 mod db;
 mod domain;
 mod markdown;
-mod pages;
-mod routes;
 mod services;
 mod session;
 mod sse;
 mod url;
 mod util;
-
-#[handler]
-fn home() -> Html<Markup> {
-    Html(pages::home::render())
-}
-
-#[handler]
-fn about() -> Html<Markup> {
-    Html(pages::about::render())
-}
-
-#[handler]
-fn contacts() -> Html<Markup> {
-    Html(pages::contacts::render())
-}
-
-#[handler]
-fn playground() -> Html<Markup> {
-    Html(pages::playground::render())
-}
-
-#[handler]
-fn resources() -> Html<Markup> {
-    Html(pages::resources::render())
-}
-
-#[handler]
-fn quotes() -> Html<Markup> {
-    Html(pages::quotes::render())
-}
-
-#[handler]
-fn events() -> SSE {
-    sse::subscribe()
-}
-
-#[handler]
-fn css() -> impl IntoResponse {
-    grass::include!("src/scss/index.scss").with_content_type("text/css")
-}
-
-#[handler]
-fn admin_css() -> impl IntoResponse {
-    grass::include!("src/scss/admin.scss").with_content_type("text/css")
-}
-
-#[handler]
-fn time() -> impl IntoResponse {
-    OffsetDateTime::now_utc().format(&Rfc2822).unwrap()
-}
+mod web;
 
 #[derive(Embed)]
 #[folder = "js"]
@@ -83,11 +28,13 @@ struct JsDirectory;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    if dotenv::dotenv().is_err() {
+    if dotenvy::dotenv().is_err() {
         eprintln!("no .env file found, did you need to create one?");
     }
 
-    env_logger::init();
+    color_eyre::install()?;
+
+    tracing_subscriber::fmt::init();
 
     let Some(project_dirs) =
         directories::ProjectDirs::from("org.fmquizzing", "FM Quizzing", "FM Quizzing Website")
@@ -95,38 +42,51 @@ async fn main() -> Result<()> {
         bail!("failed to locate project directories");
     };
 
-    log::info!("initializing database");
+    tracing::info!("initializing database");
     db::init().await?;
 
     let app = Route::new()
-        .at("/", get(home))
-        .at("/about", get(about))
-        .at("/contacts", get(contacts))
-        .at("/resources", get(resources))
-        .at("/quotes", get(quotes))
+        .at("/", get(routes::home))
+        .at("/about", get(routes::about))
+        .at("/contacts", get(routes::contacts))
+        .at("/resources", get(routes::resources))
+        .at("/quotes", get(routes::quotes))
         .at("/rules", get(routes::rules::get_html))
         .at("/rules/rules.pdf", get(routes::rules::get_pdf))
-        .at("/playground", get(playground))
-        .at("/time", get(time))
-        .at("/events", get(events))
+        .at("/playground", get(routes::playground))
+        .at("/time", get(routes::time))
+        .at("/events", get(routes::events))
         .at(
             "/admin/login",
-            get(routes::login::get).post(routes::login::submit),
+            get(routes::admin::auth::login::get).post(routes::admin::auth::login::submit),
+        )
+        .at("/admin/logout", get(routes::admin::auth::logout::get))
+        .at(
+            "/admin/request-password-reset",
+            get(routes::admin::auth::reset_password::request_form::get)
+                .post(routes::admin::auth::reset_password::request_form::submit),
+        )
+        .at(
+            "/admin/reset-password",
+            get(routes::admin::auth::reset_password::reset_form::get)
+                .post(routes::admin::auth::reset_password::reset_form::submit),
         )
         .at(
             "/admin/articles",
             get(routes::admin::get_article_management),
         )
-        .at("/styles/site.css", get(css))
-        .at("/styles/admin.css", get(admin_css))
+        .at("/styles/site.css", get(routes::css))
+        .at("/styles/admin.css", get(routes::admin_css))
         .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
         .at(
             "/static/resources/photos/:image",
             get(routes::photos::get_photo),
         )
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
+        .with(LoginCheckMiddleware)
         .data(project_dirs)
-        .data(db::create_connection_pool()?);
+        .data(db::create_connection_pool()?)
+        .data(services::email::Mailer::new()?);
 
     let app = session::configure_session(app).await?;
 
@@ -139,7 +99,7 @@ async fn main() -> Result<()> {
 
     let addr = env::var("LISTEN_ADDR").unwrap_or_else(|_| String::from("127.0.0.1:80"));
 
-    log::info!("listening on http://{}", addr);
+    tracing::info!("listening on http://{}", addr);
 
     poem::Server::new(poem::listener::TcpListener::bind(addr))
         .run_with_graceful_shutdown(

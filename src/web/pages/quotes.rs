@@ -1,4 +1,4 @@
-use crate::{components::layout::layout, domain::quotes::get_season_by_id};
+use crate::{web::components::layout::layout, domain::quotes::get_season_by_id};
 
 use maud::{html, Markup};
 

@@ -1,3 +1,8 @@
+use crate::{
+    web::components::admin_layout::admin_layout,
+    db::Pool,
+    domain::users::{self, LoginResult},
+};
 use maud::{html, Markup};
 use poem::{
     handler,
@@ -7,27 +12,15 @@ use poem::{
 };
 use serde::Deserialize;
 
-use crate::{
-    components::admin_layout::admin_layout,
-    db::Pool,
-    domain::users::{self, LoginResult},
-};
-
 #[derive(Deserialize)]
 pub struct LoginForm {
     email: String,
     password: String,
 }
 
-#[derive(Deserialize)]
-pub struct ResetPasswordForm {
-    password: String,
-    password_confirmation: String,
-}
-
 #[handler]
 pub fn get() -> Html<Markup> {
-    Html(crate::pages::login::login())
+    Html(crate::web::pages::login::login())
 }
 
 #[derive(Deserialize)]
@@ -39,12 +32,12 @@ pub struct LoginParams {
 pub async fn submit(
     Data(db): Data<&Pool>,
     session: &Session,
-    Form(f): Form<LoginForm>,
+    Form(form): Form<LoginForm>,
     Query(params): Query<LoginParams>,
 ) -> Response {
     let mut conn = db.acquire().await.unwrap();
 
-    match users::login(&mut conn, &f.email, &f.password)
+    match users::login(&mut conn, &form.email, &form.password)
         .await
         .unwrap()
     {
@@ -52,10 +45,22 @@ pub async fn submit(
             session.set("user-id", id);
 
             if let Some(redirect) = params.redirect {
-                Redirect::temporary(redirect).into_response()
+                Redirect::see_other(redirect).into_response()
             } else {
-                Redirect::temporary("/").into_response()
+                Redirect::see_other("/").into_response()
             }
+        }
+        LoginResult::OkButPasswordResetRequired {
+            user_id,
+            reset_password_token,
+        } => {
+            session.set("user-id", user_id);
+
+            Html(crate::web::pages::login::reset_password(
+                Some(&reset_password_token),
+                params.redirect.as_deref(),
+            ))
+            .into_response()
         }
         result => Html(admin_layout(
             "Log In",
@@ -67,21 +72,4 @@ pub async fn submit(
         ))
         .into_response(),
     }
-}
-
-#[derive(Deserialize)]
-pub struct ResetPasswordParams {
-    redirect: Option<String>,
-}
-
-#[handler]
-pub async fn submit_reset_password(
-    Data(db): Data<&Pool>,
-    session: &Session,
-    Form(f): Form<ResetPasswordForm>,
-    Query(params): Query<ResetPasswordParams>,
-) -> Response {
-    let mut conn = db.acquire().await.unwrap();
-
-    todo!()
 }

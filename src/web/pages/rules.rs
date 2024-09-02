@@ -1,5 +1,5 @@
 use crate::{
-    components::layout::layout,
+    web::components::layout::layout,
     domain::rules::{get_rulebook, ContentData, List, ListItem, ListOption, Rule, RuleChild},
 };
 

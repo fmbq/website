@@ -83,8 +83,13 @@ pub async fn create(
     }
 }
 
-pub async fn reset_password(connection: &mut Connection, id: &str) -> bool {
-    sqlx::query("UPDATE user SET require_password_reset = 1 WHERE id = ?")
+pub async fn update_require_password_reset(
+    connection: &mut Connection,
+    id: &str,
+    require: bool,
+) -> bool {
+    sqlx::query("UPDATE user SET require_password_reset = ? WHERE id = ?")
+        .bind(i64::from(require))
         .bind(id)
         .execute(connection)
         .await

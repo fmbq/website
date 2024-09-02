@@ -1,4 +1,4 @@
-use crate::components::layout::layout;
+use crate::web::components::layout::layout;
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
@@ -15,7 +15,7 @@ pub fn render() -> Markup {
             h2 { "The Players" }
             p {
                 "Bible Quizzing is a Free Methodist Church ministry that encourages 6th through 12th grade students to
-                study and memorize Scripture through competition. A quizmaster asks questions in a series of 
+                study and memorize Scripture through competition. A quizmaster asks questions in a series of
                 rounds where teams compete for the most points. Coaches help train the teams and take them to
                 monthly competitions."
             }
@@ -60,10 +60,10 @@ pub fn render() -> Markup {
             h3 { "Season"}
             p {
                 "A set of jump seats costs from $300 to $400.
-                Each quizzer will pay a registration fee of $20 and purchase a portion for $2 to $20. 
+                Each quizzer will pay a registration fee of $20 and purchase a portion for $2 to $20.
                 The monthly competitions are $10 to $15 per team with a $5 per person lunch cost. In addition,
                 travel expenses may be necessary. Some churches offer overnight housing for free. Practice questions
-                are available for purchase as well as other study aides." 
+                are available for purchase as well as other study aides."
             }
 
             h3 { "Finals"}
@@ -77,9 +77,9 @@ pub fn render() -> Markup {
                 Scholarships are up to $20,000! The scholarships may change each year, so check the finals
                 page for details on the current scholarships.
                 The following schools have provided scholarhips: Corban University, Northwest University,
-                Olivet Nazarene University, Greenville University, Mount Vernon Nazarene University, 
+                Olivet Nazarene University, Greenville University, Mount Vernon Nazarene University,
                 Waynesburg University, Warner University, Huntington University, Seattle Pacific University,
-                Central Christian College of Kansas, and Roberts Wesleyan University" 
+                Central Christian College of Kansas, and Roberts Wesleyan University"
             }
             div.about-scholarships { }
         },

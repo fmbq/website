@@ -1,4 +1,4 @@
-use anyhow::Context;
+use color_eyre::eyre::Context;
 use once_cell::sync::OnceCell;
 use sqlx::{
     migrate::{MigrateDatabase, Migrator},
@@ -16,10 +16,10 @@ static MIGRATOR: Migrator = sqlx::migrate!();
 pub type Connection = SqliteConnection;
 pub type Pool = SqlitePool;
 
-pub async fn init() -> anyhow::Result<()> {
+pub async fn init() -> color_eyre::eyre::Result<()> {
     let url = URL
         .get_or_try_init(|| env::var("DATABASE_URL"))
-        .context("DATABASE_URL environment variable must be set to find database")?;
+        .wrap_err("DATABASE_URL environment variable must be set to find database")?;
 
     Sqlite::create_database(url).await?;
 
@@ -30,7 +30,7 @@ pub async fn init() -> anyhow::Result<()> {
     Ok(())
 }
 
-pub fn create_connection_pool() -> anyhow::Result<Pool> {
+pub fn create_connection_pool() -> color_eyre::eyre::Result<Pool> {
     let url = URL.get_or_try_init(|| env::var("DATABASE_URL"))?;
 
     SqlitePoolOptions::new()

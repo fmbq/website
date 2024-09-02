@@ -1,3 +1,4 @@
+use crate::web::components::scripts::scripts;
 use maud::{html, Markup, DOCTYPE};
 use time::OffsetDateTime;
 
@@ -12,14 +13,12 @@ pub fn layout(title: &str, body: Markup) -> Markup {
 
             link rel="stylesheet" href="/styles/site.css";
 
-            script src="/js/vendor/htmx/1.9.3/htmx.min.js" {}
-            script src="/js/vendor/htmx/1.9.3/ext/sse.js" {}
-            script src="/js/vendor/hyperscript/0.9.12/_hyperscript.min.js" {}
+            (scripts())
         }
 
         // Trigger all menus that may be open to close on losing focus.
         body _="on click send menuclose to <menu/>" {
-            (crate::components::header::header())
+            (crate::web::components::header::header())
 
             main role="main" class="content-grid" {
                 (body)

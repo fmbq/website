@@ -1,4 +1,4 @@
-use crate::components::layout::layout;
+use crate::web::components::layout::layout;
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
@@ -74,7 +74,7 @@ pub fn render() -> Markup {
             img src="/static/resources/photos/fmc-conference-map.png" width="*" {""}
 
             div {
-                (crate::components::admin::editor::editor())
+                (crate::web::components::admin::editor::editor())
             }
         },
     )

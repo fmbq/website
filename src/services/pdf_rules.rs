@@ -1,7 +1,7 @@
 //! PDF generation for a rulebook.
 
 use crate::domain::rules::Rulebook;
-use anyhow::Result;
+use color_eyre::eyre::Result;
 use printpdf::{Mm, PdfDocument, Pt};
 use std::io::{BufWriter, Write};
 

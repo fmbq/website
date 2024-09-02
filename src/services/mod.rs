@@ -1,1 +1,2 @@
+pub mod email;
 pub mod pdf_rules;

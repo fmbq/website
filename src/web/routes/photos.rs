@@ -37,7 +37,7 @@ pub async fn get_photo(
             std::fs::create_dir_all(cache_path.parent().unwrap())?;
             std::fs::write(cache_path, &*encoded)?;
 
-            Ok::<_, anyhow::Error>(())
+            Ok::<_, color_eyre::eyre::Error>(())
         })
         .await;
     }
@@ -76,13 +76,13 @@ fn cache_file_path(cache_dir: &Path, file_name: &str, content_type: &str) -> Pat
     cache_dir.join("images").join(hash_string)
 }
 
-async fn load_image_async(path: impl AsRef<Path>) -> anyhow::Result<DynamicImage> {
+async fn load_image_async(path: impl AsRef<Path>) -> color_eyre::eyre::Result<DynamicImage> {
     let path = path.as_ref().to_path_buf();
 
     spawn_blocking(move || load_image(path)).await?
 }
 
-fn load_image(path: impl AsRef<Path>) -> anyhow::Result<DynamicImage> {
+fn load_image(path: impl AsRef<Path>) -> color_eyre::eyre::Result<DynamicImage> {
     let img = image::io::Reader::open(path.as_ref())?.decode()?;
 
     Ok(img)

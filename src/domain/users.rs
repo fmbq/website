@@ -1,12 +1,21 @@
-use crate::db::{
-    users::{
-        get_by_email,
-        reset_password_token::{self, ResetPasswordToken},
-        update_password_hash,
+use crate::{
+    web::components::email::email_layout,
+    db::{
+        users::{
+            get_by_email,
+            reset_password_token::{self, ResetPasswordToken},
+            update_password_hash, update_require_password_reset, User,
+        },
+        Connection,
     },
-    Connection,
+    services::email::Mailer,
 };
 use chrono::{TimeDelta, Utc};
+use lettre::{
+    message::{header::ContentType, Mailbox},
+    Message,
+};
+use maud::html;
 use password_auth::{generate_hash, is_hash_obsolete, verify_password};
 use sqlx::Acquire;
 
@@ -72,13 +81,49 @@ pub async fn login(
     }
 }
 
+/// Request a password reset token for a user.
+///
+/// If a user for the given email address already exists, a new password reset
+/// token will be created, allowing them to reset their password without knowing
+/// their current password.
+///
+/// An email will be sent to that user's email address with a link containing the
+/// reset token. Clicking the link will allow the user to "consume" the reset
+/// token and set a new password.
+pub async fn request_password_reset(
+    connection: &mut Connection,
+    mailer: &Mailer,
+    email: &str,
+) -> color_eyre::eyre::Result<()> {
+    tracing::info!(email, "password reset requested");
+
+    let mut tx = connection.begin().await?;
+
+    let Some(user) = get_by_email(&mut tx, email).await else {
+        // We don't give any indication that the email address doesn't exist. To
+        // do otherwise would be a security vulnerability.
+        tracing::info!(email, "password reset requested for unknown email address");
+
+        return Ok(());
+    };
+
+    let reset_token = reset_password_token::create(&mut tx, &user.id).await?;
+
+    tx.commit().await?;
+
+    let email = create_password_reset_email(&user, &reset_token);
+    mailer.send(email).await?;
+
+    Ok(())
+}
+
 #[derive(Debug)]
 pub enum ResetPasswordResult {
     Success,
     InvalidOrExpiredToken,
 }
 
-/// Reset a user's password given a reset token.
+/// Reset a user's password to a new value given a reset token.
 pub async fn reset_password(
     connection: &mut Connection,
     token: &str,
@@ -95,6 +140,12 @@ pub async fn reset_password(
     } else {
         // Apply the new password.
         update_password_hash(&mut tx, &token.user_id, generate_hash(new_password)).await?;
+
+        // If the user was required to reset their password, then they've now
+        // done so.
+        update_require_password_reset(&mut tx, &token.user_id, false).await;
+
+        tracing::info!(user_id = token.user_id, "password reset for user");
 
         false
     };
@@ -116,4 +167,28 @@ impl ResetPasswordToken {
     pub fn is_expired(&self) -> bool {
         self.created_time + RESET_TOKEN_EXPIRATION < Utc::now()
     }
+}
+
+fn create_password_reset_email(user: &User, token: &str) -> Message {
+    // TODO: Make hostname configurable.
+    let reset_link = format!("http://localhost:5000/admin/reset-password?token={}", token);
+
+    let html = email_layout(html! {
+        p { "We received a request to reset your password. Click the link below to reset your password." }
+        p { "If this was a mistake, just ignore this email and nothing will happen." }
+        p {
+            a href=(reset_link) { "Reset your password" }
+        }
+    });
+
+    let sender = Mailbox::new(None, user.email.parse().unwrap());
+    let destination = Mailbox::new(None, user.email.parse().unwrap());
+
+    Message::builder()
+        .from(sender)
+        .to(destination)
+        .subject("Password reset request")
+        .header(ContentType::TEXT_HTML)
+        .body(html.into_string())
+        .unwrap()
 }

@@ -1,4 +1,4 @@
-use crate::components::layout::layout;
+use crate::web::components::layout::layout;
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
@@ -28,7 +28,7 @@ pub fn render() -> Markup {
            .section.dark {
                 p {
                     "Bible Quizzing is a Free Methodist Church ministry that encourages 6th through 12th grade students to
-                    study and memorize Scripture through competition. A quizmaster asks questions in a series of 
+                    study and memorize Scripture through competition. A quizmaster asks questions in a series of
                     rounds where teams compete for the most points. Coaches help train the teams and take them to
                     monthly competitions from October to April. At the end of June, quiz team nationwide compete
                     in weeklong competition."
@@ -46,14 +46,14 @@ pub fn render() -> Markup {
                 div.home-qm.full-width {
                     p {
                         "Quizzes are facilitated by a quizmaster, who reads the questions and then determines whether
-                        the answers are correct or incorrect. Answers other than Quote questions do not have to be 
+                        the answers are correct or incorrect. Answers other than Quote questions do not have to be
                         word-perfect to earn full points (20 points)."
                     }
                 }
                 div.home-questions.full-width {
                     p {
                         "Monthly quiz meets occur on Saturdays and include 6-8 rounds of quizzing. Each team round
-                        is made up of 15 questions worth 20 points each. Unless there is a tie, then a three-question 
+                        is made up of 15 questions worth 20 points each. Unless there is a tie, then a three-question
                         overtime is used to break the tie. "
                     }
                 }

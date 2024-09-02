@@ -1,10 +1,10 @@
 use crate::{
-    components::{
+    db::Pool,
+    domain::articles::list_articles,
+    web::components::{
         admin::{article_list::article_list, sidebar::sidebar},
         admin_layout::admin_layout,
     },
-    db::Pool,
-    domain::articles::list_articles,
 };
 use maud::{html, Markup};
 use poem::{
@@ -13,6 +13,8 @@ use poem::{
     web::{Data, Form, Html, Path},
     IntoResponse, Response,
 };
+
+pub mod auth;
 
 #[handler]
 pub async fn get_article_management(Data(db): Data<&Pool>) -> Html<Markup> {
