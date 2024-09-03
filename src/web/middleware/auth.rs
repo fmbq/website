@@ -30,13 +30,13 @@ where
 
     async fn call(&self, request: Request) -> Result<Self::Output> {
         // Check if auth is required for this endpoint.
-        if should_redirect_to_login(request.uri()) {
+        if should_redirect_to_login(request.original_uri()) {
             // Check if the user is logged in.
             let session = request.extensions().get::<Session>().unwrap();
             if session.get::<String>("user-id").is_none() {
                 // Redirect to login page.
                 let redirect_uri = Uri::builder()
-                    .path_and_query(format!("/admin/login?redirect={}", request.uri()))
+                    .path_and_query(format!("/admin/login?redirect={}", request.original_uri()))
                     .build()
                     .unwrap();
 

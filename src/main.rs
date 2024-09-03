@@ -9,7 +9,7 @@ use poem::{
 };
 use rust_embed::Embed;
 use std::env;
-use web::{middleware::auth::LoginCheckMiddleware, routes};
+use web::routes;
 
 mod config;
 mod db;
@@ -55,25 +55,7 @@ async fn main() -> Result<()> {
         .at("/playground", get(routes::playground))
         .at("/time", get(routes::time))
         .at("/events", get(routes::events))
-        .at(
-            "/admin/login",
-            get(routes::admin::auth::login::get).post(routes::admin::auth::login::submit),
-        )
-        .at("/admin/logout", get(routes::admin::auth::logout::get))
-        .at(
-            "/admin/request-password-reset",
-            get(routes::admin::auth::reset_password::request_form::get)
-                .post(routes::admin::auth::reset_password::request_form::submit),
-        )
-        .at(
-            "/admin/reset-password",
-            get(routes::admin::auth::reset_password::reset_form::get)
-                .post(routes::admin::auth::reset_password::reset_form::submit),
-        )
-        .at(
-            "/admin/articles",
-            get(routes::admin::get_article_management),
-        )
+        .nest("/admin", routes::admin::routes())
         .at("/styles/site.css", get(routes::css))
         .at("/styles/admin.css", get(routes::admin_css))
         .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
@@ -82,7 +64,6 @@ async fn main() -> Result<()> {
             get(routes::photos::get_photo),
         )
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
-        .with(LoginCheckMiddleware)
         .data(project_dirs)
         .data(db::create_connection_pool()?)
         .data(services::email::Mailer::new()?);

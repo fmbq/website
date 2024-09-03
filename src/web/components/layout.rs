@@ -27,7 +27,7 @@ pub fn layout(title: &str, body: Markup) -> Markup {
             footer {
                 div class="container" {
                     p { a href="/api" { "API Documentation" } }
-                    p { a href="/admin/login" { "Log In" } }
+                    p { a href="/admin" { "Admin Area" } }
                     p { a href="/playground" { "Playground" } }
                     p class="center copyright" {
                         "© " (OffsetDateTime::now_utc().year()) " Free Methodist Bible Quizzing"
