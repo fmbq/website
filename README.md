@@ -29,3 +29,15 @@ cargo run
 ```
 
 By default the website will listen at <http://localhost:5000>.
+
+
+## Configuration
+
+Emails (such as password reset emails) are sent using [Postmark](https://postmarkapp.com). To configure this for local development you'll need Postmark credentials and set the following variables in `.env`:
+
+```sh
+SMTP_HOST=smtp.postmarkapp.com
+SMTP_PORT=587
+SMTP_USERNAME={username}
+SMTP_PASSWORD={password}
+```

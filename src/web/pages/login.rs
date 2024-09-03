@@ -1,11 +1,11 @@
 use crate::web::components::{
     admin::password_reset::{request_password_reset_form, reset_password_form},
-    admin_layout::admin_layout,
+    login_layout::login_layout,
 };
 use maud::{html, Markup};
 
 pub fn login() -> Markup {
-    admin_layout(
+    login_layout(
         "Log In",
         html! {
             form.login method="post" action="" {
@@ -24,7 +24,7 @@ pub fn login() -> Markup {
 }
 
 pub fn request_password_reset() -> Markup {
-    admin_layout(
+    login_layout(
         "Reset Password",
         html! {
             (request_password_reset_form())
@@ -33,7 +33,7 @@ pub fn request_password_reset() -> Markup {
 }
 
 pub fn reset_password(token: Option<&str>, redirect: Option<&str>) -> Markup {
-    admin_layout(
+    login_layout(
         "Reset Password",
         html! {
             (reset_password_form(token, redirect))

@@ -1,6 +1,5 @@
-use crate::web::components::scripts::scripts;
+use super::{copyright::copyright, header::header, scripts::scripts};
 use maud::{html, Markup, DOCTYPE};
-use time::OffsetDateTime;
 
 pub fn layout(title: &str, body: Markup) -> Markup {
     html! {
@@ -18,7 +17,7 @@ pub fn layout(title: &str, body: Markup) -> Markup {
 
         // Trigger all menus that may be open to close on losing focus.
         body _="on click send menuclose to <menu/>" {
-            (crate::web::components::header::header())
+            (header())
 
             main role="main" class="content-grid" {
                 (body)
@@ -29,9 +28,8 @@ pub fn layout(title: &str, body: Markup) -> Markup {
                     p { a href="/api" { "API Documentation" } }
                     p { a href="/admin" { "Admin Area" } }
                     p { a href="/playground" { "Playground" } }
-                    p class="center copyright" {
-                        "© " (OffsetDateTime::now_utc().year()) " Free Methodist Bible Quizzing"
-                    }
+
+                    (copyright())
                 }
             }
         }

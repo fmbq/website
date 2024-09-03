@@ -56,14 +56,14 @@ async fn main() -> Result<()> {
         .at("/time", get(routes::time))
         .at("/events", get(routes::events))
         .nest("/admin", routes::admin::routes())
-        .at("/styles/site.css", get(routes::css))
-        .at("/styles/admin.css", get(routes::admin_css))
+        .nest("/styles", routes::css::routes())
         .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
         .at(
             "/static/resources/photos/:image",
             get(routes::photos::get_photo),
         )
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
+        .with(web::middleware::headers::security_headers())
         .data(project_dirs)
         .data(db::create_connection_pool()?)
         .data(services::email::Mailer::new()?);

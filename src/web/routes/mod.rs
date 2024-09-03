@@ -10,6 +10,7 @@ use poem::{
 pub mod admin;
 pub mod article_images;
 pub mod articles;
+pub mod css;
 pub mod photos;
 pub mod rules;
 pub mod signup;
@@ -47,16 +48,6 @@ pub fn quotes() -> Html<Markup> {
 #[handler]
 pub fn events() -> SSE {
     sse::subscribe()
-}
-
-#[handler]
-pub fn css() -> impl IntoResponse {
-    grass::include!("src/web/scss/index.scss").with_content_type("text/css")
-}
-
-#[handler]
-pub fn admin_css() -> impl IntoResponse {
-    grass::include!("src/web/scss/admin.scss").with_content_type("text/css")
 }
 
 #[handler]

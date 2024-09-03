@@ -1,7 +1,7 @@
 use super::{copyright::copyright, scripts::scripts};
 use maud::{html, Markup, DOCTYPE};
 
-pub fn admin_layout(title: &str, body: Markup) -> Markup {
+pub fn login_layout(title: &str, body: Markup) -> Markup {
     html! {
         (DOCTYPE)
         head lang="en" {
@@ -10,19 +10,11 @@ pub fn admin_layout(title: &str, body: Markup) -> Markup {
 
             title { (title) }
 
-            link rel="stylesheet" href="/styles/admin.css";
+            link rel="stylesheet" href="/styles/login.css";
 
             (scripts())
         }
         body {
-            header {
-                a href="/admin" { "Home" }
-
-                .flex-end {
-                    a href="/admin/logout" { "Log Out" }
-                }
-            }
-
             main role="main" {
                 (body)
             }
