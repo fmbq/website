@@ -1,15 +1,10 @@
 use super::pages;
-use maud::Markup;
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
-use color_eyre::eyre::{bail, Result};
+use maud::Markup;
 use poem::{
-    endpoint::{EmbeddedFilesEndpoint, StaticFilesEndpoint},
-    get, handler,
-    web::{
-        sse::{Event, SSE},
-        Html,
-    },
-    EndpointExt, IntoResponse, Route,
+    handler,
+    web::{sse::SSE, Html},
+    IntoResponse,
 };
 
 pub mod admin;

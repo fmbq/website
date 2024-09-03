@@ -29,7 +29,7 @@ pub async fn get_photo(
         let image_path = image_path.clone();
         let cache_path = cache_path.clone();
 
-        let result = spawn_blocking(move || {
+        let _result = spawn_blocking(move || {
             let image = load_image(image_path)?;
             let encoder = webp::Encoder::from_image(&image).unwrap();
             let encoded = encoder.encode(75.0);
@@ -83,7 +83,7 @@ async fn load_image_async(path: impl AsRef<Path>) -> color_eyre::eyre::Result<Dy
 }
 
 fn load_image(path: impl AsRef<Path>) -> color_eyre::eyre::Result<DynamicImage> {
-    let img = image::io::Reader::open(path.as_ref())?.decode()?;
+    let img = image::ImageReader::open(path.as_ref())?.decode()?;
 
     Ok(img)
 }

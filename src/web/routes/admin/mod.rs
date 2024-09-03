@@ -9,9 +9,7 @@ use crate::{
 use maud::{html, Markup};
 use poem::{
     handler,
-    http::StatusCode,
-    web::{Data, Form, Html, Path},
-    IntoResponse, Response,
+    web::{Data, Html},
 };
 
 pub mod auth;

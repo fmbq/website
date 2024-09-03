@@ -1,6 +1,6 @@
 use crate::{
     web::components::layout::layout,
-    domain::rules::{get_rulebook, ContentData, List, ListItem, ListOption, Rule, RuleChild},
+    domain::rules::{get_rulebook, ContentData, List, ListOption, Rule, RuleChild},
 };
 
 use maud::{html, Markup};
@@ -39,7 +39,7 @@ fn render_rule(rule: &Rule, ids: &[u16]) -> Markup {
         @for child in &rule.children {
             @match child {
                 RuleChild::Rule(r) => {
-                    div { (render_rule(&r, &my_ids)) }
+                    div { (render_rule(r, &my_ids)) }
                 },
                 RuleChild::List(l) => {
                     div { (render_list(l)) }
@@ -61,16 +61,16 @@ fn render_list(list: &List) -> Markup {
         @if let Some(opt) = &list.option {
             @match opt {
                 ListOption::Unordered => {
-                    ul { (render_list_items(&list)) }
+                    ul { (render_list_items(list)) }
                 },
                 ListOption::Numeric => {
-                    ol { (render_list_items(&list)) }
+                    ol { (render_list_items(list)) }
                 },
                 ListOption::AlphaLowercase => {
-                    ol type="a" { (render_list_items(&list)) }
+                    ol type="a" { (render_list_items(list)) }
                 },
                 ListOption::AlphaUppercase => {
-                    ol type="A" { (render_list_items(&list)) }
+                    ol type="A" { (render_list_items(list)) }
                 }
             }
         }

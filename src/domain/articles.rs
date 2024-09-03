@@ -36,7 +36,7 @@ pub async fn list_articles(connection: &mut Connection) -> Vec<ArticleSummary> {
 }
 
 /// Get the contents of an article by its ID.
-pub async fn get_by_id(connection: &mut Connection, id: &str) -> Option<ArticleContents> {
+pub async fn get_by_id(_connection: &mut Connection, _id: &str) -> Option<ArticleContents> {
     todo!()
 }
 
