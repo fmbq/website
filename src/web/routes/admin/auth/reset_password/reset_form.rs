@@ -1,6 +1,6 @@
 use crate::{
-    web::components::admin::password_reset::password_reset_complete, db::Pool,
-    domain::users::reset_password,
+    db::Pool, domain::users::reset_password,
+    web::components::admin::password_reset::password_reset_complete,
 };
 use maud::Markup;
 use poem::{

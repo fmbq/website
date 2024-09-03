@@ -1,6 +1,6 @@
 use crate::{
-    web::components::layout::layout,
     domain::rules::{get_rulebook, ContentData, List, ListOption, Rule, RuleChild},
+    web::components::layout::layout,
 };
 
 use maud::{html, Markup};

@@ -1,5 +1,4 @@
 use crate::{
-    web::components::email::email_layout,
     db::{
         users::{
             get_by_email,
@@ -9,6 +8,7 @@ use crate::{
         Connection,
     },
     services::email::Mailer,
+    web::components::email::email_layout,
 };
 use chrono::{TimeDelta, Utc};
 use lettre::{

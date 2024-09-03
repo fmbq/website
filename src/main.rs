@@ -17,7 +17,6 @@ mod domain;
 mod markdown;
 mod services;
 mod session;
-mod sse;
 mod url;
 mod util;
 mod web;
@@ -92,7 +91,7 @@ async fn main() -> Result<()> {
 
     tokio::task::spawn(async {
         loop {
-            sse::publish(Event::message("updated").event_type("time-update"));
+            web::sse::publish(Event::message("updated").event_type("time-update"));
             tokio::time::sleep(std::time::Duration::from_secs(1)).await;
         }
     });

@@ -1,4 +1,4 @@
-use crate::{web::components::admin_layout::admin_layout, db::users, db::Pool};
+use crate::{db::users, db::Pool, web::components::admin_layout::admin_layout};
 use maud::{html, Markup};
 use poem::{
     handler,

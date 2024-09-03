@@ -1,7 +1,7 @@
 use crate::{
-    web::components::admin_layout::admin_layout,
     db::Pool,
     domain::users::{self, LoginResult},
+    web::components::admin_layout::admin_layout,
 };
 use maud::{html, Markup};
 use poem::{

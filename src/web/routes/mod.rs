@@ -1,4 +1,4 @@
-use super::pages;
+use super::{pages, sse};
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use maud::Markup;
 use poem::{
@@ -46,7 +46,7 @@ pub fn quotes() -> Html<Markup> {
 
 #[handler]
 pub fn events() -> SSE {
-    crate::sse::subscribe()
+    sse::subscribe()
 }
 
 #[handler]
