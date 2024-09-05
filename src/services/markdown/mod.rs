@@ -1,12 +1,13 @@
 //! Markdown parsing and rendering based on pulldown-cmark with some added
 //! features.
 
-use crate::url;
 use dashmap::DashMap;
 use once_cell::sync::Lazy;
 use pulldown_cmark::{html, Event, LinkType, Options, Parser, Tag};
 use sha1::{Digest, Sha1};
 use std::iter;
+
+mod url;
 
 /// Render a block of Markdown into HTML.
 pub fn render_html(markdown: impl AsRef<str>) -> String {

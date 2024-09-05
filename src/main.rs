@@ -14,10 +14,8 @@ use web::routes;
 mod config;
 mod db;
 mod domain;
-mod markdown;
 mod services;
 mod session;
-mod url;
 mod util;
 mod web;
 
