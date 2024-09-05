@@ -1,0 +1,25 @@
+services:
+  website:
+    build: .
+    environment:
+      LISTEN_ADDR: 0.0.0.0:5000
+      DATABASE_URL: sqlite:///opt/fmbq-website/sqlite.db
+      REDIS_HOST: redis
+    env_file:
+      - path: .env
+        required: false
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./sqlite.db:/opt/fmbq-website/sqlite.db
+      - ./wwwroot:/opt/fmbq-website/wwwroot:ro
+    depends_on:
+      redis:
+        condition: service_started
+
+  redis:
+    image: docker.io/library/redis:7
+    expose:
+      - 6379
+    ports:
+      - "6379:6379"
