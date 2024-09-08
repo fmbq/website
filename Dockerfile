@@ -14,7 +14,6 @@ RUN --mount=type=bind,source=src,target=src \
 
 
 FROM debian:bookworm-slim AS runtime
-LABEL org.opencontainers.image.source="https://github.com/fmbq/website"
 
 ENV RUST_LOG=info
 
