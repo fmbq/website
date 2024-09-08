@@ -63,4 +63,4 @@ jobs:
         with:
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/fmbq/website:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository_owner }}/website:${{ github.sha }}
