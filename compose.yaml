@@ -1,5 +1,6 @@
 services:
   website:
+    image: ghcr.io/fmbq/website
     build: .
     environment:
       LISTEN_ADDR: 0.0.0.0:5000
