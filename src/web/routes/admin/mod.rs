@@ -1,9 +1,9 @@
 use crate::{
     db::Pool,
-    domain::articles::list_articles,
+    domain::{articles::list_articles, user::get_profile},
     web::{
         middleware::auth::LoginCheckMiddleware,
-        pages::admin::{article_management, index, user_profile},
+        pages::admin::{article_management, index, user_profile}, session::LoginSession,
     },
 };
 use maud::Markup;
@@ -53,6 +53,13 @@ async fn get_article_management(Data(db): Data<&Pool>) -> Html<Markup> {
 }
 
 #[handler]
-async fn get_user_profile(Data(db): Data<&Pool>) -> Html<Markup> {
-    Html(user_profile())
+async fn get_user_profile(
+    login_session: LoginSession,
+    Data(db): Data<&Pool>,
+) -> Html<Markup> {
+    let mut conn = db.acquire().await.unwrap();
+
+    let user = get_profile(&mut conn, &login_session.user_id).await.unwrap().unwrap();
+
+    Html(user_profile(login_session, &user))
 }

@@ -1,4 +1,4 @@
-use super::{copyright::copyright, scripts::scripts};
+use super::{admin::account_menu::account_menu, copyright::copyright, scripts::scripts};
 use maud::{html, Markup, DOCTYPE};
 
 pub fn admin_layout(title: &str, body: Markup) -> Markup {
@@ -17,10 +17,9 @@ pub fn admin_layout(title: &str, body: Markup) -> Markup {
         body {
             header {
                 a href="/admin" { "Home" }
-                a href="/admin/profile" { "Profile" }
 
                 .flex-end {
-                    a href="/admin/logout" { "Log Out" }
+                    (account_menu())
                 }
             }
 

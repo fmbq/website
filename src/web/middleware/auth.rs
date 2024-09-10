@@ -30,20 +30,22 @@ where
 
     async fn call(&self, request: Request) -> Result<Self::Output> {
         // Check if the user is logged in.
-        let session = request.extensions().get::<Session>().unwrap();
-        if session.get::<String>("user-id").is_none() {
+        let session = request.data::<Session>().unwrap();
+
+        if let Some(user_id) = session.get::<String>("user-id") {
+            self.inner
+            .call(request)
+            .await
+            .map(IntoResponse::into_response)
+        } else {
             // Redirect to login page.
             let redirect_uri = Uri::builder()
                 .path_and_query(format!("/admin/login?redirect={}", request.original_uri()))
                 .build()
                 .unwrap();
 
-            return Ok(Redirect::see_other(redirect_uri).into_response());
+            Ok(Redirect::see_other(redirect_uri).into_response())
         }
 
-        self.inner
-            .call(request)
-            .await
-            .map(IntoResponse::into_response)
     }
 }

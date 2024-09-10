@@ -1,3 +1,4 @@
+pub mod account_menu;
 pub mod article_list;
 pub mod editor;
 pub mod password_reset;
