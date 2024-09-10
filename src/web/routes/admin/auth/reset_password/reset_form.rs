@@ -1,5 +1,5 @@
 use crate::{
-    db::Pool, domain::users::reset_password,
+    db::Pool, domain::auth::reset_password,
     web::components::admin::password_reset::password_reset_complete,
 };
 use maud::Markup;

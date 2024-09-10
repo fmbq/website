@@ -1,5 +1,5 @@
 use crate::{
-    db::Pool, domain::users, services::email::Mailer,
+    db::Pool, domain::auth, services::email::Mailer,
     web::components::admin::password_reset::request_password_reset_accepted,
 };
 use maud::Markup;
@@ -28,7 +28,7 @@ pub async fn submit(
 ) -> Response {
     let mut conn = db.acquire().await.unwrap();
 
-    users::request_password_reset(&mut conn, mailer, &f.email)
+    auth::request_password_reset(&mut conn, mailer, &f.email)
         .await
         .unwrap();
 

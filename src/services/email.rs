@@ -67,9 +67,7 @@ impl Mailer {
         })
     }
 
-    pub fn from_config(
-        config: MailerConfiguration,
-    ) -> Result<Self> {
+    pub fn from_config(config: MailerConfiguration) -> Result<Self> {
         let credentials = Credentials::new(config.smtp_username, config.smtp_password);
 
         let transport = AsyncSmtpTransport::<Tokio1Executor>::relay(&config.smtp_host)?

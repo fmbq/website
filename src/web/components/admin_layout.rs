@@ -17,6 +17,7 @@ pub fn admin_layout(title: &str, body: Markup) -> Markup {
         body {
             header {
                 a href="/admin" { "Home" }
+                a href="/admin/profile" { "Profile" }
 
                 .flex-end {
                     a href="/admin/logout" { "Log Out" }

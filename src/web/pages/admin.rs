@@ -28,3 +28,12 @@ pub fn article_management(articles: &[ArticleSummary]) -> Markup {
         },
     )
 }
+
+pub fn user_profile() -> Markup {
+    admin_layout(
+        "User Profile",
+        html! {
+            (sidebar())
+        },
+    )
+}

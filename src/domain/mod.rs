@@ -3,6 +3,7 @@
 //! database access modules.
 
 pub mod articles;
+pub mod auth;
 pub mod quotes;
 pub mod rules;
-pub mod users;
+pub mod user;
