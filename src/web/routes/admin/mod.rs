@@ -2,19 +2,20 @@ use crate::{
     db::Pool,
     domain::articles::list_articles,
     web::{
-        middleware::auth::LoginCheckMiddleware,
-        pages::admin::{AccountSettings, AdminModule, ArticleManagement, Index},
         login_context::LoginContext,
+        middleware::auth::LoginCheckMiddleware,
+        pages::admin::{AdminModule, ArticleManagement, Index},
     },
 };
 use maud::Markup;
 use poem::{
-    get, handler,
+    get, handler, post,
     web::{Data, Html},
     EndpointExt, IntoEndpoint, Route,
 };
 
-pub mod auth;
+mod account_settings;
+mod auth;
 
 pub fn routes() -> impl IntoEndpoint {
     Route::new()
@@ -34,7 +35,11 @@ pub fn routes() -> impl IntoEndpoint {
             "/",
             Route::new()
                 .at("/", get(get_index))
-                .at("/account", get(get_account_settings))
+                .at("/account", get(account_settings::get))
+                .at(
+                    "/account/change-password",
+                    post(account_settings::submit_change_password),
+                )
                 .at("/articles", get(get_article_management))
                 .with(LoginCheckMiddleware),
         )
@@ -59,9 +64,4 @@ async fn get_article_management(
         }
         .render(&login_context),
     )
-}
-
-#[handler]
-async fn get_account_settings(login_context: LoginContext) -> Html<Markup> {
-    Html(AccountSettings.render(&login_context))
 }

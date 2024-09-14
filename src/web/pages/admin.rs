@@ -1,11 +1,15 @@
 use crate::{
-    db::{articles::ArticleSummary, users::User},
-    web::{components::{
-        admin::{article_list::article_list, sidebar::sidebar, account_menu::account_menu},
-        copyright::copyright, scripts::scripts,
-    }, login_context::LoginContext},
+    db::articles::ArticleSummary,
+    web::{
+        components::{
+            admin::{account_menu::account_menu, article_list::article_list, change_password, sidebar::sidebar},
+            copyright::copyright,
+            scripts::scripts,
+        },
+        login_context::LoginContext,
+    },
 };
-use maud::{Markup, html, DOCTYPE};
+use maud::{html, Markup, DOCTYPE};
 
 pub trait AdminModule {
     fn title(&self) -> &str;
@@ -34,8 +38,12 @@ pub trait AdminModule {
                     }
                 }
 
-                main role="main" {
+                aside.sidebar {
                     (sidebar())
+                }
+
+                main role="main" {
+                    h2 { (self.title()) }
 
                     (self.body(login_context))
                 }
@@ -89,8 +97,9 @@ impl AdminModule for AccountSettings {
 
     fn body(&self, login_context: &LoginContext) -> Markup {
         html! {
-            p { "User ID: " (&login_context.user_id) }
             p { "User Email: " (&login_context.user.email) }
+
+            (change_password::form())
         }
     }
 }
