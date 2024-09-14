@@ -1,7 +1,7 @@
 use crate::{
     db::Pool,
     domain::auth::{self, LoginResult},
-    web::components::admin_layout::admin_layout,
+    web::components::login_layout::login_layout,
 };
 use maud::{html, Markup};
 use poem::{
@@ -62,7 +62,7 @@ pub async fn submit(
             ))
             .into_response()
         }
-        result => Html(admin_layout(
+        result => Html(login_layout(
             "Log In",
             html! {
                 h1 { "Log in" }

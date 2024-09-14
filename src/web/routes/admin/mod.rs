@@ -1,9 +1,10 @@
 use crate::{
     db::Pool,
-    domain::{articles::list_articles, user::get_profile},
+    domain::articles::list_articles,
     web::{
         middleware::auth::LoginCheckMiddleware,
-        pages::admin::{article_management, index, user_profile}, session::LoginSession,
+        pages::admin::{AccountSettings, AdminModule, ArticleManagement, Index},
+        login_context::LoginContext,
     },
 };
 use maud::Markup;
@@ -33,33 +34,34 @@ pub fn routes() -> impl IntoEndpoint {
             "/",
             Route::new()
                 .at("/", get(get_index))
-                .at("/profile", get(get_user_profile))
+                .at("/account", get(get_account_settings))
                 .at("/articles", get(get_article_management))
                 .with(LoginCheckMiddleware),
         )
 }
 
 #[handler]
-async fn get_index() -> Html<Markup> {
-    Html(index())
+async fn get_index(login_context: LoginContext) -> Html<Markup> {
+    Html(Index.render(&login_context))
 }
 
 #[handler]
-async fn get_article_management(Data(db): Data<&Pool>) -> Html<Markup> {
-    let mut conn = db.acquire().await.unwrap();
-    let articles = list_articles(&mut conn).await;
-
-    Html(article_management(&articles))
-}
-
-#[handler]
-async fn get_user_profile(
-    login_session: LoginSession,
+async fn get_article_management(
+    login_context: LoginContext,
     Data(db): Data<&Pool>,
 ) -> Html<Markup> {
     let mut conn = db.acquire().await.unwrap();
+    let articles = list_articles(&mut conn).await;
 
-    let user = get_profile(&mut conn, &login_session.user_id).await.unwrap().unwrap();
+    Html(
+        ArticleManagement {
+            articles: &articles,
+        }
+        .render(&login_context),
+    )
+}
 
-    Html(user_profile(login_session, &user))
+#[handler]
+async fn get_account_settings(login_context: LoginContext) -> Html<Markup> {
+    Html(AccountSettings.render(&login_context))
 }
