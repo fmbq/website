@@ -1,3 +1,3 @@
 .PHONY: run
 run:
-	cargo watch -x run
+	cargo watch -i src/web/scss -x run
