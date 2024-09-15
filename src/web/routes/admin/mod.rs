@@ -40,6 +40,10 @@ pub fn routes() -> impl IntoEndpoint {
                     "/account/change-password",
                     post(account_settings::submit_change_password),
                 )
+                .at(
+                    "/account/update-user-info",
+                    post(account_settings::update_user_info),
+                )
                 .at("/articles", get(get_article_management))
                 .with(LoginCheckMiddleware),
         )

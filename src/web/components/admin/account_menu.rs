@@ -8,7 +8,7 @@ pub fn account_menu(user: &User) -> Markup {
             .menu-button _="on click toggle .active on #account-menu" {
                 img src="/static/resources/images/user.svg";
                 span {
-                    (user.email)
+                    (user.display_name())
                 }
             }
             menu {

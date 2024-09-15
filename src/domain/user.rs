@@ -10,6 +10,15 @@ pub async fn get_profile(connection: &mut Connection, id: &str) -> sqlx::Result<
     Ok(get_by_id(connection, id).await)
 }
 
+pub async fn update_info(
+    connection: &mut Connection,
+    id: &str,
+    first_name: &str,
+    last_name: &str,
+) -> sqlx::Result<bool> {
+    crate::db::users::update_info(connection, id, first_name, last_name).await
+}
+
 /// Change a user's password. The current password must be provided to verify the
 /// user's identity.
 pub async fn change_password(

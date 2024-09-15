@@ -2,7 +2,7 @@ use crate::{
     db::articles::ArticleSummary,
     web::{
         components::{
-            admin::{account_menu::account_menu, article_list::article_list, change_password, sidebar::sidebar},
+            admin::{account_menu::account_menu, article_list::article_list, change_password, sidebar::sidebar, user_info},
             copyright::copyright,
             scripts::scripts,
         },
@@ -98,6 +98,8 @@ impl AdminModule for AccountSettings {
     fn body(&self, login_context: &LoginContext) -> Markup {
         html! {
             p { "User Email: " (&login_context.user.email) }
+
+            (user_info::form(&login_context.user))
 
             (change_password::form())
         }

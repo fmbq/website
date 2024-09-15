@@ -1,7 +1,8 @@
 use crate::{
     db::Pool,
-    domain::user::change_password,
+    domain::user::{change_password, update_info},
     web::{
+        htmx::Refresh,
         login_context::LoginContext,
         pages::admin::{AccountSettings, AdminModule},
     },
@@ -9,10 +10,15 @@ use crate::{
 use maud::Markup;
 use poem::{
     handler,
-    http::StatusCode,
     web::{Data, Form, Html},
 };
 use serde::Deserialize;
+
+#[derive(Deserialize)]
+struct UpdateUserInfoForm {
+    first_name: String,
+    last_name: String,
+}
 
 #[derive(Deserialize)]
 struct ChangePasswordForm {
@@ -30,7 +36,7 @@ pub async fn submit_change_password(
     login_context: LoginContext,
     Data(db): Data<&Pool>,
     Form(form): Form<ChangePasswordForm>,
-) -> StatusCode {
+) -> Refresh {
     let mut conn = db.acquire().await.unwrap();
 
     change_password(
@@ -42,5 +48,25 @@ pub async fn submit_change_password(
     .await
     .unwrap();
 
-    StatusCode::OK
+    Refresh
+}
+
+#[handler]
+pub async fn update_user_info(
+    login_context: LoginContext,
+    Data(db): Data<&Pool>,
+    Form(form): Form<UpdateUserInfoForm>,
+) -> Refresh {
+    let mut conn = db.acquire().await.unwrap();
+
+    update_info(
+        &mut conn,
+        &login_context.user_id,
+        &form.first_name,
+        &form.last_name,
+    )
+    .await
+    .unwrap();
+
+    Refresh
 }
