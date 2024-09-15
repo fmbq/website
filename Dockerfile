@@ -4,6 +4,7 @@ WORKDIR /workdir
 
 # Compile the project
 RUN --mount=type=bind,source=src,target=src \
+    --mount=type=bind,source=crates,target=crates \
     --mount=type=bind,source=js,target=js \
     --mount=type=bind,source=migrations,target=migrations \
     --mount=type=bind,source=Cargo.toml,target=Cargo.toml \
