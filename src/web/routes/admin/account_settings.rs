@@ -2,7 +2,6 @@ use crate::{
     db::Pool,
     domain::user::{change_password, update_info},
     web::{
-        htmx::Refresh,
         login_context::LoginContext,
         pages::admin::{AccountSettings, AdminModule},
     },
@@ -12,6 +11,7 @@ use poem::{
     handler,
     web::{Data, Form, Html},
 };
+use poem_htmx::responses::Refresh;
 use serde::Deserialize;
 
 #[derive(Deserialize)]

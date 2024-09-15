@@ -45,6 +45,9 @@ features = ["builder", "pool", "smtp-transport", "tokio1-rustls-tls", "tracing"]
 version = "3.0"
 features = ["embed", "redis-session", "session", "static-files"]
 
+[dependencies.poem-htmx]
+path = "crates/poem-htmx"
+
 [dependencies.poem-openapi]
 version = "5.0"
 features = ["redoc", "time"]
@@ -80,3 +83,7 @@ features = ["sync"]
 [dependencies.uuid]
 version = "1.4"
 features = ["v4"]
+
+[workspace]
+resolver = "2"
+members = ["crates/*"]

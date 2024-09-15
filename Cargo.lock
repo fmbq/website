@@ -879,6 +879,7 @@ dependencies = [
  "once_cell",
  "password-auth",
  "poem",
+ "poem-htmx",
  "poem-openapi",
  "printpdf",
  "pulldown-cmark",
@@ -2193,6 +2194,13 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.74",
+]
+
+[[package]]
+name = "poem-htmx"
+version = "0.1.0"
+dependencies = [
+ "poem",
 ]
 
 [[package]]
