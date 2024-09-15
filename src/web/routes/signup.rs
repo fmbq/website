@@ -1,4 +1,4 @@
-use crate::{db::users, db::Pool, web::components::admin_layout::admin_layout};
+use crate::{db::users, db::Pool, web::components::login_layout::login_layout};
 use maud::{html, Markup};
 use poem::{
     handler,
@@ -15,7 +15,7 @@ pub struct CreateAccountForm {
 
 #[handler]
 pub fn get() -> Html<Markup> {
-    Html(admin_layout(
+    Html(login_layout(
         "Create Account",
         html! {
             form.login method="post" action="" {
@@ -41,7 +41,7 @@ pub async fn submit(Data(db): Data<&Pool>, Form(f): Form<CreateAccountForm>) -> 
         .await
         .unwrap();
 
-    Html(admin_layout(
+    Html(login_layout(
         "Create Account",
         html! {
             h1 { "Create Account" }

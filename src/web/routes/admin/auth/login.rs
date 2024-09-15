@@ -1,7 +1,7 @@
 use crate::{
     db::Pool,
-    domain::users::{self, LoginResult},
-    web::components::admin_layout::admin_layout,
+    domain::auth::{self, LoginResult},
+    web::components::login_layout::login_layout,
 };
 use maud::{html, Markup};
 use poem::{
@@ -37,7 +37,7 @@ pub async fn submit(
 ) -> Response {
     let mut conn = db.acquire().await.unwrap();
 
-    match users::login(&mut conn, &form.email, &form.password)
+    match auth::login(&mut conn, &form.email, &form.password)
         .await
         .unwrap()
     {
@@ -62,7 +62,7 @@ pub async fn submit(
             ))
             .into_response()
         }
-        result => Html(admin_layout(
+        result => Html(login_layout(
             "Log In",
             html! {
                 h1 { "Log in" }

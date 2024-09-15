@@ -1,0 +1,22 @@
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    min-width: 16rem;
+    background-color: lightgray;
+
+    a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: darkgray;
+        }
+
+        &.active {
+            background-color: darkgray;
+            font-weight: bold;
+        }
+    }
+}

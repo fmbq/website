@@ -1,3 +1,13 @@
+form {
+    max-width: 42rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
 // .button {
 //     display: inline-block;
 //     background-color: var(--color-cream);
@@ -19,7 +29,7 @@
 button, input, .button {
     display: inline-block;
     appearance: none;
-    margin: 0.5em;
+    margin: 0.5em 0;
     border-radius: 5px;
 }
 

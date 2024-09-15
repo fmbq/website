@@ -44,7 +44,7 @@ pub async fn login(
         return Ok(LoginResult::UnknownUser);
     };
 
-    if verify_password(password, &user.password_hash).is_err() {
+    if !verify_user_password(&user, password) {
         return Ok(LoginResult::InvalidCredentials);
     }
 
@@ -160,6 +160,10 @@ pub async fn reset_password(
     } else {
         Ok(ResetPasswordResult::Success)
     }
+}
+
+pub fn verify_user_password(user: &User, password: &str) -> bool {
+    verify_password(password, &user.password_hash).is_ok()
 }
 
 impl ResetPasswordToken {

@@ -29,32 +29,23 @@ where
     type Output = Response;
 
     async fn call(&self, request: Request) -> Result<Self::Output> {
-        // Check if auth is required for this endpoint.
-        if should_redirect_to_login(request.original_uri()) {
-            // Check if the user is logged in.
-            let session = request.extensions().get::<Session>().unwrap();
-            if session.get::<String>("user-id").is_none() {
-                // Redirect to login page.
-                let redirect_uri = Uri::builder()
-                    .path_and_query(format!("/admin/login?redirect={}", request.original_uri()))
-                    .build()
-                    .unwrap();
+        // Check if the user is logged in.
+        let session = request.data::<Session>().unwrap();
 
-                return Ok(Redirect::see_other(redirect_uri).into_response());
-            }
-        }
-
-        self.inner
+        if let Some(user_id) = session.get::<String>("user-id") {
+            self.inner
             .call(request)
             .await
             .map(IntoResponse::into_response)
-    }
-}
+        } else {
+            // Redirect to login page.
+            let redirect_uri = Uri::builder()
+                .path_and_query(format!("/admin/login?redirect={}", request.original_uri()))
+                .build()
+                .unwrap();
 
-fn should_redirect_to_login(uri: &Uri) -> bool {
-    uri.path().starts_with("/admin")
-        && uri.path() != "/admin/login"
-        && uri.path() != "/admin/logout"
-        && uri.path() != "/admin/reset-password"
-        && uri.path() != "/admin/request-password-reset"
+            Ok(Redirect::see_other(redirect_uri).into_response())
+        }
+
+    }
 }

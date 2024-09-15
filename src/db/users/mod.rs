@@ -8,6 +8,8 @@ pub mod reset_password_token;
 pub struct User {
     pub(crate) id: String,
     pub(crate) email: String,
+    pub(crate) first_name: Option<String>,
+    pub(crate) last_name: Option<String>,
     pub(crate) password_hash: String,
 
     #[sqlx(default)]
@@ -15,6 +17,18 @@ pub struct User {
 }
 
 impl User {
+    pub fn display_name(&self) -> String {
+        if let Some(first_name) = &self.first_name {
+            if let Some(last_name) = &self.last_name {
+                format!("{} {}", first_name, last_name)
+            } else {
+                first_name.clone()
+            }
+        } else {
+            self.email.clone()
+        }
+    }
+
     pub fn require_password_reset(&self) -> bool {
         self.require_password_reset == Some(1)
     }
@@ -34,6 +48,22 @@ pub async fn get_by_email(connection: &mut Connection, email: &str) -> Option<Us
         .fetch_optional(connection)
         .await
         .unwrap()
+}
+
+pub async fn update_info(
+    connection: &mut Connection,
+    id: &str,
+    first_name: &str,
+    last_name: &str,
+) -> sqlx::Result<bool> {
+    let result = sqlx::query("UPDATE user SET first_name = ?, last_name = ? WHERE id = ?")
+        .bind(first_name)
+        .bind(last_name)
+        .bind(id)
+        .execute(connection)
+        .await?;
+
+    Ok(result.rows_affected() == 1)
 }
 
 pub async fn update_password_hash(
