@@ -19,14 +19,17 @@ pub fn header() -> Markup {
                         a href="/about" {
                             span { "About" }
                         }
-                        a href="/news" {
-                            span { "News" }
-                        }
-                        a href="/get-started" {
-                            span { "Get Started" }
+                        a href="/schedule" {
+                            span { "Schedule" }
                         }
                         a href="/resources" {
                             span { "Resources" }
+                        }
+                        a href="/awards" {
+                            span { "Awards" }
+                        }
+                        a href="/support_us" {
+                            span { "Support Us" }
                         }
                         a href="/contacts" {
                             span { "Contacts" }

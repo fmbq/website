@@ -26,18 +26,8 @@ pub fn about() -> Html<Markup> {
 }
 
 #[handler]
-pub fn contacts() -> Html<Markup> {
-    Html(pages::contacts::render())
-}
-
-#[handler]
-pub fn get_started() -> Html<Markup> {
-    Html(pages::getstarted::render())
-}
-
-#[handler]
-pub fn playground() -> Html<Markup> {
-    Html(pages::playground::render())
+pub fn schedule() -> Html<Markup> {
+    Html(pages::schedule::render())
 }
 
 #[handler]
@@ -46,8 +36,33 @@ pub fn resources() -> Html<Markup> {
 }
 
 #[handler]
+pub fn awards() -> Html<Markup> {
+    Html(pages::awards::render())
+}
+
+#[handler]
+pub fn support_us() -> Html<Markup> {
+    Html(pages::support_us::render())
+}
+
+#[handler]
+pub fn contacts() -> Html<Markup> {
+    Html(pages::contacts::render())
+}
+
+#[handler]
+pub fn playground() -> Html<Markup> {
+    Html(pages::playground::render())
+}
+
+#[handler]
 pub fn quotes() -> Html<Markup> {
     Html(pages::quotes::render())
+}
+
+#[handler]
+pub fn hall_of_fame() -> Html<Markup> {
+    Html(pages::hall_of_fame::render())
 }
 
 #[handler]
