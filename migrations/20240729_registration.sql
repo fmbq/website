@@ -5,8 +5,6 @@ CREATE TABLE tournament (
 
 );
 
-
-
 -- which conferences are invited to which tournament
 CREATE TABLE tournament_conference (
     tournament_id INTEGER NOT NULL,

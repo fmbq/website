@@ -47,6 +47,7 @@ async fn main() -> Result<()> {
         .at("/about", get(routes::about))
         .at("/contacts", get(routes::contacts))
         .at("/resources", get(routes::resources))
+        .at("/get-started", get(routes::get_started))
         .at("/quotes", get(routes::quotes))
         .at("/rules", get(routes::rules::get_html))
         .at("/rules/rules.pdf", get(routes::rules::get_pdf))

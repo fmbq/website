@@ -7,3 +7,4 @@ pub mod playground;
 pub mod quotes;
 pub mod resources;
 pub mod rules;
+pub mod getstarted;

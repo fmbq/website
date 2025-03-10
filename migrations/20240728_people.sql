@@ -4,13 +4,26 @@ CREATE TABLE person_type (
     name TEXT NOT NULL
 );
 
+INSERT INTO person_type VALUES(0,'QUIZZER');
+
+
 CREATE TABLE person (
     id INTEGER NOT NULL PRIMARY KEY,
     firstname TEXT NOT NULL,
-    lastname TEXT NOT NULL,
     middle TEXT,
+    lastname TEXT NOT NULL,
     grade INTEGER NOT NULL,
-    church_id INTEGER NOT NULL
+    church_id INTEGER NOT NULL,
+    sex INTEGER, -- 0 male, 1 female
+    address1 TEXT,
+    address2 TEXT,
+    city TEXT,
+    state TEXT,
+    zip INTEGER,
+    phone TEXT,
+    email TEXT,
+    birthdate TEXT,
+    food_allergy TEXT -- json object with bools for FDA Food Allergies and an other string item
 );
 
 CREATE TABLE person_person_type (

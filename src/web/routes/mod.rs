@@ -31,6 +31,11 @@ pub fn contacts() -> Html<Markup> {
 }
 
 #[handler]
+pub fn get_started() -> Html<Markup> {
+    Html(pages::getstarted::render())
+}
+
+#[handler]
 pub fn playground() -> Html<Markup> {
     Html(pages::playground::render())
 }

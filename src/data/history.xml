@@ -1,0 +1,294 @@
+<history updated="9/9/2024">
+	<champions-stv>
+		<champion year="2022" church="New Hope" city="Rochester, NY" members="Landon Sittig, Gavin Sittig, Isaac Salisbury"/>
+		<champion year="2021" church="New Hope" city="Rochester, NY" members="Landon Sittig, Alena Perkins"/>
+		<champion year="2020" note="Cancelled due to COVID"/>
+		<champion year="2019" church="New Hope" city="Rochester, NY" members="Isaac Perkins, Grant Perkins, Zach Liddle"/>
+		<champion year="2018" city="Holland, OH"/>
+		<champion year="2017" church="New Hope" city="Rochester, NY"/>
+		<champion year="2016" church="Free Church.net" city="Webster, NY"/>
+		<champion year="2015" church="New Hope FWB" city="Warsaw, IN"/>
+		<champion year="2014" city="Wilmore, KY"/>
+		<champion year="2013" city="Wilmore, KY"/>
+		<champion year="2012" city="Winona Lake, IN"/>
+		<champion year="2011" city="Wilmore, KY"/>
+		<champion year="2010" city="Spokane, WA"/>
+		<champion year="2009" city="Vincennes, IN"/>
+		<champion year="2008" city="Vincennes, IN"/>
+		<champion year="2007" city="Indianapolis (Aldersgate), IN"/>
+		<champion year="2006" city="Anderson, IN"/>
+		<champion year="2005" city="Alton, IL"/>
+		<champion year="2004" city="Bedford, IN"/>
+		<champion year="2003" city="Bedford, IN"/>
+		<champion year="2002" city="Vincennes, IN"/>
+		<champion year="2001" city="Vandalia, IL"/>
+		<champion year="2000" city="Vandalia, IL"/>
+		<champion year="1999" city="Willamina, OR"/>
+		<champion year="1998" city="Bedford, IN"/>
+		<champion year="1997" city="Bedford, IN"/>
+		<champion year="1996" city="Willamina, OR"/>
+		<champion year="1995" city="Bedford, IN"/>
+		<champion year="1994" city="Redlands, CA"/>
+		<champion year="1993" city="Redlands, CA"/>
+		<champion year="1992" city="Willamina, OR"/>
+		<champion year="1991" city="Bedford, IN"/>
+		<champion year="1990" city="McPherson, KS"/>
+		<champion year="1989" city="McPherson, KS"/>
+		<champion year="1988" city="Redlands, CA"/>
+		<champion year="1987" city="WNBG Combined"/>
+		<champion year="1986" city="McPherson, KS"/>
+		<champion year="1985" city="McPherson, KS"/>
+		<champion year="1984" city="Winona Lake, IN"/>
+		<champion year="1983" city="Sac City, IA"/>
+		<champion year="1982" city="Kalamazoo, MI"/>
+		<champion year="1981" city="Decatur, IL"/>
+		<champion year="1980" city="New Castle, IN"/>
+		<champion year="1979" city="Decatur, IL"/>
+		<champion year="1978" city="Indianapolis (West Morris St), IN"/>
+		<champion year="1977" city="Decatur, IL"/>
+		<champion year="1976" city="Olney, IL"/>
+		<champion year="1975" city="Olney, IL"/>
+		<champion year="1974" city="Greenville, IL"/>
+		<champion year="1973" city="Greenville, IL"/>
+		<champion year="1972" city="Greenville, IL"/>
+		<champion year="1971" city="Spring Arbor, MI"/>
+		<champion year="1970" city="Davison, MI		"/>
+		<champion year="1969" city="Winona Lake, IN"/>
+		<champion year="1968" city="Greenville, IL"/>
+		<champion year="1967" city="Elkatawa-Curt, KY"/>
+		<champion year="1966" city="Dearborn, MI"/>
+		<champion year="1965" city="Dearborn, MI"/>
+		<champion year="1964" city="McPherson, KS"/>
+		<champion year="1963" city="Greenville, IL"/>
+		<champion year="1962" city="Winona Lake, IL"/>
+		<champion year="1961" city="Urbana, IL"/>
+		<champion year="1960" city="Oakland, OR"/>
+		<champion year="1959" city="Coudersport, PA"/>
+		<champion year="1958" city="Harvey, IL"/>
+		<champion year="1957" city="Winona Lake, IN"/>
+		<champion year="1956" city="Ballard, WA"/>
+		<champion year="1955" city="Ballard, WA"/>
+		<champion year="1954" city="Victorville, CA"/>
+		<champion year="1953" city="San Diego First, CA"/>
+	</champions-stv>
+	<champions-individuals-stv>
+		<champion year="2022" quizzer="Landon Sittig" church="Rochester - New Hope, NY"/>
+		<champion year="2021" quizzer="Caleb Brown" church="Bedford, IN"/>
+		<champion year="2020" quizzer="Landon Sittig" church="Rochester - New Hope, NY"/>
+		<champion year="2019" quizzer="Isaac Perkins" church="Rochester - New Hope, NY"/>
+		<champion year="2018" quizzer="Isaac Perkins" church="Rochester - New Hope, NY"/>
+		<champion year="2017" quizzer="Joe Kirkpatrick" church="Anderson - Wesley, IN"/>
+		<champion year="2016" quizzer="Jared Sittig" church="Rochester - New Hope, NY"/>
+		<champion year="2015" quizzer="Tyler Thompson" church="Wilmore, KY"/>
+		<champion year="2014" quizzer="Tim Linscott" church="Seattle - Ranier Ave."/>
+		<champion year="2013" quizzer="Tim Linsoctt" church="Seattle - Ranier Ave."/>
+		<champion year="2013" quizzer="Jonathan Liversedge" church="Wilmore, KY"/>
+		<champion year="2012" quizzer="Nathaniel Stout" church="Winona Lake, IN"/>
+		<champion year="2011" quizzer="Levi Stout" church="Winona Lake, IN"/>
+		<champion year="2010" quizzer="Caleb Blankenship" church="Wilmore, KY"/>
+		<champion year="2009" quizzer="Tanner Bouchie" church="Vincennes, IN"/>
+		<champion year="2008" quizzer="Megan Cox" church="Bedford, IN"/>
+		<champion year="2007" quizzer="Amy Bither" church="Indianapolis (John-Welsey) IN"/>
+		<champion year="2006" quizzer="Stephen Coates" church="Indianapolis (Aldersgate), IN"/>
+		<champion year="2005" quizzer="Annie Haight" church="Auburn, WA"/>
+		<champion year="2004" quizzer="Brian Bither" church="Indianapolis (John-Wesley), IN"/>
+		<champion year="2003" quizzer="Adam King" church="Vincennes, IN"/>
+		<champion year="2002" quizzer="Patrick Willis" church="Willamina, OR"/>
+		<champion year="2001" quizzer="Blake Houghtaling" church="Vandalia, IL"/>
+		<champion year="2000" quizzer="James Slager" church="Spring Arbor, MI"/>
+		<champion year="1999" quizzer="Nathan Luer" church="Greenville, IL"/>
+		<champion year="1998" quizzer="Doug Whitlock" church="Springfield, IL"/>
+		<champion year="1997" quizzer="Dusty Lannon" church="Bedford, IN"/>
+		<champion year="1996" quizzer="James Kramer" church="Willamina, OR"/>
+		<champion year="1995" quizzer="Jason Lidberg" church="Bedford, IN"/>
+		<champion year="1994" quizzer="Josh Green" church="McPherson, KS"/>
+		<champion year="1993" quizzer="Timothy Housel" church="Bedford, IN"/>
+		<champion year="1992" quizzer="Shannon Mullis" church="Bedford, IN"/>
+		<champion year="1991" quizzer="Scott Sittig" church="N. Chili (Pearce), NY"/>
+		<champion year="1990" quizzer="Greg Fields" church="McPherson, KS"/>
+		<champion year="1989" quizzer="James Huffman" church="Bloomington, IN"/>
+		<champion year="1988" quizzer="Laura Christensen" church="Wenatchee, WA"/>
+		<champion year="1987" quizzer="Johnny Mantor" church="Anderson (North), IN"/>
+		<champion year="1986" quizzer="Peter Samuelson" church="McPherson, KS"/>
+		<champion year="1985" quizzer="Jim Egyud" church="Monacrest, PA"/>
+		<champion year="1984" quizzer="Peter Samuelson" church="Winona Lake, IN"/>
+		<champion year="1983" quizzer="Tim Huff" church="Oakdale, KY"/>
+		<champion year="1982" quizzer="David Laprad" church="Oakdale, KY"/>
+		<champion year="1981" quizzer="Steve Coates" church="Decatur, IL"/>
+		<champion year="1980" quizzer="Mark Colgan" church="New Castle, IN"/>
+	</champions-individuals-stv>
+	<finals-location>
+		<location year="2022" place="Asbury University" city="Wilmore, KY"/>
+		<location year="2021" place="Olivet Nazarene University" city="Bourbonnais, IL"/>
+		<location year="2020" city="ONLINE"/>
+		<location year="2019" place="Spring Arbor University" city="Spring Arbor, Michigan"/>
+		<location year="2018" place="Greenville University" city="Greenville, IL"/>
+		<location year="2017" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="2016" place="Seattle Pacific University" city="Seattle, WA"/>
+		<location year="2015" place="Spring Arbor University" city="Spring Arbor, MI"/>
+		<location year="2014" place="Greenville College" city="Greenville, IL"/>
+		<location year="2013" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="2012" place="Seattle Pacific University" city="Seattle, WA"/>
+		<location year="2011" place="Spring Arbor University" city="Spring Arbor, MI"/>
+		<location year="2010" place="Greenville College" city="Greenville, IL"/>
+		<location year="2009" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="2008" place="Spring Arbor University" city="Spring Arbor, MI"/>
+		<location year="2007" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="2006" place="Spring Arbor University" city="Spring Arbor, MI"/>
+		<location year="2005" place="Greenville College" city="Greenville, IL"/>
+		<location year="2004" place="Spring Arbor University" city="Spring Arbor, MI"/>
+		<location year="2003" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="2002" place="Seattle Pacific University" city="Seattle, WA"/>
+		<location year="2001" place="Central Christian College" city="McPherson, KS"/>
+		<location year="2000" place="Spring Arbor College" city="Spring Arbor, MI"/>
+		<location year="1999" place="Greenville College" city="Greenville, IL"/>
+		<location year="1998" place="Spring Arbor College" city="Spring Arbor, MI"/>
+		<location year="1997" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="1996" place="Warm Beach Camp" city="Stanwood, WA"/>
+		<location year="1995" place="Anderson University" city="Anderson, IN"/>
+		<location year="1994" place="Greenville College" city="Greenville, IL"/>
+		<location year="1993" place="Greenville College" city="Greenville, IL"/>
+		<location year="1992" place="Spring Arbor College" city="Spring Arbor, MI"/>
+		<location year="1991" place="Central College" city="McPherson, KS"/>
+		<location year="1990" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="1989" place="Seattle Pacific University" city="Seattle, WA"/>
+		<location year="1988" place="Greenville College" city="Greenville, IL"/>
+		<location year="1987" place="Spring Arbor College" city="Spring Arbor, MI"/>
+		<location year="1986" place="Central College" city="McPherson, KS"/>
+		<location year="1985" place="IYC" city="Estes Park, CO"/>
+		<location year="1984" place="Roberts Wesleyan College" city="Rochester, NY"/>
+		<location year="1983" place="Seattle Pacific University" city="Seattle, WA"/>
+		<location year="1982" place="Greenville College" city="Greenville, IL"/>
+		<location year="1981" place="IYC" city="Estes Park, CO"/>
+		<location year="1980" place="Spring Arbor College" city="Spring Arbor, MI"/>
+		<location year="1979" city="Winona Lake, IN"/>
+		<location year="1978" city="Winona Lake, IN"/>
+		<location year="1977" city="Winona Lake, IN"/>
+		<location year="1976" city="Winona Lake, IN"/>
+		<location year="1975" city="Colorado"/>
+		<location year="1974" city="Winona Lake, IN"/>
+		<location year="1973" city="Westland, MI"/>
+		<location year="1972" place="University of Illinois at Champaign-Urbana" city="Champaign, IL"/>
+		<location year="1970" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1969" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1968" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1967" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1966" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1965" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1964" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1963" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1962" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1961" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1960" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1959" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1958" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1957" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1956" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1955" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1954" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+		<location year="1953" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
+	</finals-location>
+	<dave-markell>
+		<award year="2019" quizzer="Sabrina Boggs" city="Monaca, PA"/>
+		<award year="2018" quizzer="Josh Brannon" city="Greenville, IL"/>
+		<award year="2017" quizzer="Bethany Hartzell" city="Albion, IL"/>
+		<award year="2016" quizzer="Haven Robart" city="Greenville, IL"/>
+		<award year="2015" quizzer="Logan Robart" city="Greenville, IL"/>
+		<award year="2014" quizzer="Kalea Sittig" city="Rochester - New Hope, NY"/>
+		<award year="2013" quizzer="Kirsten Liddle" city="Albion, NY"/>
+		<award year="2012" quizzer="Rebecca Stephenson" city="Marion, IA"/>
+		<award year="2011" quizzer="Alaina Boggs" city="Ellwood City, PA"/>
+		<award year="2010" quizzer="Hannah Schell" city="Wilmore, KY"/>
+		<award year="2009" quizzer="Sarah Stephenson" city="Marion, IA"/>
+		<award year="2008" quizzer="Stephen Hopper" city="Filmore, MN"/>
+		<award year="2007" quizzer="Megan Sisson" city="Monacrest, PA"/>
+		<award year="2006" quizzer="David Colgan" city="Anderson, IN"/>
+		<award year="2005" quizzer="Kendra Houghtaling" city="Vandalia, IL"/>
+		<award year="2005" quizzer="Sarah Hopper" city="Filmore, MN"/>
+		<award year="2004" quizzer="Brian Bither" city="Indianapolis (John-Wesley) IN"/>
+		<award year="2003" quizzer="Andrew Mueller" city="Alton, IL"/>
+		<award year="2003" quizzer="Lydia Scandrett" city="Alton, IL"/>
+		<award year="2002" quizzer="Devin Houghtaling" city="Vandalia, IL"/>
+		<award year="2001" quizzer="Patricia Clark" city="Auburn, WA"/>
+		<award year="2000" quizzer="Elizabeth Bartholomew" city="Issawauh - Mt Creek, WA"/>
+		<award year="1999" quizzer="Greg Coates" city="Springfield, IL"/>
+		<award year="1998" quizzer="Charis Kendall" city="McPherson, KS"/>
+		<award year="1997" quizzer="Josh Houser" city="Springfield, OR"/>
+		<award year="1996" quizzer="James Kramer" city="Willamina, OR"/>
+		<award year="1995" quizzer="Chris Martin" city="McPherson, KS"/>
+		<award year="1994" quizzer="Julie Allman" city="New Brighton, PA"/>
+	</dave-markell>
+	<books-studied>
+		<material year="2023" books="1&amp;2 Timothy, Titus, Matthew 1-13" version="NIV2011"/>
+		<material year="2022" books="Hebrews, 1&amp;2 Peter, Jude" version="NIV2011"/>
+		<material year="2021" books="John" version="NIV2011"/>
+		<material year="2020" books="1&amp;2 Corinthians" version="NIV2011"/>
+		<material year="2019" books="Jonah, Luke 11:29-24:53" version="NIV2011"/>
+		<material year="2018" books="Ruth, Luke 1:1-11:28" version="NIV2011"/>
+		<material year="2017" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" version="NIV2011"/>
+		<material year="2016" books="Acts" version="NIV2011"/>
+		<material year="2015" books="Romans &amp; James" version="NIV2011"/>
+		<material year="2014" books="Matthew version="NIV1984"/>
+		<material year="2013" books="1&amp;2 Thessalonians, 1&amp;2 Timothy, Titus, 1,2&amp;3 John, and Jude" version="NIV2011"/>
+		<material year="2012" books="Hebrews and 1 &amp; 2 Peter" version="NIV1984"/>
+		<material year="2011" books="John" version="NIV1984"/>
+		<material year="2010" books="1 &amp; 2 Corinthians" version="NIV1984"/>
+		<material year="2009" books="Luke version="NIV1984"/>
+		<material year="2008" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" version="NIV1984"/>
+		<material year="2007" books="Acts" version="NIV1984"/>
+		<material year="2006" books="Romans and James" version="NIV1984"/>
+		<material year="2005" books="Matthew" version="NIV1984"/>
+		<material year="2004" books="Hebrews and 1 &amp; 2 Peter" version="NIV1984"/>
+		<material year="2003" books="John" version="NIV1984"/>
+		<material year="2002" books="1 &amp; 2 Corinthians" version="NIV1984"/>
+		<material year="2001" books="Luke" version="NIV1984"/>
+		<material year="2000" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" version="NIV1984"/>
+		<material year="1999" books="Acts" version="NIV1984"/>
+		<material year="1998" books="Romans and James" version="NIV1984"/>
+		<material year="1997" books="Matthew" version="NIV1984"/>
+		<material year="1996" books="Hebrews and 1 &amp; 2 Peter" version="NIV1984"/>
+		<material year="1995" books="John" version="NIV1984"/>
+		<material year="1994" books="1 &amp; 2 Corinthians" version="NIV1984"/>
+		<material year="1993" books="Luke" version="NIV1984"/>
+		<material year="1992" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" version="NIV1984"/>
+		<material year="1991" books="Acts" version="NIV1984"/>
+		<material year="1990" books="Romans and James" version="NIV1984"/>
+		<material year="1989" books="Matthew" version="NIV1984"/>
+		<material year="1988" books="Hebrews and 1 &amp; 2 Peter" version="NIV1984"/>
+		<material year="1987" books="1 &amp; 2 Corinthians" version="NIV1984"/>
+		<material year="1986" books="Acts" version="NIV1984"/>
+		<material year="1985" books="John" version="NIV1984"/>
+		<material year="1984" books="Romans &amp; James" version="NIV1984"/>
+		<material year="1983" books="Galatians, Ephesians, Philippians, and Colossians" version="NIV1978"/>
+		<material year="1982" books="Matthew" version="NIV1978"/>
+		<material year="1981" books="1 &amp; 2 Corinthians" version="NIV1978"/>
+		<material year="1980" books="Acts" version="NIV1978"/>
+		<material year="1979" books="John" version="NIV1978"/>
+		<material year="1978" books="Romans &amp; James" version="NIV1978"/>
+		<material year="1977" books="Galatians, Ephesians, Philippians, and Colossians" version="KJV"/>
+		<material year="1976" books="Matthew" version="KJV"/>
+		<material year="1975" books="1 &amp; 2 Corinthians" version="KJV"/>
+		<material year="1974" books="Acts" version="KJV"/>
+		<material year="1973" books="John" version="KJV"/>
+		<material year="1972" books="Romans &amp; Galatians (Good News for Modern Man)"/>
+		<material year="1971" books="Matthew" version="KJV"/>
+		<material year="1970" books="1 &amp; 2 Corinthians" version="KJV"/>
+		<material year="1969" books="Mark and Philippians" version="KJV"/>
+		<material year="1968" books="John" version="KJV"/>
+		<material year="1967" books="Acts" version="KJV"/>
+		<material year="1966" books="Luke" version="KJV"/>
+		<material year="1965" books="Romans" version="KJV"/>
+		<material year="1964" books="1 &amp; 2 Peter and 1, 2, 3 John" version="KJV"/>
+		<material year="1963" books="Matthew" version="KJV"/>
+		<material year="1962" books="John" version="KJV"/>
+		<material year="1961" books="Mark and 1 Corinthians" version="KJV"/>
+		<material year="1960" books="Acts" version="KJV"/>
+		<material year="1959" books="Luke" version="KJV"/>
+		<material year="1958" books="Genesis" version="KJV"/>
+		<material year="1957" books="John" version="KJV"/>
+		<material year="1956" books="Romans" version="KJV"/>
+		<material year="1955" books="Acts" version="KJV"/>
+		<material year="1954" books="Matthew" version="KJV"/>
+		<material year="1953" books="Mark" version="KJV"/>
+	</books-studied>
+</history>
