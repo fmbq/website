@@ -1,6 +1,6 @@
 use crate::{
     domain::rules::{get_rulebook, ContentData, List, ListOption, Rule, RuleChild},
-    web::components::layout::layout,
+    web::components::{layout::layout, markdown::markdown},
 };
 
 use maud::{html, Markup};
@@ -45,10 +45,10 @@ fn render_rule(rule: &Rule, ids: &[u16]) -> Markup {
                     div { (render_list(l)) }
                 },
                 RuleChild::Note(n) => {
-                    p { (n.text) }
+                    p { (markdown(&n.text)) }
                 },
                 RuleChild::Section(s) => {
-                    div.rule_normal { (s.text) }
+                    div.rule_normal { (markdown(&s.text)) }
                 }
             }
         }
@@ -87,10 +87,10 @@ fn render_list_items(list: &List) -> Markup {
                         div { (render_list(l)) }
                     },
                     ContentData::Note(n) => {
-                        p { (n.text) }
+                        p { (markdown(&n.text)) }
                     },
                     ContentData::Section(s) => {
-                        p { (s.text) }
+                        p { (markdown(&s.text)) }
                     }
                 }
             }
@@ -121,6 +121,11 @@ pub fn render() -> Markup {
             div { "Effective " (rulebook.titlepage.effective.format("%v")) }
             br;
 
+            div {
+                @for section in &rulebook.subtitlepage.section {
+                    div { (markdown(section)) }
+                }
+            }
             hr;
 
             @for rule in &rulebook.contents.rules {

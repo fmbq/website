@@ -1,5 +1,5 @@
 use crate::{
-    domain::markell::{get_markell, Markell },
+    domain::markell::get_markell,
     web::components::layout::layout,
 };
 
