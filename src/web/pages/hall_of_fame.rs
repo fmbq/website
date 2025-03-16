@@ -1,5 +1,5 @@
 use crate::{
-    domain::hall_of_fame::{get_halloffame, HOFInductee, HOFQuestion, HOFAnswer },
+    domain::hall_of_fame::get_halloffame,
     web::components::layout::layout,
 };
 
