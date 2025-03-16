@@ -71,6 +71,11 @@ pub fn markell() -> Html<Markup> {
 }
 
 #[handler]
+pub fn material() -> Html<Markup> {
+    Html(pages::material::render())
+}
+
+#[handler]
 pub fn events() -> SSE {
     sse::subscribe()
 }

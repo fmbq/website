@@ -9,12 +9,12 @@ pub fn render() -> Markup {
 
             h2 { "Materials" }
             p {
-                ul {
-                    li {"2024 - 2025 Romans & James "
+
+                    "2024 - 2025 Romans & James "
                         a href="/quotes" {"Quote List"}
-                    }
-                    li {"2023 - 2024 Matthew 14 - 28, 1 Thessalonians, 2 Thessalonians"}
-                    }
+                    br;
+                    a href="/material" {"Past Materials Studied"}
+
             }
 
             h2 { "Rules" }

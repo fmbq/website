@@ -1,0 +1,82 @@
+<materials>
+    <material year="2027" books="1 John, 2 John, 3 John, Revelation" translation="NIV2011"/>
+
+    <material year="2026" books="Acts 15 - 28, Ephesians, Philippians" translation="NIV2011"/>
+    <material year="2025" books="Acts 1-14, Galatians, Colossians, Philemon" translation="NIV2011"/>
+    <material year="2024" books="Romans   James" translation="NIV2011"/>
+    <material year="2023" books="1 2 Timothy, Titus, Matthew 1-13" translation="NIV2011"/>
+    <material year="2022" books="Hebrews, 1 2 Peter, Jude" translation="NIV2011"/>
+    <material year="2021" books="John" translation="NIV2011"/>
+    <material year="2020" books="1 2 Corinthians" translation="NIV2011"/>
+    <material year="2019" books="Jonah, Luke 11:29-24:53" translation="NIV2011"/>
+    <material year="2018" books="Ruth, Luke 1:1-11:28" translation="NIV2011"/>
+    <material year="2017" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" translation="NIV2011"/>
+    <material year="2016" books="Acts" translation="NIV2011"/>
+    <material year="2015" books="Romans   James" translation="NIV2011"/>
+    <material year="2014" books="Matthew" translation="NIV1984"/>
+    <material year="2013" books="1 2 Thessalonians, 1 2 Timothy, Titus, 1,2 3 John, and Jude" translation="NIV2011"/>
+    <material year="2012" books="Hebrews and 1   2 Peter" translation="NIV1984"/>
+    <material year="2011" books="John" translation="NIV1984"/>
+    <material year="2010" books="1   2 Corinthians" translation="NIV1984"/>
+
+    <material year="2009" books="Luke" translation="NIV1984"/>
+    <material year="2008" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" translation="NIV1984"/>
+    <material year="2007" books="Acts" translation="NIV1984"/>
+    <material year="2006" books="Romans and James" translation="NIV1984"/>
+    <material year="2005" books="Matthew" translation="NIV1984"/>
+    <material year="2004" books="Hebrews and 1   2 Peter" translation="NIV1984"/>
+    <material year="2003" books="John" translation="NIV1984"/>
+    <material year="2002" books="1   2 Corinthians" translation="NIV1984"/>
+    <material year="2001" books="Luke" translation="NIV1984"/>
+    <material year="2000" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" translation="NIV1984"/>
+    <material year="1999" books="Acts" translation="NIV1984"/>
+    <material year="1998" books="Romans and James" translation="NIV1984"/>
+    <material year="1997" books="Matthew" translation="NIV1984"/>
+    <material year="1996" books="Hebrews and 1   2 Peter" translation="NIV1984"/>
+    <material year="1995" books="John" translation="NIV1984"/>
+
+    <material year="1994" books="1   2 Corinthians" translation="NIV1984"/>
+    <material year="1993" books="Luke" translation="NIV1984"/>
+    <material year="1992" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" translation="NIV1984"/>
+    <material year="1991" books="Acts" translation="NIV1984"/>
+    <material year="1990" books="Romans and James" translation="NIV1984"/>
+    <material year="1989" books="Matthew" translation="NIV1984"/>
+    <material year="1988" books="Hebrews and 1   2 Peter" translation="NIV1984"/>
+    <material year="1987" books="1   2 Corinthians" translation="NIV1984"/>
+    <material year="1986" books="Acts" translation="NIV1984"/>
+    <material year="1985" books="John" translation="NIV1984"/>
+    <material year="1984" books="Romans   James" translation="NIV1984"/>
+    <material year="1983" books="Galatians, Ephesians, Philippians, and Colossians" translation="NIV1978"/>
+    <material year="1982" books="Matthew" translation="NIV1978"/>
+
+    <material year="1981" books="1   2 Corinthians" translation="NIV1978"/>
+    <material year="1980" books="Acts" translation="NIV1978"/>
+    <material year="1979" books="John" translation="NIV1978"/>
+    <material year="1978" books="Romans   James" translation="NIV1978"/>
+    <material year="1977" books="Galatians, Ephesians, Philippians, and Colossians" translation="KJV"/>
+    <material year="1976" books="Matthew" translation="KJV"/>
+    <material year="1975" books="1   2 Corinthians" translation="KJV"/>
+    <material year="1974" books="Acts" translation="KJV"/>
+    <material year="1973" books="John" translation="KJV"/>
+    <material year="1972" books="Romans   Galatians" translation="Good News for Modern Man"/>
+    <material year="1971" books="Matthew" translation="KJV"/>
+    <material year="1970" books="1   2 Corinthians" translation="KJV"/>
+    <material year="1969" books="Mark and Philippians" translation="KJV"/>
+    <material year="1968" books="John" translation="KJV"/>
+    <material year="1967" books="Acts" translation="KJV"/>
+    <material year="1966" books="Luke" translation="KJV"/>
+    <material year="1965" books="Romans" translation="KJV"/>
+    <material year="1964" books="1   2 Peter and 1, 2, 3 John" translation="KJV"/>
+    <material year="1963" books="Matthew" translation="KJV"/>
+    <material year="1962" books="John" translation="KJV"/>
+    <material year="1961" books="Mark and 1 Corinthians" translation="KJV"/>
+    <material year="1960" books="Acts" translation="KJV"/>
+    <material year="1959" books="Luke" translation="KJV"/>
+    <material year="1958" books="Genesis" translation="KJV"/>
+    <material year="1957" books="John" translation="KJV"/>
+    <material year="1956" books="Romans" translation="KJV"/>
+    <material year="1955" books="Acts" translation="KJV"/>
+    <material year="1954" books="Matthew" translation="KJV"/>
+    <material year="1953" books="Mark" translation="KJV"/>
+
+</materials>
