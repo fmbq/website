@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "fmbq-website",
+            "terminal": "console",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=fmbq-website",
+                    "--package=fmbq-website"
+                ],
+                "filter": {
+                    "name": "fmbq-website",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "tests",
+            "terminal": "console",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=fmbq-website",
+                    "--package=fmbq-website"
+                ],
+                "filter": {
+                    "name": "fmbq-website",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
