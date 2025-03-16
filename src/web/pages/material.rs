@@ -1,5 +1,5 @@
 use crate::{
-    domain::material::{get_material, Material },
+    domain::material::get_material,
     web::components::layout::layout,
 };
 
