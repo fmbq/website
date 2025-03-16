@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "dotjoshjohnson.xml",
+        "editorconfig.editorconfig",
+        "rogalmic.vscode-xml-complete",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml"
+    ]
+}
