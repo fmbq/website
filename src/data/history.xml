@@ -1,5 +1,7 @@
 <history updated="9/9/2024">
 	<champions-stv>
+		<champion year="2024" church="New Hope" city="Rochester, NY" members="Gavin Sittig, Ruthie Baxer, Anna Rose VandeBrake and Simon Sykora"/>
+		<champion year="2023" church="New Hope" city="Rochester, NY" members="Landon Sittig, Gavin Sittig, Abby Lyon"/>
 		<champion year="2022" church="New Hope" city="Rochester, NY" members="Landon Sittig, Gavin Sittig, Isaac Salisbury"/>
 		<champion year="2021" church="New Hope" city="Rochester, NY" members="Landon Sittig, Alena Perkins"/>
 		<champion year="2020" note="Cancelled due to COVID"/>
@@ -118,6 +120,9 @@
 		<champion year="1980" quizzer="Mark Colgan" church="New Castle, IN"/>
 	</champions-individuals-stv>
 	<finals-location>
+		<location year="2025" place="Seattle Pacific University" city="Seattle, WA"/>
+		<location year="2024" place="Waynesburg University" city="Waynesburg, PA"/>
+		<location year="2023" place="Greenville University" city="Greenville, IL"/>
 		<location year="2022" place="Asbury University" city="Wilmore, KY"/>
 		<location year="2021" place="Olivet Nazarene University" city="Bourbonnais, IL"/>
 		<location year="2020" city="ONLINE"/>
@@ -188,37 +193,11 @@
 		<location year="1954" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
 		<location year="1953" place="Winona Lake Youth Camp" city="Winona Lake, IN"/>
 	</finals-location>
-	<dave-markell>
-		<award year="2019" quizzer="Sabrina Boggs" city="Monaca, PA"/>
-		<award year="2018" quizzer="Josh Brannon" city="Greenville, IL"/>
-		<award year="2017" quizzer="Bethany Hartzell" city="Albion, IL"/>
-		<award year="2016" quizzer="Haven Robart" city="Greenville, IL"/>
-		<award year="2015" quizzer="Logan Robart" city="Greenville, IL"/>
-		<award year="2014" quizzer="Kalea Sittig" city="Rochester - New Hope, NY"/>
-		<award year="2013" quizzer="Kirsten Liddle" city="Albion, NY"/>
-		<award year="2012" quizzer="Rebecca Stephenson" city="Marion, IA"/>
-		<award year="2011" quizzer="Alaina Boggs" city="Ellwood City, PA"/>
-		<award year="2010" quizzer="Hannah Schell" city="Wilmore, KY"/>
-		<award year="2009" quizzer="Sarah Stephenson" city="Marion, IA"/>
-		<award year="2008" quizzer="Stephen Hopper" city="Filmore, MN"/>
-		<award year="2007" quizzer="Megan Sisson" city="Monacrest, PA"/>
-		<award year="2006" quizzer="David Colgan" city="Anderson, IN"/>
-		<award year="2005" quizzer="Kendra Houghtaling" city="Vandalia, IL"/>
-		<award year="2005" quizzer="Sarah Hopper" city="Filmore, MN"/>
-		<award year="2004" quizzer="Brian Bither" city="Indianapolis (John-Wesley) IN"/>
-		<award year="2003" quizzer="Andrew Mueller" city="Alton, IL"/>
-		<award year="2003" quizzer="Lydia Scandrett" city="Alton, IL"/>
-		<award year="2002" quizzer="Devin Houghtaling" city="Vandalia, IL"/>
-		<award year="2001" quizzer="Patricia Clark" city="Auburn, WA"/>
-		<award year="2000" quizzer="Elizabeth Bartholomew" city="Issawauh - Mt Creek, WA"/>
-		<award year="1999" quizzer="Greg Coates" city="Springfield, IL"/>
-		<award year="1998" quizzer="Charis Kendall" city="McPherson, KS"/>
-		<award year="1997" quizzer="Josh Houser" city="Springfield, OR"/>
-		<award year="1996" quizzer="James Kramer" city="Willamina, OR"/>
-		<award year="1995" quizzer="Chris Martin" city="McPherson, KS"/>
-		<award year="1994" quizzer="Julie Allman" city="New Brighton, PA"/>
-	</dave-markell>
 	<books-studied>
+		<material year="2027" books="1 John, 2 John, 3 John, Revelation" version="NIV2011"/>
+		<material year="2026" books="Acts 15 - 28, Ephesians, Philippians" version="NIV2011"/>
+		<material year="2025" books="Acts 1-14, Galatians, Colossians, Philemon" version="NIV2011"/>
+		<material year="2024" books="Romans &amp; James" version="NIV2011"/>
 		<material year="2023" books="1&amp;2 Timothy, Titus, Matthew 1-13" version="NIV2011"/>
 		<material year="2022" books="Hebrews, 1&amp;2 Peter, Jude" version="NIV2011"/>
 		<material year="2021" books="John" version="NIV2011"/>
@@ -228,12 +207,12 @@
 		<material year="2017" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" version="NIV2011"/>
 		<material year="2016" books="Acts" version="NIV2011"/>
 		<material year="2015" books="Romans &amp; James" version="NIV2011"/>
-		<material year="2014" books="Matthew version="NIV1984"/>
+		<material year="2014" books="Matthew" version="NIV1984"/>
 		<material year="2013" books="1&amp;2 Thessalonians, 1&amp;2 Timothy, Titus, 1,2&amp;3 John, and Jude" version="NIV2011"/>
 		<material year="2012" books="Hebrews and 1 &amp; 2 Peter" version="NIV1984"/>
 		<material year="2011" books="John" version="NIV1984"/>
 		<material year="2010" books="1 &amp; 2 Corinthians" version="NIV1984"/>
-		<material year="2009" books="Luke version="NIV1984"/>
+		<material year="2009" books="Luke" version="NIV1984"/>
 		<material year="2008" books="Galatians, Ephesians, Philippians, Colossians, and Philemon" version="NIV1984"/>
 		<material year="2007" books="Acts" version="NIV1984"/>
 		<material year="2006" books="Romans and James" version="NIV1984"/>

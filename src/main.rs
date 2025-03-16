@@ -54,6 +54,7 @@ async fn main() -> Result<()> {
         .at("/rules", get(routes::rules::get_html))
         .at("/rules/rules.pdf", get(routes::rules::get_pdf))
         .at("/hall-of-fame", get(routes::hall_of_fame))
+        .at("/markell", get(routes::markell))
         .at("/playground", get(routes::playground))
         .at("/time", get(routes::time))
         .at("/events", get(routes::events))

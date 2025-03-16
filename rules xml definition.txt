@@ -1,0 +1,53 @@
+            <section type="list" option="unordered">
+              <item>Young Teen Rookie Team </item>
+
+
+
+
+          <section>**Two-part questions.**  A question has two parts if:</section>
+          <section type="list" option="unordered">
+            <item>There are two subjects with one verb.</item>
+            <item>There are two verbs with one subject.</item>
+            <item>There are two question words.</item>
+            <item>There are two parts (objects) in a key prepositional phrase.</item>
+            <item>There is a divided predicate (two objects of the verb</item>
+          </section>
+          <section type="note">**Note:** If the answer is single and applies to both parts, the words "both ... and" may be used to eliminate the two parts. Questions that ask for comparisons or relationships between objects are not two parts because these words connote two parts.</section>
+          <section type="list" option="unordered">
+            <item>A Quote involving more than one of the stated verse(s) references given on the Official List of Quotes.</item>
+          </section>
+		  
+		  
+		  
+<rules year="" effective="">
+	<titlepage>
+		<title></title>
+		<subtitle></subtitle>
+		<edition></edition>
+		<copyright></copyright>
+		<website uri=""></website>
+		<email uri=""></email>
+		<footer></footer>
+	</titlepage>
+	
+	<subtitlepage>
+		<section></section>		
+	</subtitlepage>
+	
+	<contents>
+		<rule id="" type="header" title="">
+			<rule/>
+			<section type="list|note|newline" option="numeric|alpha-lower">
+				<item>
+					<section/>
+				</item>				
+			</section>
+		</rule>
+	</contents>
+</rules>
+
+
+rule can have rules and sections
+sections can have items
+items can have sections
+rules can have sections OR rules, but shouldn't have both

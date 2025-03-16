@@ -17,9 +17,10 @@ pub fn render() -> Markup {
                 img src="/static/resources/photos/benson.jpg" height="400px" {""}
             }
 
-            h1 { "Dave Markell" }
-            p { "add description here" }
-
+            h1 { "Dave Markell Attitude in Excellence Award" }
+            p { "The " a href="/markell" {"Dave Markell Attitude in Excellence Award"} " is given out annually at quiz finals." }
+            
+            
             h1 { "Hall of Fame" }
             p { "Beginning at the 2003 Bible Quiz Finals at Roberts Wesleyan College (on the 50th anniversary of Free Methodist Bible Quizzing), special recognition was given to former quizzers who not only did well in competition, but more importantly who applied what they learned and are currently living God-honoring lives in faithful service for the Lord." }
 
@@ -47,6 +48,9 @@ pub fn render() -> Markup {
             }
 
             a href="/hall-of-fame" {"Hall of Fame Members"}
+
+            p {}
+            p {}
         },
     )
 }

@@ -2,69 +2,56 @@ use serde::Deserialize;
 use std::sync::OnceLock;
 
 static HOF_XML: &str = include_str!("../data/halloffame.xml");
-static HOF_MEMBERS: OnceLock<HallOfFame> = OnceLock::new();
+static HALLOFFAME: OnceLock<HallOfFame> = OnceLock::new();
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct QuoteSeason {
-    #[serde(rename = "@id")]
-    pub id: u64,
-    #[serde(rename = "@books")]
-    pub books: String,
-    #[serde(rename = "@verses")]
-    pub verses: u16,
-    pub month: Vec<QuoteMonth>,
-}
-
-impl QuoteSeason {
-    /// Get the quote count for a season
-    pub fn get_quote_count(&self) -> u16 {
-        self.month
-            .iter()
-            .map(|month| month.quote.len())
-            .sum::<usize>()
-            .try_into()
-            .unwrap()
-    }
-}
-
-#[derive(Clone, Debug, Deserialize)]
-pub struct QuoteMonth {
-    #[serde(rename = "@id")]
-    pub id: String,
+pub struct HOFInductee {
     #[serde(rename = "@name")]
     pub name: String,
-    #[serde(rename = "@material")]
-    pub material: String,
-    #[serde(rename = "@verses")]
-    pub verses: u16,
-    pub quote: Vec<QuoteVerse>,
+    #[serde(rename = "@inducted")]
+    pub inducted: u16,
+    #[serde(rename = "@participated")]
+    pub participated: String,
+    #[serde(rename = "@church")]
+    pub church: String,
+    #[serde(rename = "@city")]
+    pub city: String,
+    #[serde(rename = "@state")]
+    pub state: String,
+    #[serde(rename = "@image")]
+    pub image: String,
+    #[serde(rename = "qa")]
+    pub questions: Vec<HOFQuestion>,
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct QuoteVerse {
-    #[serde(rename = "@reference")]
-    pub reference: String,
+pub struct HOFQuestion {
+    #[serde(rename = "@question")]
+    pub text: String,
+    #[serde(rename = "answer")]
+    pub answers: Vec<HOFAnswer>,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+pub struct HOFAnswer {
     #[serde(rename = "$text")]
-    pub verse: String,
+    pub text: String,
 }
 
 #[derive(Clone, Debug, Deserialize)]
 pub struct HallOfFame {
-    pub inductee: Vec<QuoteSeason>,
+    pub inductee: Vec<HOFInductee>,
 }
 
-pub fn get_season_by_id(season_id: u64) -> Option<&'static QuoteSeason> {
-    get_all().iter().find(|season| season.id == season_id)
+
+pub fn get_halloffame() -> &'static HallOfFame {
+    HALLOFFAME.get_or_init(load)
 }
 
-/// Get all quote seasons.
-pub fn get_all() -> &'static [HallOfFame] {
-    HOF_MEMBERS.get_or_init(load).season.as_slice()
-}
-
-fn load() -> Quotes {
+fn load() -> HallOfFame {
     quick_xml::de::from_str(HOF_XML).unwrap()
 }
+
 
 #[cfg(test)]
 mod tests {}

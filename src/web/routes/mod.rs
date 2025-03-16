@@ -66,6 +66,11 @@ pub fn hall_of_fame() -> Html<Markup> {
 }
 
 #[handler]
+pub fn markell() -> Html<Markup> {
+    Html(pages::markell::render())
+}
+
+#[handler]
 pub fn events() -> SSE {
     sse::subscribe()
 }
