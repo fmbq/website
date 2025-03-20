@@ -2,7 +2,7 @@
 
 use color_eyre::eyre::{bail, Result};
 use poem::{
-    endpoint::{EmbeddedFilesEndpoint, StaticFilesEndpoint},
+    endpoint::{EmbeddedFilesEndpoint, StaticFileEndpoint, StaticFilesEndpoint},
     get,
     web::sse::Event,
     EndpointExt, Route,
@@ -67,6 +67,8 @@ async fn main() -> Result<()> {
             get(routes::photos::get_photo),
         )
         .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
+        .at("/favicon.ico", StaticFileEndpoint::new("wwwroot/favicon.ico"))
+        .at("/apple-touch-icon.png", StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"))
         .with(web::middleware::headers::security_headers())
         .data(project_dirs)
         .data(db::create_connection_pool()?)
