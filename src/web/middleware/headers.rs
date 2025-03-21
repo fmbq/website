@@ -3,7 +3,7 @@ use poem::middleware::SetHeader;
 /// Return a middleware that sets some static security headers.
 pub fn security_headers() -> SetHeader {
     SetHeader::new()
-        .appending("content-security-policy", "default-src 'self'")
+        .appending("content-security-policy", "default-src 'self'; img-src 'self' placeholder.pics")
         .appending(
             "permissions-policy",
             "geolocation=(), microphone=(), camera=()",

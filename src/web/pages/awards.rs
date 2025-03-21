@@ -1,27 +1,37 @@
-use crate::web::components::layout::layout;
+use crate::web::components::{cards::BigImageCard, layout::layout};
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
     layout(
         "Awards",
         html! {
-            h1 { "Alpha Omega" }
-            p { "add description here" }
-            p {
-                img src="/static/resources/photos/alpha-omega.jpg" height="400px" {""}
-            }
+            h1 { "Awards" }
 
-            h1 { "Benson" }
-            p { "add description here" }
-            p {
-                img src="/static/resources/photos/benson.jpg" height="400px" {""}
-            }
+            (BigImageCard {
+                title: "Alpha Omega",
+                image_src: "/static/resources/photos/alpha-omega.jpg",
+                body: html! {
+                    p { "add description here" }
+                },
+            })
 
-            h1 { "Dave Markell Attitude in Excellence Award" }
-            p { "The " a href="/markell" {"Dave Markell Attitude in Excellence Award"} " is given out annually at quiz finals." }
-            
-            
-            h1 { "Hall of Fame" }
+            (BigImageCard {
+                title: "Benson",
+                image_src: "/static/resources/photos/benson.jpg",
+                body: html! {
+                    p { "add description here" }
+                },
+            })
+
+            (BigImageCard {
+                title: "Dave Markell Attitude in Excellence Award",
+                image_src: "https://placeholder.pics/svg/300/DEDEDE/555555/Dave%20Markell",
+                body: html! {
+                    p { "The " a href="/markell" {"Dave Markell Attitude in Excellence Award"} " is given out annually at quiz finals." }
+                },
+            })
+
+            h2 { "Hall of Fame" }
             p { "Beginning at the 2003 Bible Quiz Finals at Roberts Wesleyan College (on the 50th anniversary of Free Methodist Bible Quizzing), special recognition was given to former quizzers who not only did well in competition, but more importantly who applied what they learned and are currently living God-honoring lives in faithful service for the Lord." }
 
             h3 { "Purpose:" }

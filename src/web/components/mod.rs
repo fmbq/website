@@ -1,4 +1,5 @@
 pub mod admin;
+pub mod cards;
 pub mod copyright;
 pub mod email;
 pub mod header;
