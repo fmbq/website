@@ -8,7 +8,10 @@ pub fn security_headers() -> SetHeader {
     SetHeader::new()
         .appending(
             CONTENT_SECURITY_POLICY,
-            "default-src 'self'; img-src 'self' placeholder.pics",
+            "default-src 'self'; \
+            img-src 'self' placeholder.pics; \
+            style-src-elem 'self' 'unsafe-inline'; \
+            script-src 'self' 'unsafe-inline' 'unsafe-eval'",
         )
         .appending(
             "permissions-policy",

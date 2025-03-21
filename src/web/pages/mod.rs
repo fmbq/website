@@ -1,4 +1,5 @@
 pub mod admin;
+pub mod errors;
 pub mod login;
 pub mod playground;
 

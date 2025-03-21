@@ -70,6 +70,8 @@ async fn main() -> Result<()> {
         .at("/favicon.ico", StaticFileEndpoint::new("wwwroot/favicon.ico"))
         .at("/apple-touch-icon.png", StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"))
         .with(web::middleware::headers::security_headers())
+        .catch_error(routes::errors::not_found)
+        .with(web::middleware::boost::BoostMiddleware)
         .data(project_dirs)
         .data(db::create_connection_pool()?)
         .data(services::email::Mailer::new()?);

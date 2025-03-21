@@ -13,3 +13,14 @@ impl<'a> FromRequest<'a> for HxRequest {
         Ok(HxRequest(is_hx_request))
     }
 }
+
+/// Checks if the request is an htmx request.
+pub struct HxBoosted(pub bool);
+
+impl<'a> FromRequest<'a> for HxBoosted {
+    async fn from_request(request: &'a Request, _body: &mut RequestBody) -> Result<Self> {
+        let is_hx_request = request.headers().get("hx-boosted").is_some();
+
+        Ok(HxBoosted(is_hx_request))
+    }
+}
