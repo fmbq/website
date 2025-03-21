@@ -1,15 +1,8 @@
 #![allow(dead_code)]
 
 use color_eyre::eyre::{bail, Result};
-use poem::{
-    endpoint::{EmbeddedFilesEndpoint, StaticFileEndpoint, StaticFilesEndpoint},
-    get,
-    web::sse::Event,
-    EndpointExt, Route,
-};
-use rust_embed::Embed;
+use poem::{web::sse::Event, EndpointExt};
 use std::env;
-use web::routes;
 
 mod config;
 mod db;
@@ -18,10 +11,6 @@ mod services;
 mod session;
 mod util;
 mod web;
-
-#[derive(Embed)]
-#[folder = "js"]
-struct JsDirectory;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -42,36 +31,7 @@ async fn main() -> Result<()> {
     tracing::info!("initializing database");
     db::init().await?;
 
-    let app = Route::new()
-        .at("/", get(routes::home))
-        .at("/about", get(routes::about))
-        .at("/schedule", get(routes::schedule))
-        .at("/resources", get(routes::resources))
-        .at("/awards", get(routes::awards))
-        .at("/support-us", get(routes::support_us))
-        .at("/contacts", get(routes::contacts))
-        .at("/quotes", get(routes::quotes))
-        .at("/rules", get(routes::rules::get_html))
-        .at("/rules/rules.pdf", get(routes::rules::get_pdf))
-        .at("/hall-of-fame", get(routes::hall_of_fame))
-        .at("/markell", get(routes::markell))
-        .at("/material", get(routes::material))
-        .at("/playground", get(routes::playground))
-        .at("/time", get(routes::time))
-        .at("/events", get(routes::events))
-        .nest("/admin", routes::admin::routes())
-        .nest("/styles", routes::css::routes())
-        .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
-        .at(
-            "/static/resources/photos/:image",
-            get(routes::photos::get_photo),
-        )
-        .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
-        .at("/favicon.ico", StaticFileEndpoint::new("wwwroot/favicon.ico"))
-        .at("/apple-touch-icon.png", StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"))
-        .with(web::middleware::headers::security_headers())
-        .catch_error(routes::errors::not_found)
-        .with(web::middleware::boost::BoostMiddleware)
+    let app = web::root()
         .data(project_dirs)
         .data(db::create_connection_pool()?)
         .data(services::email::Mailer::new()?);

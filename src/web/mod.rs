@@ -1,10 +1,60 @@
 //! Everything related to web endpoints and HTML rendering is contained within
 //! this module.
 
+use poem::{
+    endpoint::{EmbeddedFilesEndpoint, StaticFileEndpoint, StaticFilesEndpoint},
+    get, EndpointExt, IntoEndpoint, Route,
+};
+use rust_embed::Embed;
+
 pub mod components;
-pub mod middleware;
-pub mod pages;
-pub mod routes;
 pub mod sse;
 
 mod login_context;
+mod middleware;
+mod pages;
+mod routes;
+
+/// Root endpoint for the whole website. All routes are wired up here.
+pub fn root() -> impl IntoEndpoint {
+    #[derive(Embed)]
+    #[folder = "js"]
+    struct JsDirectory;
+
+    Route::new()
+        .at("/", get(routes::home))
+        .at("/about", get(routes::about))
+        .at("/schedule", get(routes::schedule))
+        .at("/resources", get(routes::resources))
+        .at("/awards", get(routes::awards))
+        .at("/support-us", get(routes::support_us))
+        .at("/contacts", get(routes::contacts))
+        .at("/quotes", get(routes::quotes))
+        .at("/rules", get(routes::rules::get_html))
+        .at("/rules/rules.pdf", get(routes::rules::get_pdf))
+        .at("/hall-of-fame", get(routes::hall_of_fame))
+        .at("/markell", get(routes::markell))
+        .at("/material", get(routes::material))
+        .at("/playground", get(routes::playground))
+        .at("/time", get(routes::time))
+        .at("/events", get(routes::events))
+        .nest("/admin", routes::admin::routes())
+        .nest("/styles", routes::css::routes())
+        .nest("/js", EmbeddedFilesEndpoint::<JsDirectory>::new())
+        .at(
+            "/static/resources/photos/:image",
+            get(routes::photos::get_photo),
+        )
+        .nest("/static", StaticFilesEndpoint::new("wwwroot/static"))
+        .at(
+            "/favicon.ico",
+            StaticFileEndpoint::new("wwwroot/favicon.ico"),
+        )
+        .at(
+            "/apple-touch-icon.png",
+            StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"),
+        )
+        .catch_error(routes::errors::not_found)
+        .with(middleware::boost::BoostMiddleware)
+        .with(middleware::headers::security_headers())
+}
