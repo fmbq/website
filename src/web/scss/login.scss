@@ -1,5 +1,5 @@
-@use 'base';
-@use 'forms';
+@use 'common/base';
+@use 'common/forms';
 
 form.login {
     display: flex;

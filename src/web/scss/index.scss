@@ -1,20 +1,26 @@
-@use 'base';
-@use 'layout';
-@use 'fonts';
-@use 'forms';
-@use 'header';
-@use 'footer';
-@use 'hero';
-@use 'about';
-@use 'rules';
-@use 'home';
-@use 'resources';
+@use 'common/fonts';
+@use 'common/base';
+@use 'common/forms';
+@use 'public/layout';
+@use 'public/header';
+@use 'public/footer';
+@use 'public/cards';
+@use 'public/hero';
+@use 'public/about';
+@use 'public/rules';
+@use 'public/home';
+@use 'public/resources';
 
-html {
-    // background-color: #efefef;
-    background-color: var(--color-brown);
-    background-image: url("/static/resources/textures/noise.png");
-    background-blend-mode: multiply;
+// Set a background on the root element to influence the color of "overscroll"
+// areas in browsers that do that to match the footer.
+:root {
+    background-color: var(--color-mocha);
+}
+
+// Set the background for the overall page.
+body {
+    background-color: var(--color-vintage-white);
+    background-image: url("/static/resources/textures/halftone.png");
 }
 
 body {

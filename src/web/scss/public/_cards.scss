@@ -1,0 +1,25 @@
+.big-image-card {
+    margin: 1rem 3rem;
+
+    .card-contents {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+        border: var(--border-width) solid var(--color-vintage-black);
+        border-radius: 7px;
+
+        background-color: var(--color-yellow);
+
+        .left, .right {
+            padding: 1rem;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            border: var(--border-width) solid var(--color-vintage-black);
+            border-radius: 7px;
+        }
+    }
+}

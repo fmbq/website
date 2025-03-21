@@ -20,15 +20,15 @@
 
 
 body > header {
-    --border-width: 1px;
+    // --border-width: 1px;
 
     position: sticky;
     top: 0;
-    background-color: var(--color-vintage-white);
+    background-color: var(--color-almost-white);
     border-bottom: var(--border-width) solid var(--color-vintage-black);
-    margin-top: 6px;
+    // margin-top: 6px;
     z-index: 2;
-    box-shadow: 0 -2px 0 var(--color-deep-purple), 0 -6px 0 var(--color-purple);
+    // box-shadow: 0 -2px 0 var(--color-deep-purple), 0 -6px 0 var(--color-purple);
 
     a#logo, a#logo:visited {
         display: block;
@@ -83,7 +83,7 @@ body > header {
             opacity: 0;
             flex-direction: column;
             border-bottom: var(--border-width) solid var(--color-vintage-black);
-            background-color: var(--color-vintage-white);
+            background-color: var(--color-almost-white);
             transition: visibility 150ms linear, opacity 150ms ease-in-out;
 
             a {
