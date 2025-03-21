@@ -2,7 +2,7 @@ use maud::{html, Markup};
 
 pub fn header() -> Markup {
     html! {
-        header {
+        header role="banner" {
             nav hx-boost="true" {
                 div {
                     a id="logo" class="title" href="/" {

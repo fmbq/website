@@ -27,7 +27,7 @@ body > header {
     background-color: var(--color-almost-white);
     border-bottom: var(--border-width) solid var(--color-vintage-black);
     // margin-top: 6px;
-    z-index: 2;
+    z-index: 10;
     // box-shadow: 0 -2px 0 var(--color-deep-purple), 0 -6px 0 var(--color-purple);
 
     a#logo, a#logo:visited {

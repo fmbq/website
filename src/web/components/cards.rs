@@ -1,3 +1,4 @@
+use super::images::SmartFigure;
 use maud::{html, Markup, Render};
 
 pub struct BigImageCard<'a> {
@@ -14,7 +15,11 @@ impl Render for BigImageCard<'_> {
 
                 .card-contents {
                     .left {
-                        img src=(self.image_src) alt=(self.title) {}
+                        (SmartFigure {
+                            image_src: self.image_src,
+                            alt_text: self.title,
+                            caption: None,
+                        })
                     }
                     .right {
                         (self.body)
