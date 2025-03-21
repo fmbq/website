@@ -2,8 +2,7 @@ use crate::{db::users, db::Pool, web::components::login_layout::login_layout};
 use maud::{html, Markup};
 use poem::{
     handler,
-    web::{Data, Form, Html},
-    IntoResponse, Response,
+    web::{Data, Form},
 };
 use serde::Deserialize;
 
@@ -14,8 +13,8 @@ pub struct CreateAccountForm {
 }
 
 #[handler]
-pub fn get() -> Html<Markup> {
-    Html(login_layout(
+pub fn get() -> Markup {
+    login_layout(
         "Create Account",
         html! {
             form.login method="post" action="" {
@@ -30,24 +29,23 @@ pub fn get() -> Html<Markup> {
                 button type="submit" { "Create Account" }
             }
         },
-    ))
+    )
 }
 
 #[handler]
-pub async fn submit(Data(db): Data<&Pool>, Form(f): Form<CreateAccountForm>) -> Response {
+pub async fn submit(Data(db): Data<&Pool>, Form(f): Form<CreateAccountForm>) -> Markup {
     let mut conn = db.acquire().await.unwrap();
 
     users::create(&mut conn, &f.email, &f.password)
         .await
         .unwrap();
 
-    Html(login_layout(
+    login_layout(
         "Create Account",
         html! {
             h1 { "Create Account" }
 
             "We have received your request. Once your account is approved you may log in."
         },
-    ))
-    .into_response()
+    )
 }

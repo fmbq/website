@@ -16,8 +16,8 @@ pub struct RequestPasswordResetForm {
 }
 
 #[handler]
-pub fn get() -> Html<Markup> {
-    Html(crate::web::pages::login::request_password_reset())
+pub fn get() -> Markup {
+    crate::web::pages::login::request_password_reset()
 }
 
 #[handler]
