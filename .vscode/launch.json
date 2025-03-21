@@ -6,6 +6,7 @@
             "request": "launch",
             "name": "fmbq-website",
             "terminal": "console",
+            "preLaunchTask": "rust: cargo build",
             "cargo": {
                 "args": [
                     "build",
