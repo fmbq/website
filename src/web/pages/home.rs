@@ -5,7 +5,7 @@ pub fn render() -> Markup {
     layout(
         "Free Methodist Bible Quizzing",
         html! {
-            .hero.full-width {
+            .hero.full-width.content-grid {
                 h1 { "Free Methodist Bible Quizzing" }
             }
 

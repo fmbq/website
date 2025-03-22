@@ -5,74 +5,80 @@ use poem::{
     handler,
     web::{sse::SSE, Html},
     IntoResponse,
+    Request,
 };
 
 pub mod admin;
 pub mod article_images;
 pub mod articles;
 pub mod css;
+pub mod errors;
 pub mod photos;
 pub mod rules;
 pub mod signup;
 
 #[handler]
-pub fn home() -> Html<Markup> {
-    Html(pages::home::render())
+pub fn home() -> Markup {
+    pages::home::render()
 }
 
 #[handler]
-pub fn about() -> Html<Markup> {
-    Html(pages::about::render())
+pub fn about() -> Markup {
+    pages::about::render()
 }
 
 #[handler]
-pub fn schedule() -> Html<Markup> {
-    Html(pages::schedule::render())
+pub fn schedule() -> Markup {
+    pages::schedule::render()
 }
 
 #[handler]
-pub fn resources() -> Html<Markup> {
-    Html(pages::resources::render())
+pub fn resources() -> Markup {
+    pages::resources::render()
 }
 
 #[handler]
-pub fn awards() -> Html<Markup> {
-    Html(pages::awards::render())
+pub fn awards() -> Markup {
+    pages::awards::render()
 }
 
 #[handler]
-pub fn support_us() -> Html<Markup> {
-    Html(pages::support_us::render())
+pub fn support_us() -> Markup {
+    pages::support_us::render()
 }
 
 #[handler]
-pub fn contacts() -> Html<Markup> {
-    Html(pages::contacts::render())
+pub fn contacts() -> Markup {
+    pages::contacts::render()
 }
 
 #[handler]
-pub fn playground() -> Html<Markup> {
-    Html(pages::playground::render())
+pub fn playground() -> Markup {
+    pages::playground::render()
 }
 
 #[handler]
-pub fn quotes() -> Html<Markup> {
-    Html(pages::quotes::render())
+pub fn quotes(res: &Request) -> Html<Markup> {
+    let q = res.uri().query();
+    // what to do with q
+    // it should contain year=2025
+    // I want to pass the year to the render
+    Html(pages::quotes::render(2025))
 }
 
 #[handler]
-pub fn hall_of_fame() -> Html<Markup> {
-    Html(pages::hall_of_fame::render())
+pub fn hall_of_fame() -> Markup {
+    pages::hall_of_fame::render()
 }
 
 #[handler]
-pub fn markell() -> Html<Markup> {
-    Html(pages::markell::render())
+pub fn markell() -> Markup {
+    pages::markell::render()
 }
 
 #[handler]
-pub fn material() -> Html<Markup> {
-    Html(pages::material::render())
+pub fn material() -> Markup {
+    pages::material::render()
 }
 
 #[handler]

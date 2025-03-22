@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use std::sync::OnceLock;
 
-static QUOTES_XML: &str = include_str!("../data/quotes2024.xml");
+static QUOTES_XML: &str = include_str!("../data/quotes.xml");
 static ALL_QUOTES: OnceLock<Quotes> = OnceLock::new();
 
 #[derive(Clone, Debug, Deserialize)]
@@ -12,6 +12,10 @@ pub struct QuoteSeason {
     pub books: String,
     #[serde(rename = "@verses")]
     pub verses: u16,
+    #[serde(rename = "@pdf")]
+    pub pdf: String,
+    #[serde(rename = "@txt")]
+    pub text: String,
     pub month: Vec<QuoteMonth>,
 }
 

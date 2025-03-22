@@ -9,9 +9,15 @@ macro_rules! scss_endpoint {
     ($path:expr) => {{
         use poem::IntoResponse;
 
+        // In debug mode, compile SCSS on the fly from the local file system so
+        // that the app does not have to be recompiled to see SCSS changes.
         #[cfg(debug_assertions)]
         #[handler]
         fn compile() -> impl IntoResponse {
+            // Still compile the SCSS file at compile time so that Cargo will
+            // check our files during development. Just don't use the result.
+            let _ = grass::include!($path);
+
             grass::from_path(
                 concat!(env!("CARGO_MANIFEST_DIR"), "/", $path),
                 &grass::Options::default(),

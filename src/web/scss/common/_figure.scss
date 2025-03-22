@@ -1,0 +1,32 @@
+@use 'motifs';
+
+figure {
+    $blur-radius: 40px;
+
+    position: relative;
+    overflow: clip;
+
+    @include motifs.hard-border;
+
+    img.backdrop {
+        display: block;
+        position: absolute;
+        top: 0 - $blur-radius;
+        left: 0 - $blur-radius;
+        width: calc(100% + (2 * $blur-radius));
+        height: calc(100% + (2 * $blur-radius));
+        max-width: unset !important;
+        max-height: unset !important;
+        z-index: 1;
+        object-fit: cover;
+        filter: blur($blur-radius);
+    }
+
+    img:not(.backdrop) {
+        display: block;
+        position: relative;
+        z-index: 2;
+        object-fit: contain;
+        width: 100%;
+    }
+}

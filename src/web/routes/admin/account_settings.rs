@@ -9,7 +9,7 @@ use crate::{
 use maud::Markup;
 use poem::{
     handler,
-    web::{Data, Form, Html},
+    web::{Data, Form},
 };
 use poem_htmx::responses::Refresh;
 use serde::Deserialize;
@@ -27,8 +27,8 @@ struct ChangePasswordForm {
 }
 
 #[handler]
-pub async fn get(login_context: LoginContext) -> Html<Markup> {
-    Html(AccountSettings.render(&login_context))
+pub async fn get(login_context: LoginContext) -> Markup {
+    AccountSettings.render(&login_context)
 }
 
 #[handler]

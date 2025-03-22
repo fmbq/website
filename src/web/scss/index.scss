@@ -1,20 +1,28 @@
-@use 'base';
-@use 'layout';
-@use 'fonts';
-@use 'forms';
-@use 'header';
-@use 'footer';
-@use 'hero';
-@use 'about';
-@use 'rules';
-@use 'home';
-@use 'resources';
+@use 'common/fonts';
+@use 'common/base';
+@use 'common/forms';
+@use 'common/figure';
+@use 'public/layout';
+@use 'public/header';
+@use 'public/footer';
+@use 'public/cards';
+@use 'public/hero';
+@use 'public/about';
+@use 'public/rules';
+@use 'public/home';
+@use 'public/resources';
+@use 'public/motifs';
 
-html {
-    // background-color: #efefef;
-    background-color: var(--color-brown);
-    background-image: url("/static/resources/textures/noise.png");
-    background-blend-mode: multiply;
+// Set a background on the root element to influence the color of "overscroll"
+// areas in browsers that do that to match the footer.
+:root {
+    background-color: var(--color-mocha);
+}
+
+// Set the background for the overall page.
+body {
+    background-color: var(--color-vintage-white);
+    @include motifs.halftone-background;
 }
 
 body {
@@ -40,10 +48,10 @@ h2, h3 {
 }
 
 h1 {
-    font-family: 'Oi', sans-serif;
+    font-family: 'Calistoga', sans-serif;
     text-transform: uppercase;
     color: var(--color-purple);
-    font-size: 3em;
+    font-size: 2em;
     font-weight: normal;
     mix-blend-mode: hard-light;
     /* color: transparent; */
@@ -53,4 +61,8 @@ h1 {
         1px 1px 0 var(--color-deep-purple),
         1px -1px 0 var(--color-deep-purple),
         -1px -1px 0 var(--color-deep-purple); */
+}
+
+p > img {
+    max-width: 100%;
 }

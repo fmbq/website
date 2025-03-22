@@ -8,11 +8,7 @@ use crate::{
     },
 };
 use maud::Markup;
-use poem::{
-    get, handler, post,
-    web::{Data, Html},
-    EndpointExt, IntoEndpoint, Route,
-};
+use poem::{get, handler, post, web::Data, EndpointExt, IntoEndpoint, Route};
 
 mod account_settings;
 mod auth;
@@ -50,22 +46,17 @@ pub fn routes() -> impl IntoEndpoint {
 }
 
 #[handler]
-async fn get_index(login_context: LoginContext) -> Html<Markup> {
-    Html(Index.render(&login_context))
+async fn get_index(login_context: LoginContext) -> Markup {
+    Index.render(&login_context)
 }
 
 #[handler]
-async fn get_article_management(
-    login_context: LoginContext,
-    Data(db): Data<&Pool>,
-) -> Html<Markup> {
+async fn get_article_management(login_context: LoginContext, Data(db): Data<&Pool>) -> Markup {
     let mut conn = db.acquire().await.unwrap();
     let articles = list_articles(&mut conn).await;
 
-    Html(
-        ArticleManagement {
-            articles: &articles,
-        }
-        .render(&login_context),
-    )
+    ArticleManagement {
+        articles: &articles,
+    }
+    .render(&login_context)
 }

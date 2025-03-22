@@ -1,0 +1,4 @@
+@mixin hard-border {
+    border-radius: 7px;
+    border: var(--border-width) solid var(--color-vintage-black);
+}

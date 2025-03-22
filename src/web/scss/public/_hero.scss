@@ -4,6 +4,7 @@
     --max-width: 1200px;
 
     padding: 8rem 2rem;
+    // background-color: var(--color-brown);
     background-image: url("/static/resources/Film-Grain-Textures-FREE-Pack-8K/AU-FG-Texture1.jpg"), url("/static/resources/photos/banner-index.jpg");
     background-blend-mode: difference;
     background-size: cover;
@@ -21,10 +22,6 @@
 
         @for $i from 9 through 12 {
             $shadows: list.append($shadows, -#{$i}px #{$i}px 0 var(--color-red), $separator: comma);
-        }
-
-        @for $i from 13 through 18 {
-            $shadows: list.append($shadows, -#{$i}px #{$i}px 0 var(--color-baby-blue), $separator: comma);
         }
 
         text-shadow: $shadows;

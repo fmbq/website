@@ -2,13 +2,14 @@
     display: flex;
     background-size: cover;
     background-position: center;
-    p{
-        background-color: rgba(255,255,255,0.9);
+
+    p {
+        background-color: rgba(255, 255, 255, 0.9);
         padding: 2rem;
         margin: 4rem 0;
         border-radius: 6px;
         width: 50%;
-        display: inline-block;        
+        display: inline-block;
     }
 }
 
@@ -21,7 +22,8 @@
     @extend .about-section;
     background-image: url("/static/resources/photos/about-qm.jpg");
     justify-content: flex-end;
-    p{
+
+    p {
         margin-left: 50%;
     }
 }
@@ -35,6 +37,7 @@
     @extend .about-section;
     background-image: url("/static/resources/photos/about-jumping.jpg");
     justify-content: flex-end;
+
     p {
         margin-left: 50%;
     }

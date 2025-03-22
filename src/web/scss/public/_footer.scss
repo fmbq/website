@@ -1,0 +1,23 @@
+@use '../common/vars';
+@use 'motifs';
+
+body > footer {
+    background-color: var(--color-mocha) !important;
+    @include motifs.halftone-background;
+}
+
+body > footer {
+    // background-image: url("/static/resources/footer-bg.svg");
+    margin-top: 4rem;
+    padding: 4rem 1rem 1rem 1rem;
+    min-height: 200px;
+    color: var(--color-almost-white);
+
+    .center {
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 0.8em;
+    }
+}

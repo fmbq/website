@@ -71,10 +71,8 @@ pub fn render() -> Markup {
             i { "Pacific Northwest" }
             a href="mailto:hassl425@comcast.net" { "hassl425@comcast.net" }
 
-            img src="/static/resources/photos/fmc-conference-map.png" width="*" {""}
-
-            div {
-                (crate::web::components::admin::editor::editor())
+            p {
+                img src="/static/resources/photos/fmc-conference-map.png" {""}
             }
         },
     )
