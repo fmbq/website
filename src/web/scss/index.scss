@@ -62,3 +62,7 @@ h1 {
         1px -1px 0 var(--color-deep-purple),
         -1px -1px 0 var(--color-deep-purple); */
 }
+
+p > img {
+    max-width: 100%;
+}
