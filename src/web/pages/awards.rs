@@ -11,13 +11,22 @@ pub fn render() -> Markup {
                 title: "Alpha Omega",
                 image_src: "/static/resources/photos/alpha-omega.jpg",
                 body: html! {
-                    p { "add description here" }
+                    p { "The Alpha-Omega award is for STV teams that win at finals." }
+                    a href="/alphaomega" {"Past Winners"}
                 },
             })
 
             (BigImageCard {
                 title: "Benson",
                 image_src: "/static/resources/photos/benson.jpg",
+                body: html! {
+                    p { "add description here" }
+                },
+            })
+
+            (BigImageCard {
+                title: "STV Individuals",
+                image_src: "https://placeholder.pics/svg/300/DEDEDE/555555/Dave%20Markell",
                 body: html! {
                     p { "add description here" }
                 },
