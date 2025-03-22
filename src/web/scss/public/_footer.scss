@@ -1,9 +1,9 @@
 @use '../common/vars';
+@use 'motifs';
 
 body > footer {
     background-color: var(--color-mocha) !important;
-    background-image: url("/static/resources/textures/halftone-alpha-black.png");
-    // background-blend-mode: multiply;
+    @include motifs.halftone-background;
 }
 
 body > footer {

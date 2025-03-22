@@ -1,0 +1,4 @@
+@mixin halftone-background {
+    background-image: url("/static/resources/textures/halftone-mask.png");
+    background-blend-mode: exclusion;
+}

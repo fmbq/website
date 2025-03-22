@@ -11,6 +11,7 @@
 @use 'public/rules';
 @use 'public/home';
 @use 'public/resources';
+@use 'public/motifs';
 
 // Set a background on the root element to influence the color of "overscroll"
 // areas in browsers that do that to match the footer.
@@ -21,7 +22,7 @@
 // Set the background for the overall page.
 body {
     background-color: var(--color-vintage-white);
-    background-image: url("/static/resources/textures/halftone-alpha-white.png");
+    @include motifs.halftone-background;
 }
 
 body {
