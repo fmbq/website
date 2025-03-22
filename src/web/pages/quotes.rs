@@ -2,8 +2,10 @@ use crate::{domain::quotes::get_season_by_id, web::components::layout::layout};
 
 use maud::{html, Markup};
 
-pub fn render() -> Markup {
-    let season = get_season_by_id(2024);
+pub fn render(year: u64) -> Markup {
+    let season = get_season_by_id(year);
+    let docs_folder = "./static/resources/docs/";
+
     layout(
         "Quote List",
         html! {
@@ -23,8 +25,9 @@ pub fn render() -> Markup {
                 }
 
                 p{
-                    a.button href="/static/resources/docs/2024 Quote List Romans and James.pdf" {"pdf"}
-                    a.button href="/static/resources/docs/2024 Quote List Romans and James.txt" {"txt"}
+                    a.button href={(docs_folder)(season.pdf)} {"pdf"}
+                    "  "
+                    a.button href={(docs_folder)(season.text)} {"txt"}
                 }
             }
             @else {

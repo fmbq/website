@@ -28,7 +28,7 @@ pub fn header() -> Markup {
                         a href="/awards" {
                             span { "Awards" }
                         }
-                        a href="/support_us" {
+                        a href="/support-us" {
                             span { "Support Us" }
                         }
                         a href="/contacts" {

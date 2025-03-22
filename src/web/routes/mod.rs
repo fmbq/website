@@ -1,7 +1,12 @@
 use super::{pages, sse};
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use maud::Markup;
-use poem::{handler, web::sse::SSE, IntoResponse};
+use poem::{
+    handler,
+    web::{sse::SSE, Html},
+    IntoResponse,
+    Request,
+};
 
 pub mod admin;
 pub mod article_images;
@@ -53,8 +58,12 @@ pub fn playground() -> Markup {
 }
 
 #[handler]
-pub fn quotes() -> Markup {
-    pages::quotes::render()
+pub fn quotes(res: &Request) -> Html<Markup> {
+    let q = res.uri().query();
+    // what to do with q
+    // it should contain year=2025
+    // I want to pass the year to the render
+    Html(pages::quotes::render(2025))
 }
 
 #[handler]

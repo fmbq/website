@@ -9,10 +9,13 @@ pub fn render() -> Markup {
 
             h2 { "Materials" }
             p {
-
-                    "2024 - 2025 Romans & James "
-                        a href="/quotes" {"Quote List"}
+                    "2025-2026 Acts 1-14, Galatians, Colossians, Philemon "
+                        a href="/quotes?year=2025" {"Quote List"}
                     br;
+                    "2024-2025 Romans & James "
+                        a href="/quotes?year=2024" {"Quote List"}
+                    br;
+
                     a href="/material" {"Past Materials Studied"}
 
             }
