@@ -26,8 +26,7 @@ pub fn layout(title: &str, body: Markup) -> Markup {
             (scripts())
         }
 
-        // Trigger all menus that may be open to close on losing focus.
-        body _="on click send menuclose to <menu/>" {
+        body {
             (header())
 
             main role="main" class="content-grid" {
