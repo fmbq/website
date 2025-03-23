@@ -1,4 +1,4 @@
-use super::{copyright::copyright, header::header, scripts::scripts};
+use super::{footer::footer, header::header, scripts::scripts};
 use maud::{html, Markup, DOCTYPE};
 
 const GLOBAL_TITLE: &str = "Free Methodist Bible Quizzing";
@@ -33,11 +33,7 @@ pub fn layout(title: &str, body: Markup) -> Markup {
                 (body)
             }
 
-            footer {
-                div class="container" {
-                    (copyright())
-                }
-            }
+            (footer())
         }
     }
 }
