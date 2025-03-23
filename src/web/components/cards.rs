@@ -10,7 +10,7 @@ pub struct BigImageCard<'a> {
 impl Render for BigImageCard<'_> {
     fn render(&self) -> Markup {
         html! {
-            .big-image-card.full-width {
+            .big-image-card {
                 h2 { (self.title) }
 
                 .card-contents {

@@ -1,0 +1,34 @@
+/// Defines an element as a grid container with a centered content area of a
+/// maximum width, while also allowing child elements to opt-in to spanning the
+/// full width of the container if desired.
+///
+/// Child elements can change their width by setting the --content-width custom
+/// property to one of the following values:
+///
+/// - `full-width` to span the full width of the container, without padding
+/// - `breakout` to span the full width of the container, with padding
+/// - `content` to use the centered content area
+@mixin content-grid(
+    $max-width,
+    $gutter-min-width: 1rem,
+) {
+    display: grid;
+    grid-template-columns:
+        [full-width-start]
+        $gutter-min-width
+        [breakout-start]
+        1fr
+        [content-start]
+        minmax(auto, $max-width)
+        [content-end]
+        1fr
+        [breakout-end]
+        $gutter-min-width
+        [full-width-end];
+
+    --content-width: content;
+
+    & > * {
+        grid-column: var(--content-width);
+    }
+}

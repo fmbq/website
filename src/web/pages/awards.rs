@@ -12,7 +12,9 @@ pub fn render() -> Markup {
                 image_src: "/static/resources/photos/alpha-omega.jpg",
                 body: html! {
                     p { "The Alpha-Omega award is for STV teams that win at finals." }
-                    a href="/alphaomega" {"Past Winners"}
+                    p {
+                        a href="/alphaomega" {"Past Winners"}
+                    }
                 },
             })
 

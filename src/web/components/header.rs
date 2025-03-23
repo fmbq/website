@@ -6,7 +6,7 @@ pub fn header() -> Markup {
         header #site-header role="banner" _="on click from document send close to #main-menu" {
             nav hx-boost="true" {
                 a id="logo" class="title" href="/" {
-                    img src="/static/resources/logos/FMBQ-logo.png";
+                    img src="/static/resources/logos/logo-no-text.png";
 
                     "Free Methodist Bible Quizzing"
                 }

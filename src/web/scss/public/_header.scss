@@ -40,7 +40,7 @@ $mobile-menu-background-color: var(--color-yellow);
 
 
 #site-header {
-    --nav-height: 80px;
+    --nav-height: 72px;
 
     z-index: 99;
     margin-bottom: var(--nav-height);
@@ -160,6 +160,7 @@ $mobile-menu-background-color: var(--color-yellow);
         transform-origin: top center;
 
         background-color: $mobile-menu-background-color;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
 
         &.open {
             display: flex;

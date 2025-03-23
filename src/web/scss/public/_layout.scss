@@ -1,13 +1,9 @@
-.content-grid {
-    display: grid;
-    grid-template-columns:
-        minmax(1rem, 1fr) [content-start] minmax(auto, var(--max-width)) [content-end] minmax(1rem, 1fr);
+@use '../common/layout';
 
-    & > * {
-        grid-column: content;
-    }
+.content-grid {
+    @include layout.content-grid(var(--max-width), 1rem);
 
     .full-width {
-        grid-column: 1 / -1;
+        --content-width: full-width;
     }
 }
