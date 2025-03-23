@@ -4,7 +4,7 @@ use maud::{html, Markup};
 
 pub fn render(year: u64) -> Markup {
     let season = get_season_by_id(year);
-    let docs_folder = "./static/resources/docs/";
+    let docs_folder = "/static/resources/docs/";
 
     layout(
         "Quote List",
