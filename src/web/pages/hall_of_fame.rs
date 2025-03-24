@@ -12,6 +12,8 @@ pub fn render() -> Markup {
         "Hall of Fame Members",
         html! {
             h1 { "Hall of Fame Members" }
+            i { "Through the Prophet Isaiah, God said, \"As the rain and the snow come down from heaven, and do not return to it without watering the earth and making it bud and flourish, so that it yields seed for the sower and bread for the eater, so is My word that goes out from My mouth: It will not return to Me empty, but will accomplish what I desire, and achieve the purpose for which I sent it.\" (Isaiah 55:10-11)"
+            }
 
             @for person in &hof.inductee {
                 div {
