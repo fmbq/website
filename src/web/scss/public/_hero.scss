@@ -11,6 +11,7 @@
     mix-blend-mode: hard-light;
 
     h1 {
+        --content-width: content;
         font-size: min(10vw, 6rem);
         mix-blend-mode: normal;
 

@@ -174,10 +174,6 @@ $mobile-menu-background-color: var(--color-yellow);
 
         a {
             border-width: 0 0 var(--border-width) 0;
-
-            &:hover {
-                // background-color: rgba(255, 255, 255, 0.2) !important;
-            }
         }
     }
 }
@@ -189,7 +185,8 @@ a#logo, a#logo:visited {
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-family: var(--font-strong);
+    font-size: 1.75rem;
     padding: 0.5rem;
 
     img {

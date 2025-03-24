@@ -1,31 +1,25 @@
-@font-face {
-    font-family: 'Calistoga';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/static/resources/fonts/Calistoga.ttf') format('truetype');
+@use 'sass:string';
+
+@mixin load-font($name, $path, $styles: normal, $weights: 400) {
+    @each $style in $styles {
+        @each $weight in $weights {
+            @font-face {
+                font-family: $name;
+                font-style: $style;
+                font-weight: $weight;
+                font-display: swap;
+                src: url('#{$path}/#{$weight}-#{$style}.woff2') format('woff2'),
+                    url('#{$path}/#{$weight}-#{$style}.woff') format('woff');
+            }
+        }
+    }
 }
 
-@font-face {
-    font-family: 'Caprasimo';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/static/resources/fonts/Caprasimo.ttf') format('truetype');
-}
+@include load-font('Barlow', '/static/resources/fonts/barlow', (normal, italic), (400, 700));
+@include load-font('Barlow Condensed', '/static/resources/fonts/barlow-condensed', (normal, italic), (900));
+@include load-font('Oi', '/static/resources/fonts/oi', (normal), (400));
 
-@font-face {
-    font-family: 'Modak';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/static/resources/fonts/Modak.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Oi';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/static/resources/fonts/Oi.ttf') format('truetype');
+:root {
+    --font-body: 'Barlow', 'Open Sans', sans-serif;
+    --font-strong: 'Barlow Condensed', sans-serif;
 }
