@@ -25,6 +25,14 @@ Schedule
   Links to registration, etc
  Timeline of future, current and past finals
   Links to each finals page (pictures, registration, scoresheets, etc)
+	Finals (page)
+		-> Current Finals (section)
+			link to a page to register, etc
+			link to results from "current" finals until new finals is posted
+		-> Locations (section)
+		-> Results (section with links)
+		Result (page)
+			dynamic page that loads the results for each individual finals			
  
 Resources
  Material Lists (what books, what years)
@@ -37,6 +45,7 @@ Resources
 Awards
  Alpha Omega (description + pictures)
  Benson (description + pictures)
+ STV Individuals
  Dave Markell (description + pictures)
  Hall of Fame
  
