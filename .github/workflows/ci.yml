@@ -81,7 +81,7 @@ jobs:
     needs: [image]
     environment:
       name: 'testing'
-      url: 'https://fmbq-website-testing-j9x3c.ondigitalocean.app'
+      url: 'https://testing.fmbq.org'
     concurrency:
       group: testing
       cancel-in-progress: true
