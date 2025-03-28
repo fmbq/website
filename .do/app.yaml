@@ -1,0 +1,31 @@
+name: fmbq-website-testing
+region: sfo
+ingress:
+  rules:
+  - component:
+      name: fmbq-website
+    match:
+      path:
+        prefix: /
+services:
+  - name: fmbq-website
+    envs:
+      - key: LISTEN_ADDR
+        scope: RUN_TIME
+        value: 0.0.0.0:8080
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: sqlite://sqlite.db
+    http_port: 8080
+    image:
+      registry: fmbq
+      registry_type: GHCR
+      repository: website
+      tag: ${DOCKER_TAG}
+    instance_count: 1
+    instance_size_slug: apps-s-1vcpu-0.5gb
+features:
+  - buildpack-stack=ubuntu-22
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
