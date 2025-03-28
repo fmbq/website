@@ -1,5 +1,5 @@
 use super::{pages, sse};
-use crate::config::DeploymentEnvironment;
+use crate::config::{Configuration, DeploymentEnvironment};
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use maud::Markup;
 use poem::{
@@ -93,8 +93,8 @@ pub fn time() -> impl IntoResponse {
 }
 
 #[handler]
-pub fn robots(Data(env): Data<&DeploymentEnvironment>) -> &'static str {
-    match env {
+pub fn robots(Data(config): Data<&Configuration>) -> &'static str {
+    match config.deployment_environment {
         DeploymentEnvironment::Testing => {
             "User-agent: *\n\
             Disallow: /"

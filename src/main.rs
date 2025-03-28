@@ -2,7 +2,6 @@
 
 use color_eyre::eyre::{bail, Result};
 use poem::{web::sse::Event, EndpointExt};
-use std::env;
 
 mod config;
 mod db;
@@ -22,6 +21,8 @@ async fn main() -> Result<()> {
 
     tracing_subscriber::fmt::init();
 
+    let config = config::Configuration::from_env()?;
+
     let Some(project_dirs) =
         directories::ProjectDirs::from("org.fmquizzing", "FM Quizzing", "FM Quizzing Website")
     else {
@@ -29,15 +30,15 @@ async fn main() -> Result<()> {
     };
 
     tracing::info!("initializing database");
-    db::init().await?;
+    db::init(&config).await?;
 
     let app = web::root()
-        .data(config::DeploymentEnvironment::from_env())
+        .data(config.clone())
         .data(project_dirs)
-        .data(db::create_connection_pool()?)
+        .data(db::create_connection_pool(&config)?)
         .data(services::email::Mailer::new()?);
 
-    let app = session::configure_session(app).await?;
+    let app = session::configure_session(app, &config).await?;
 
     tokio::task::spawn(async {
         loop {
@@ -46,11 +47,9 @@ async fn main() -> Result<()> {
         }
     });
 
-    let addr = env::var("LISTEN_ADDR").unwrap_or_else(|_| String::from("127.0.0.1:80"));
+    tracing::info!("listening on http://{}", config.listen_addr);
 
-    tracing::info!("listening on http://{}", addr);
-
-    poem::Server::new(poem::listener::TcpListener::bind(addr))
+    poem::Server::new(poem::listener::TcpListener::bind(config.listen_addr))
         .run_with_graceful_shutdown(
             app,
             async {
