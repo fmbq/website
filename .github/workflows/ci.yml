@@ -76,6 +76,7 @@ jobs:
           cache-to: type=gha,mode=max
 
   deploy-testing:
+    name: Deploy to DigitalOcean
     if: github.ref_name == 'master'
     needs: [image]
     environment:
