@@ -1,9 +1,10 @@
 use super::{pages, sse};
+use crate::config::DeploymentEnvironment;
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use maud::Markup;
 use poem::{
     handler,
-    web::{sse::SSE, Path, Redirect},
+    web::{sse::SSE, Data, Path, Redirect},
     IntoResponse,
 };
 
@@ -89,4 +90,21 @@ pub fn events() -> SSE {
 #[handler]
 pub fn time() -> impl IntoResponse {
     OffsetDateTime::now_utc().format(&Rfc2822).unwrap()
+}
+
+#[handler]
+pub fn robots(Data(env): Data<&DeploymentEnvironment>) -> &'static str {
+    match env {
+        DeploymentEnvironment::Testing => {
+            "User-agent: *\n\
+            Disallow: /"
+        }
+        DeploymentEnvironment::Production => {
+            "User-agent: *\n\
+            Disallow: /admin\n\
+            Disallow: /static/\n\
+            Disallow: /styles/\n\
+            Disallow: /js/"
+        }
+    }
 }

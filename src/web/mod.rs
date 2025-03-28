@@ -55,6 +55,7 @@ pub fn root() -> impl IntoEndpoint {
             "/apple-touch-icon.png",
             StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"),
         )
+        .at("/robots.txt", get(routes::robots))
         .catch_error(routes::errors::not_found)
         .with(middleware::boost::BoostMiddleware)
         .with(middleware::headers::security_headers())

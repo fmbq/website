@@ -19,6 +19,9 @@ services:
       - key: DATABASE_URL
         scope: RUN_TIME
         value: sqlite://sqlite.db
+      - key: DEPLOYMENT_ENVIRONMENT
+        scope: RUN_TIME
+        value: testing
     http_port: 8080
     image:
       registry: fmbq

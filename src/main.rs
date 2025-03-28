@@ -32,6 +32,7 @@ async fn main() -> Result<()> {
     db::init().await?;
 
     let app = web::root()
+        .data(config::DeploymentEnvironment::from_env())
         .data(project_dirs)
         .data(db::create_connection_pool()?)
         .data(services::email::Mailer::new()?);
