@@ -1,5 +1,8 @@
 name: fmbq-website-testing
 region: sfo
+domains:
+  - domain: testing.fmbq.org
+    type: ALIAS
 ingress:
   rules:
   - component:
