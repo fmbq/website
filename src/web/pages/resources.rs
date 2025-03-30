@@ -1,4 +1,7 @@
-use crate::web::components::{cards::BigImageCard, layout::layout};
+use crate::web::components::{
+    cards::{BigImageCard, ImageAlignment},
+    layout::layout,
+};
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
@@ -25,6 +28,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Official Rules",
                 image_src: "/static/resources/photos/rules-1.png",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p {
                         "2021 Update Highlights: "
@@ -44,6 +48,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Scoring Instructions",
                 image_src: "/static/resources/photos/score-sheet-instructions.jpg",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p {
                         "Propert scoring is essential during each quiz round. The score keeper should (at a minimum) record:"
@@ -67,6 +72,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "QuizOut Publications",
                 image_src: "/static/resources/photos/laura-book-1.png",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p { "Portions, practice questions, software (using Bible Quiz Shop), and other study aides from Laura Colberg.
                         Materials can be ordered using forms in "
@@ -82,6 +88,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Wilmore Computer Associates",
                 image_src: "/static/resources/photos/paul-book-1.png",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p {"Portions, concordances, quote lists, practice questions, and other study aides from Paul Stackhouse.
                         Materials can be ordered at "
@@ -95,6 +102,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "ACME Quiz Products",
                 image_src: "/static/resources/photos/acme-book-1.png",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p {"Portions, activity sheets, listening CDs, and other study aides. Materials can be ordered at "
                         a href="https://acmequiz.com" {"ACME"}
@@ -106,6 +114,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Light & Life Publishing",
                 image_src: "/static/resources/photos/scorepad-1.png",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p {"Free Methodist Triplicate Scoresheets can be ordered from the "
                         a href="https://freemethodistbooks.com/product/bible-quiz-scoresheet-pad-of-100" {"Light and Life Bookstore"}
@@ -119,6 +128,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Bierdeman Box",
                 image_src: "/static/resources/photos/bierdeman-box-1.png",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p {"This is a small digital box less than 6\" wide x 3\" tall and 1\" thick. It is available in 2 models: the traditional "Single" where the quiz box sits between the two sets of chairs, and the  Quizmaster "Dual" model where the display box sits on the front edge of the quizmaster's table and has a readout on both sides. Contact Paul Bierdeman at "
                         a href="mailto:bierdeman.paul.w@gmail.com" {"bierdeman.paul.w@gmail.com"} "."
@@ -129,6 +139,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Kirkman Quiz Equipment",
                 image_src: "/static/resources/photos/kirkman-box-1.png",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p {"Free Methodist Quiz Box and seatpads (select the individual options with RCA plugs). Contact Steve Kirkman through his website at "
                         a href="http://www.quizequipment.com/information.htm" {"quizequipment.com"} "."
@@ -140,6 +151,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "ACME Quiz Products",
                 image_src: "/static/resources/photos/acme-pad-1.png",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p {"VersaPad jump pads that work with Kirkman and Bierdeman boxes. VersaPad can be ordered at "
                         a href="https://www.acmequiz.com/index.php?l=product_detail&p=2023" {"acmequiz.com"}
@@ -152,6 +164,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "McCoon Seatpads",
                 image_src: "/static/resources/photos/lyle-pad-2.png",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p {"Seatpads using fabric from SEED Ministries a Free Methodist ministry helping women become self-sustaining through micro-businesses creating hand-made goods sold world-wide. Cost is $10/seat pad (as of 2023). Contact Lyle McCoon, Sr. at "
                         a href="mailto:lmccoon@ameritech.net" {"lmccoon@ameritech.net"}
@@ -164,6 +177,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "FMBQ Timer",
                 image_src: "/static/resources/photos/fmbq-timer.png",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p {"This is an Android app for Free Methodist quizzing. Provides simple timers for jumps, prejumps, appeals, and timeouts. Go to the Play Store and search for "
                         a href="https://play.google.com/store/apps/details?id=org.fmbq.timer&hl=en_US" {"FMBQ Timer"}

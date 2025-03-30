@@ -1,4 +1,4 @@
-use crate::web::components::{cards::BigImageCard, layout::layout};
+use crate::web::components::{cards::{BigImageCard, ImageAlignment}, layout::layout};
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
@@ -10,6 +10,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Alpha Omega",
                 image_src: "/static/resources/photos/awards/alpha-omega-2015.jpg",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p { "The Alpha-Omega award is for STV teams that win at finals." }
                     p {
@@ -21,6 +22,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Benson",
                 image_src: "/static/resources/photos/awards/benson-2015.jpg",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p { "The Benson award was started in 2015 for YTV teams that win at finals." }
                 },
@@ -29,6 +31,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "STV Individuals",
                 image_src: "/static/resources/photos/awards/individuals-awards.jpg",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p { "Scholarships are awarded to the top finishers in STV." }
                 },
@@ -37,6 +40,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Dave Markell Attitude in Excellence Award",
                 image_src: "https://placeholder.pics/svg/300/DEDEDE/555555/Dave%20Markell",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p { "Each year at Quiz Finals, a graduating senior is honored for their excellence in attitude. This award is named in honor of Dave Markell. Rev. David Markell served as the Director of Youth Ministries during the 1980's, before his untimely death from leukemia. His leadership and advocacy of quizzing lives on through the lives of hundreds of quizzers, officials and coaches to whom he ministered. His attitude, even as he faced death, was always one of calm, wisdom and strength. His family has consented to the use of his name to honor the quizzer who most exemplifies the life of Christ through their attitudes and behavior in quizzing."}
                     p{"Directors, coaches and leaders are invited to nominate a graduating senior who will be in attendance at Quiz Finals."}
@@ -47,6 +51,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Spitshine Award",
                 image_src: "/static/resources/photos/awards/spitshine-2011.jpg",
+                alignment: ImageAlignment::Left,
                 body: html! {
                     p { "This is our award for the best uniform. Quizmasters, Conference Directors and Regional Directors vote for their favorite look. This does not have to be a T-shirt design (but it can be). Team names and individual names are not required elements. Teams are encouraged to “look sharp” in whatever way they choose to interpret that. An eye-catching, uniform Look may include elements like hats, vests, suspenders, handkerchiefs, footwear, ect. Be creative! Props should not distract or interfere with normal quizzing." }
                 },
@@ -55,6 +60,7 @@ pub fn render() -> Markup {
             (BigImageCard {
                 title: "Hall of Fame",
                 image_src: "/static/resources/photos/awards/hall-of-fame.jpg",
+                alignment: ImageAlignment::Right,
                 body: html! {
                     p { "Beginning at the 2003 Bible Quiz Finals at Roberts Wesleyan College (on the 50th anniversary of Free Methodist Bible Quizzing), special recognition was given to former quizzers who not only did well in competition, but more importantly who applied what they learned and are currently living God-honoring lives in faithful service for the Lord." }
                     p { strong {"Purpose:"} }
