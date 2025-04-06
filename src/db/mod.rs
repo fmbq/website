@@ -1,40 +1,31 @@
-use color_eyre::eyre::Context;
-use once_cell::sync::OnceCell;
+use crate::config::Configuration;
 use sqlx::{
     migrate::{MigrateDatabase, Migrator},
     sqlite::SqlitePoolOptions,
     Sqlite, SqliteConnection, SqlitePool,
 };
-use std::env;
 
 pub mod articles;
 pub mod users;
 
-static URL: OnceCell<String> = OnceCell::new();
 static MIGRATOR: Migrator = sqlx::migrate!();
 
 pub type Connection = SqliteConnection;
 pub type Pool = SqlitePool;
 
-pub async fn init() -> color_eyre::eyre::Result<()> {
-    let url = URL
-        .get_or_try_init(|| env::var("DATABASE_URL"))
-        .wrap_err("DATABASE_URL environment variable must be set to find database")?;
+pub async fn init(config: &Configuration) -> color_eyre::eyre::Result<()> {
+    Sqlite::create_database(&config.database_url).await?;
 
-    Sqlite::create_database(url).await?;
-
-    let pool = create_connection_pool()?;
+    let pool = create_connection_pool(config)?;
 
     MIGRATOR.run(&pool).await?;
 
     Ok(())
 }
 
-pub fn create_connection_pool() -> color_eyre::eyre::Result<Pool> {
-    let url = URL.get_or_try_init(|| env::var("DATABASE_URL"))?;
-
+pub fn create_connection_pool(config: &Configuration) -> color_eyre::eyre::Result<Pool> {
     SqlitePoolOptions::new()
-        .connect_lazy(url)
+        .connect_lazy(&config.database_url)
         .map_err(Into::into)
 }
 

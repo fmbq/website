@@ -29,7 +29,8 @@ pub fn root() -> impl IntoEndpoint {
         .at("/awards", get(routes::awards))
         .at("/support-us", get(routes::support_us))
         .at("/contacts", get(routes::contacts))
-        .at("/quotes", get(routes::quotes))
+        .at("/quotes", get(routes::quotes_root))
+        .at("/quotes/:year", get(routes::quotes_for_year))
         .at("/rules", get(routes::rules::get_html))
         .at("/rules/rules.pdf", get(routes::rules::get_pdf))
         .at("/hall-of-fame", get(routes::hall_of_fame))
@@ -55,6 +56,7 @@ pub fn root() -> impl IntoEndpoint {
             "/apple-touch-icon.png",
             StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"),
         )
+        .at("/robots.txt", get(routes::robots))
         .catch_error(routes::errors::not_found)
         .with(middleware::boost::BoostMiddleware)
         .with(middleware::headers::security_headers())

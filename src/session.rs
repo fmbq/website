@@ -1,20 +1,21 @@
+use crate::config::Configuration;
 use poem::{
     session::{CookieConfig, MemoryStorage, RedisStorage, ServerSession},
     Endpoint, EndpointExt, Response,
 };
 use redis::{aio::ConnectionManager, Client};
-use std::env;
 
 pub async fn configure_session<'a, T>(
     endpoint: T,
+    config: &Configuration,
 ) -> color_eyre::eyre::Result<impl Endpoint<Output = Response> + 'a>
 where
     T: Endpoint + 'a,
 {
     let cookie_config = CookieConfig::default();
 
-    if let Ok(redis_host) = env::var("REDIS_HOST") {
-        let redis_port = env::var("REDIS_PORT").unwrap_or("6379".to_string());
+    if let Some(redis_host) = &config.redis_host {
+        let redis_port = config.redis_port.unwrap_or(6379);
 
         tracing::info!(
             "using redis session storage at {}:{}",

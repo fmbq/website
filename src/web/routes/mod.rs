@@ -1,11 +1,11 @@
 use super::{pages, sse};
+use crate::config::{Configuration, DeploymentEnvironment};
 use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use maud::Markup;
 use poem::{
     handler,
-    web::{sse::SSE, Html},
+    web::{sse::SSE, Data, Path, Redirect},
     IntoResponse,
-    Request,
 };
 
 pub mod admin;
@@ -58,12 +58,13 @@ pub fn playground() -> Markup {
 }
 
 #[handler]
-pub fn quotes(res: &Request) -> Html<Markup> {
-    let q = res.uri().query();
-    // what to do with q
-    // it should contain year=2025
-    // I want to pass the year to the render
-    Html(pages::quotes::render(2025))
+pub fn quotes_root() -> impl IntoResponse {
+    Redirect::see_other(format!("/quotes/{}", OffsetDateTime::now_utc().year()))
+}
+
+#[handler]
+pub fn quotes_for_year(Path(year): Path<u64>) -> Markup {
+    pages::quotes::render(year)
 }
 
 #[handler]
@@ -94,4 +95,21 @@ pub fn events() -> SSE {
 #[handler]
 pub fn time() -> impl IntoResponse {
     OffsetDateTime::now_utc().format(&Rfc2822).unwrap()
+}
+
+#[handler]
+pub fn robots(Data(config): Data<&Configuration>) -> &'static str {
+    match config.deployment_environment {
+        DeploymentEnvironment::Testing => {
+            "User-agent: *\n\
+            Disallow: /"
+        }
+        DeploymentEnvironment::Production => {
+            "User-agent: *\n\
+            Disallow: /admin\n\
+            Disallow: /static/\n\
+            Disallow: /styles/\n\
+            Disallow: /js/"
+        }
+    }
 }

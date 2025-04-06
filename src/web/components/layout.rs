@@ -1,4 +1,4 @@
-use super::{copyright::copyright, header::header, scripts::scripts};
+use super::{footer::footer, header::header, scripts::scripts};
 use maud::{html, Markup, DOCTYPE};
 
 const GLOBAL_TITLE: &str = "Free Methodist Bible Quizzing";
@@ -26,19 +26,14 @@ pub fn layout(title: &str, body: Markup) -> Markup {
             (scripts())
         }
 
-        // Trigger all menus that may be open to close on losing focus.
-        body _="on click send menuclose to <menu/>" {
+        body {
             (header())
 
             main role="main" class="content-grid" {
                 (body)
             }
 
-            footer {
-                div class="container" {
-                    (copyright())
-                }
-            }
+            (footer())
         }
     }
 }

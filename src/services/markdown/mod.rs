@@ -63,7 +63,7 @@ fn autolink<'a>(mut events: impl Iterator<Item = Event<'a>>) -> impl Iterator<It
 
                     preparsed_count += 3;
 
-                    return Some(Event::Text(prefix.into()));
+                    Some(Event::Text(prefix.into()))
                 } else {
                     Some(Event::Text(text))
                 }

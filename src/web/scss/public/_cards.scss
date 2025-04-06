@@ -1,24 +1,50 @@
 @use '../common/motifs';
 
 .big-image-card {
-    margin: 1rem 3rem;
+    --content-width: breakout;
+    margin-bottom: 1rem;
 
     .card-contents {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid:
+            "figure body" auto
+            / 1fr 1fr;
         align-items: center;
+        padding: 1rem;
+        gap: 1rem;
 
         @include motifs.hard-border;
 
         background-color: var(--color-yellow);
 
-        .left, .right {
-            padding: 1rem;
+        & > .figure {
+            grid-area: figure;
+
+            figure {
+                width: 100%;
+            }
+
+            img {
+                max-height: 50vh;
+            }
         }
 
-        img {
-            max-width: 100%;
-            max-height: 60vh;
+        & > .body {
+            grid-area: body;
+        }
+
+        &.right {
+            grid:
+                "body figure" auto
+                / 1fr 1fr;
+        }
+
+        @media (max-width: 800px) {
+            grid:
+                "figure" auto
+                "body" auto
+                / 1fr
+                !important;
         }
     }
 }

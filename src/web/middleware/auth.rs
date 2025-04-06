@@ -32,7 +32,7 @@ where
         // Check if the user is logged in.
         let session = request.data::<Session>().unwrap();
 
-        if let Some(user_id) = session.get::<String>("user-id") {
+        if let Some(_user_id) = session.get::<String>("user-id") {
             self.inner
             .call(request)
             .await
