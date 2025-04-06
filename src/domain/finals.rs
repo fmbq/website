@@ -2,32 +2,35 @@ use serde::Deserialize;
 use std::sync::OnceLock;
 
 static FINALS_XML: &str = include_str!("../data/finals.xml");
-static MATERIAL: OnceLock<Material> = OnceLock::new();
+static FINALS: OnceLock<Finals> = OnceLock::new();
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Materialitem {
-    #[serde(rename = "@books")]
-    pub books: String,
+pub struct Finalsitem {
+    #[serde(default)]
+    #[serde(rename = "@place")]
+    pub place: String,
     #[serde(rename = "@year")]
     pub year: u16,
     #[serde(default)]
-    #[serde(rename = "@translation")]
-    pub translation: String,
+    #[serde(rename = "@city")]
+    pub city: String,
+    #[serde(rename = "@state")]
+    pub state: String,
 }
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Material {
+pub struct Finals {
 
-    #[serde(rename = "finals")]
-    pub finals: Vec<Materialitem>,
+    #[serde(rename = "location")]
+    pub finals: Vec<Finalsitem>,
 }
 
 
-pub fn get_finals() -> &'static Material {
-    MATERIAL.get_or_init(load)
+pub fn get_finals() -> &'static Finals {
+    FINALS.get_or_init(load)
 }
 
-fn load() -> Material {
+fn load() -> Finals {
     quick_xml::de::from_str(FINALS_XML).unwrap()
 }
 

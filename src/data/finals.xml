@@ -1,11 +1,13 @@
 <finals updated="3/16/2025">
     <location year="2025" place="Seattle Pacific University" city="Seattle " state="WA"/>
+
     <location year="2024" place="Waynesburg University" city="Waynesburg " state="PA"/>
     <location year="2023" place="Greenville University" city="Greenville " state="IL"/>
     <location year="2022" place="Asbury University" city="Wilmore " state="KY"/>
     <location year="2021" place="Olivet Nazarene University" city="Bourbonnais " state="IL"/>
     <location year="2020" place="ONLINE" city="NA" state="NA"/>
-    <location year="2019" place="Spring Arbor University" city="Spring Arbor, Michigan"/>
+
+    <location year="2019" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
     <location year="2018" place="Greenville University" city="Greenville " state="IL"/>
     <location year="2017" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
     <location year="2016" place="Seattle Pacific University" city="Seattle " state="WA"/>
@@ -45,13 +47,13 @@
     <location year="1982" place="Greenville College" city="Greenville " state="IL"/>
     <location year="1981" place="IYC" city="Estes Park " state="CO"/>
     <location year="1980" place="Spring Arbor College" city="Spring Arbor " state="MI"/>
-    <location year="1979" city="Winona Lake " state="IN"/>
-    <location year="1978" city="Winona Lake " state="IN"/>
-    <location year="1977" city="Winona Lake " state="IN"/>
-    <location year="1976" city="Winona Lake " state="IN"/>
-    <location year="1975" city="Colorado"/>
-    <location year="1974" city="Winona Lake " state="IN"/>
-    <location year="1973" city="Westland " state="MI"/>
+    <location year="1979" place="Winona Lake" city="Winona Lake " state="IN"/>
+    <location year="1978" place="Winona Lake" city="Winona Lake " state="IN"/>
+    <location year="1977" place="Winona Lake" city="Winona Lake " state="IN"/>
+    <location year="1976" place="Winona Lake" city="Winona Lake " state="IN"/>
+    <location year="1975" place="NA" city="NA" state="CO"/>
+    <location year="1974" place="Winona Lake" city="Winona Lake " state="IN"/>
+    <location year="1973" place="Westland" city="Westland " state="MI"/>
     <location year="1972" place="University of Illinois at Champaign-Urbana" city="Champaign " state="IL"/>
     <location year="1970" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
     <location year="1969" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
@@ -71,4 +73,5 @@
     <location year="1955" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
     <location year="1954" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
     <location year="1953" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
+
 </finals>

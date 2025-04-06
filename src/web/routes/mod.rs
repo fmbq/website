@@ -82,6 +82,11 @@ pub fn material() -> Markup {
 }
 
 #[handler]
+pub fn finals() -> Markup {
+    pages::finals::render()
+}
+
+#[handler]
 pub fn events() -> SSE {
     sse::subscribe()
 }

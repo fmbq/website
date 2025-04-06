@@ -35,6 +35,7 @@ pub fn root() -> impl IntoEndpoint {
         .at("/hall-of-fame", get(routes::hall_of_fame))
         .at("/markell", get(routes::markell))
         .at("/material", get(routes::material))
+        .at("/finals", get(routes::finals))
         .at("/playground", get(routes::playground))
         .at("/time", get(routes::time))
         .at("/events", get(routes::events))
