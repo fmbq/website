@@ -172,3 +172,10 @@ INSERT INTO person(firstname, lastname, common_name, sex, address1, city, state,
             VALUES("Zoey","Van Laanen","Zoey","F","745 Chelsea Pl","Janesville","WI","53546");
 INSERT INTO person_person_type VALUES(last_insert_rowid(),0); -- quizzer
 
+INSERT INTO person(firstname, lastname, common_name, sex, address1, city, state, zip)
+            VALUES("Joy","Collins","Joy","F","","Alton","IL","00000");
+INSERT INTO person_person_type VALUES(last_insert_rowid(),0); -- quizzer
+
+INSERT INTO person(firstname, lastname, common_name, sex, address1, city, state, zip)
+            VALUES("Grant","Ely","Grant","M","","Alton","IL","00000");
+INSERT INTO person_person_type VALUES(last_insert_rowid(),0); -- quizzer

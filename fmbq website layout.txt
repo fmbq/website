@@ -6,7 +6,7 @@ Home
  Free Methodist Denomination
 
 About
- Synopsis of FM Quizzing  
+ Synopsis of FM Quizzing
  Who we are
   FMCUSA
  The Basics
@@ -32,12 +32,12 @@ Schedule
 		-> Locations (section)
 		-> Results (section with links)
 		Result (page)
-			dynamic page that loads the results for each individual finals			
- 
+			dynamic page that loads the results for each individual finals
+
 Resources
  Material Lists (what books, what years)
  Quotes
- Rules 
+ Rules
  Study Supplies
  Questions
  Electronics
@@ -48,7 +48,7 @@ Awards
  STV Individuals
  Dave Markell (description + pictures)
  Hall of Fame
- 
+
 Support Us
  Prayer
  Giving
@@ -61,8 +61,24 @@ News
 
 Contacts
  Include marked maps of FM Conferences
- 
 
+*** year is when finals is e.g 2024-2025 --> 2025
+/seasons/2025 --- landing page with schedule and quote list link
+/seasons/2025/quotes
+/seasons/2025/finals
+/seasons/2025/finals/awards
+/seasons/2025/finals/registration
+/seasons/2025/finals/news
+/seasons/2025/finals/schedule
+/seasons/2025/finals/tournament
+
+/awards/finals
+/awards/alpha-omega
+/awards/individuals
+/awards/benson
+/awards/dave-markell
+/awards/spitshine
+/awards/hall-of-fame
 
 
 ***** PRAY - LEARN - JOIN - COMPETE *****
@@ -70,7 +86,7 @@ Contacts
 International?????
 
 
- 
+
  Rules is XML with markdown in the body (where needed)
             //***************************************************************************
 			<rule id="2" type="header" title="FM BIBLE QUIZZING RULES">
@@ -80,12 +96,12 @@ International?????
 					</rule>
 				</rule>
 			</rule>
-			 
- 
- 
- 
- 
- 
+
+
+
+
+
+
 ------------------------------------------
 2025-2026 season target
 ------------------------------------------
@@ -95,8 +111,8 @@ Finals xxxxx
  Photos
  Links to live results
  Final results
- 
- 
+
+
 Android Only app for scoring Only
  Can use WIFI only (no cell connection required)
  Scoring + timer (will start when select option)
@@ -108,8 +124,8 @@ Android Only app for scoring Only
  What if there are issues with the scoring, how to fix?
   Use a key to be in edit mode
   How to undo ruling
-  
-  
+
+
 
 
 
@@ -143,10 +159,10 @@ Android Only app for scoring Only
 
             //***************************************************************************
 			h3 { "2.3 QUESTIONS" }
-			h4 { "2.3.1 Legal Introduction to the Question.  The Quizmaster is to introduce each question in the following manner:  
-			\"Question, Question number ___, Question.\"  
-			Any marked question type shall be announced in this introduction:  
-			\"Question Number Four is a Two-Part Question.\"  
+			h4 { "2.3.1 Legal Introduction to the Question.  The Quizmaster is to introduce each question in the following manner:
+			\"Question, Question number ___, Question.\"
+			Any marked question type shall be announced in this introduction:
+			\"Question Number Four is a Two-Part Question.\"
 			If the quizmaster inadvertently states this another way and in doing so prompts a forfeit jump or prejump, a procedural appeal may be made, and the question or a substitute question should be read without penalizing the quizzer. If a Quizmaster misstates the introduction, but completes the question with no prejumps being registered, no appeal will be accepted concerning the error in the introduction." }
 			h4 { "2.3.2 Legal Reading of the Question.  The Quizmaster shall read questions loudly enough so that all words can be heard easily by all quizzers. In large rooms, a sound system might be used.  The Quizmaster shall read the questions clearly and correctly so that all words are easily understood. Mistakes of pronunciation are permissible only if the words are still clearly recognizable and if the error does not throw off the timing of the question.  The Quizmaster shall read the questions at a moderate pace. Reading too quickly or too slowly, or with inordinate pauses, may trigger unintended prejumping.  If noise interference or other distractions prevent a question from being clearly heard, the quizmaster will re-read or replace the question." }
 			h4 { "2.3.3 Ruling on answer.  Quizmasters are encouraged to have their Bibles open and double-check answer sheets with the actual Scripture text.  This is also helpful if a quizzer's answer goes beyond what is written on the question/answer sheet. On any ruling, the decision of the Quizmaster is final unless appealed by a captain or coach before the next question is started. If an appeal is raised, the decision of the Quizmaster on appeal will be final.  The Quizmaster may, on his or her own initiative, correct a decision he/she realizes to have been incorrect when made.  This should be done as soon as the error is realized, and before the next question is ruled upon." }
@@ -298,7 +314,7 @@ Android Only app for scoring Only
 			h4 { "2.13.5.4 The \"correction\" of an answer is accurate. " }
 			h4 { "2.13.5.5 The answer is clearly stated with no words being mispronounced beyond recognition. " }
 			h4 { "2.13.5.6 The Scripture containing the complete answer is given accurately." }
-			h4 { "2.13.5.7 Quotes are given exactly word-for-word, with no additions or deletions.  
+			h4 { "2.13.5.7 Quotes are given exactly word-for-word, with no additions or deletions.
 			Note: The exact words of Scripture are required only for \"Quotes.\" A general answer which is correct in meaning and inclusive of all key concepts is sufficient for all other questions." }
 			h4 { "2.13.5.8 The answer to a question is ambiguous due to a variety of interpretations of a passage; points are awarded to the first quizzer giving a possible correct answer." }
 			h4 { "2.13.6 An Answer is Incorrect when . . ." }
@@ -306,7 +322,7 @@ Android Only app for scoring Only
 			Note: The biblical text itself must be consulted when a quizzer\'s answer goes beyond the answer printed on the Question sheet." }
 			h4 { "2.13.6.2 It is incomplete." }
 			h4 { "2.13.6.3 Incorrect Scripture references are given with the answer when required (Quote questions only)." }
-			h4 { "2.13.6.4 An exact quotation is required and even one word is added, omitted, or altered. 
+			h4 { "2.13.6.4 An exact quotation is required and even one word is added, omitted, or altered.
 			Note:  This rule disallows answering a Quote question with any additional passage other than the one requested in the question." }
 			h4 { "2.13.6.5 Any significant word is mispronounced beyond recognition or in such a way as to be confused with another word of similar pronunciation in the text for that season." }
 			h4 { "2.13.6.6 Information excluded by the wording of the question is given." }
@@ -327,14 +343,14 @@ Android Only app for scoring Only
 			h4 { "2.14.6.1 The exact question is given." }
 			h4 { "2.14.6.2 The general question is given if it meets all other conditions below.
 			*  The question word has been substituted with another question word of similar meaning.
-			Note: The basic question words are: Who (Whom), What, When, Where, Why, How, For what reason, purpose, or cause. 
-			\"For what Reason\" is inter-changeable with \"Why.\" 
+			Note: The basic question words are: Who (Whom), What, When, Where, Why, How, For what reason, purpose, or cause.
+			\"For what Reason\" is inter-changeable with \"Why.\"
 			\"Who\" may be interchangeable with \"What\" in some contexts (although it is preferred that \"Who\" and \"What\" be used properly, of course).
 			* The prejump is completed correctly and extra accurate information not already a part of the written answer is added, such as references or clarifying modifiers of words to the question.
 			* The question has a list for an answer and the completion asks for as many or more parts of the list than the written question.  Completing a question with \"however many parts\" is acceptable." }
 			h4 { "2.14.6.3 In ruling on the correctness of a completion of a question in a prejump, the quizmaster should take an approach of allowing quizzers to show what they know. If the completion of the question given by the quizzer would lead to the same answer written in the question, the quizmaster should rule \"you may proceed\" (making no special indication that this is a close situation) and allow the quizzer to attempt to answer the question. The written answer must be contained within the verbal answer. If it is not, even though the answer may be adequate for answering the quizzer's question, the quizzer must be ruled \"incorrect.\" If the Quizmaster rules \"incorrect,\" the question must be re-read as written. The following are guidelines for quizmasters:
 			*  The completed question must have the same number of parts as the written question.
-			* A significant part of the written answer must not be included in the completed question. 
+			* A significant part of the written answer must not be included in the completed question.
 			* The answer to the written question must be included in the answer to the completed question. If any part of the written answer would not be required by the quizzer\'s completed question, the completion should not be accepted.
 			* The answer provided by the quizzer must answer the written question and his/her completed question, even if the completed question is broader and requires more information to be answered correctly, even if that information comes from a different chapter.
 			*  The completed question must be specific enough to be reasonably answered within 20 seconds (when in doubt, the Quizmaster is encouraged to allow the Quizzer to try to answer his/her completed question)." }
@@ -348,7 +364,7 @@ Android Only app for scoring Only
 			h4 { "2.14.10.4 More or fewer parts have been given than were in the original (written) question, such as a 2-part question for a 3-part question, etc." }
 			h4 { "2.14.10.5 The question has a list for an answer and the completion asks for fewer parts of the list than the written question." }
 			h4 { "2.14.10.6 The completion includes limiters such as:
-			* chapters, verses, sentences or paragraphs, such as \"...and what is said in the rest of this paragraph?\" or 
+			* chapters, verses, sentences or paragraphs, such as \"...and what is said in the rest of this paragraph?\" or
 			* an open-ended completion, such as \"... and what else is true?\" when not limited by another part of the question, or
 			* when the completion makes use of a construction of otherwise unrelated words in the text to limit the answer to a contiguous passage, such as \"and what else is said between ... and ...\"  or \"and what else is said up to the point . . .\" or other words to the same effect;
 			*  The completion of a multi-part question is unrelated to rest of the question;" }
@@ -356,10 +372,10 @@ Android Only app for scoring Only
 
             //***************************************************************************
 			h3 { "2.15  FORFEIT JUMPS" }
-			h4 { "2.15.1 Defined.  In Team Competition, a \"forfeit jump\" shall be called if, after the third introductory word \"question\" has been read by the Quizmaster, one of the following occurs: 
-			1) a quizzer\'s light comes on before the first word has been read; 
-			2) a light flickers and the quizzer remains seated soon after the question is \"open\"; or 
-			3) a quizzer has not yet adopted a legal jumping position at the start of the question following the introduction. 
+			h4 { "2.15.1 Defined.  In Team Competition, a \"forfeit jump\" shall be called if, after the third introductory word \"question\" has been read by the Quizmaster, one of the following occurs:
+			1) a quizzer\'s light comes on before the first word has been read;
+			2) a light flickers and the quizzer remains seated soon after the question is \"open\"; or
+			3) a quizzer has not yet adopted a legal jumping position at the start of the question following the introduction.
 			" }
 			h4 { "2.15.2 Penalty.  The violating quizzer must \"sit out\" that question and forfeit any chance of answering.  Teammates, however, may jump normally and are eligible to answer and earn points for the team. This ruling does not apply if there is an equipment malfunction.  The quizzer may resume jumping on the next question." }
 			h4 { "2.15.3 Question re-read for all others.  On a forfeit jump, the Quizmaster shall repeat the introduction to the question so that quizzers may re-position themselves for the re-reading of the question." }
@@ -379,15 +395,15 @@ Android Only app for scoring Only
 			h4 { "2.16.10 Seat selection.  Seat placement for Individuals may, at the request of any quizzer or by determination of the Quizmaster, be assigned by having each quizzer draw a piece of paper or other token with a number for each seat available.  Starting with number 1, each quizzer may choose his/her seat.  At the halfway mark (after Question 8 in a 15-question quiz, or after Question 10 in a 20-question quiz), if any quizzer wishes to change seats, all quizzers shall stand and, starting in reverse order (i.e., with the quizzer who drew the last number), each quizzer shall again choose his/her seat for the remainder of the quiz." }
 
 
-			
 
-			
-			
+
+
+
 			h3 { "2.17 APPEALS"}
 			h4 { "2.17.1 General intent.  The purpose of any type of appeal is first, to allow for the proper awarding of points according to the rules; and second, to increase the quizzers\' and coaches\' confidence that the rules will be consistently applied by giving them opportunity to call attention to the rules when they feel one has been overlooked or misapplied. The intent of an appeal is not to steal points away from the opposing team on a technicality. The person making the appeal should keep in mind the goal of quizzing is to encourage the youth of both teams in their study of God\'s word." }
-			
-			
-			
+
+
+
 			h3 { "2.17 APPEALS" }
 			h4 { "2.17.1 General intent.  The purpose of any type of appeal is first, to allow for the proper awarding of points according to the rules; and second, to increase the quizzers\' and coaches\' confidence that the rules will be consistently applied by giving them opportunity to call attention to the rules when they feel one has been overlooked or misapplied. The intent of an appeal is not to steal points away from the opposing team on a technicality. The person making the appeal should keep in mind the goal of quizzing is to encourage the youth of both teams in their study of God\'s word." }
 			h4 { "2.17.2 Who may appeal.  Only the team captain may make appeals on the question, answer, prejump completion, or the procedure; the coach may only appeal procedure." }
@@ -446,7 +462,7 @@ Android Only app for scoring Only
 			h3 { "2.22 WARNINGS AND INFRACTIONS" }
 			h4 { "2.22.1 Illegal Conferring.  Quizzers cannot intentionally provide answers to team members or confer with each other, the coach, or with the audience by signal or voice from the time a question is begun until it is closed. A Quizmaster may give Warnings and Infractions to individual quizzers or to teams in violation.  No Scripture portions may be used by a quizzer in competition, though quizzers not in the competition at the moment (such as substitutes and those who quizzed out) may look in the Scriptures during the quiz." }
 			h4 { "2.22.2 Illegal Discussion.  A question may not be discussed after it is closed if the Quizmaster is unwilling to discuss it. Quizzers, coaches, or fans who persist in this type of \"discussion\" may receive Warnings and Infractions. Coaches and quizzers do have the right to ask the quizmaster any question they wish between questions, and Quizmasters may answer if they wish. But if the Quizmaster indicates an unwillingness to discuss the point in question, the issue must be dropped.  (After the round is completed can be a good time for a quizzer or coach to ask a Quizmaster for insights on the ruling on a particular question.)" }
-			h4 { "2.22.3 Warnings and Infractions.  Any Quizmaster or tournament director may give Warnings and/or Infractions to any team or individual who illegally confers, has illegal discussion, or exhibits disruptive or inappropriate behavior during any quiz or tournament. Warnings and Infractions will be given either to an individual or to a team, but not to both. Upon the third Warning, an Infraction will be given. The first Infraction will cause that team or individual to forfeit the question, with points automatically being awarded the other team. The second Infraction causes that team or individual to forfeit the quiz, and the third Infraction would mean elimination from the tournament. All Warnings and Infractions shall be recorded on the Official Scoresheet or Record Sheet with a capital \"W\" or \"I.\" While it is certain that these penalties will seldom if ever have to be used, it is hoped that their existence will foster closer observance of the rules and more discreet behavior. 
+			h4 { "2.22.3 Warnings and Infractions.  Any Quizmaster or tournament director may give Warnings and/or Infractions to any team or individual who illegally confers, has illegal discussion, or exhibits disruptive or inappropriate behavior during any quiz or tournament. Warnings and Infractions will be given either to an individual or to a team, but not to both. Upon the third Warning, an Infraction will be given. The first Infraction will cause that team or individual to forfeit the question, with points automatically being awarded the other team. The second Infraction causes that team or individual to forfeit the quiz, and the third Infraction would mean elimination from the tournament. All Warnings and Infractions shall be recorded on the Official Scoresheet or Record Sheet with a capital \"W\" or \"I.\" While it is certain that these penalties will seldom if ever have to be used, it is hoped that their existence will foster closer observance of the rules and more discreet behavior.
 
 			Note: If a violation immediately jeopardizes the fair awarding of points, an Infraction may be given with no advance Warning." }
 
@@ -460,9 +476,9 @@ Android Only app for scoring Only
 
             //***************************************************************************
 			h3 { "2.24 EQUIPMENT PROBLEMS" }
-			h4 { "2.24.1 Defined.  An \"Equipment malfunction\" shall be called only when there is little or no doubt in the mind of the Quizmaster that the equipment is actually at fault. Any claim should be thoroughly investigated. A quizzer sitting precariously on the edge of the pressure point (where the least motion might activate the light) should be cautious in claiming an equipment failure. However, there may be legitimate cases of: 
-			(a) a jump where the quizzer declares innocence, 
-			(b) a light that seems to flicker or activate simply by moving the wires, or 
+			h4 { "2.24.1 Defined.  An \"Equipment malfunction\" shall be called only when there is little or no doubt in the mind of the Quizmaster that the equipment is actually at fault. Any claim should be thoroughly investigated. A quizzer sitting precariously on the edge of the pressure point (where the least motion might activate the light) should be cautious in claiming an equipment failure. However, there may be legitimate cases of:
+			(a) a jump where the quizzer declares innocence,
+			(b) a light that seems to flicker or activate simply by moving the wires, or
 			(c) a seat pad demonstrating a reproducible delay in activating its light.
 
 			The procedure in 2.17.4 should be followed for correcting the problem. The Quizmaster shall be the sole judge as to whether or not the equipment is to blame, and may take any necessary action to fairly continue with the question and deal with the problem." }
@@ -478,7 +494,7 @@ Android Only app for scoring Only
 			h4 { "3.1.1 General.  The coach\'s responsibilities include encouraging spiritual growth in the lives of their quizzers (discipleship), prayerfully building and training a team, accompanying the team to tournaments, advising quizzers on strategy and game play (including the use of substitutions and time-outs), and representing the team to the local congregation and at large." }
 			h4 { "3.1.2 Notes to the Coach: To build a team, relationships must be cultivated and enthusiasm generated. A good starter activity is to visit a quiz tournament with as many of your potential quizzers as possible. Enlisting the support of the Pastor, local Board of Administration, youth staff, and the parents of teens is crucial. Don\'t forget to let your Conference Bible Quiz Director know of your interest; he or she will be glad to give you valuable advice and support." }
 			h4 { "3.1.3 Practices.  To train a team, schedule a regular time of practice; determine a study schedule (perhaps one chapter a week, with occasional reviews), employ principles of good teaching mixed in with asking questions over the text (teens need to understand in order to remember effectively); and supply loads of encouragement as needed. Take an interest in each individual quizzer, and communicate frequently about upcoming tournaments and retreats to keep excitement and study motivation high." }
-			h4 { "3.1.4 Study tools.  Studying along with the quizzers also can serve as a valuable motivator and source of good fun and relationship building between you and your quizzers. You may wish to challenge your quizzers with some \"participation guidelines\" (like having read the chapter at least 3 times or knowing all chapter Quotes before each weekly practice), or some \"incentives\" (like taking the first quizzer who memorizes a certain chapter to McDonald\'s, etc.). 
+			h4 { "3.1.4 Study tools.  Studying along with the quizzers also can serve as a valuable motivator and source of good fun and relationship building between you and your quizzers. You may wish to challenge your quizzers with some \"participation guidelines\" (like having read the chapter at least 3 times or knowing all chapter Quotes before each weekly practice), or some \"incentives\" (like taking the first quizzer who memorizes a certain chapter to McDonald\'s, etc.).
 
 			Note: Always be on the lookout for new quizzers, even after the quiz season is in progress." }
 			h4 { "3.1.5 Tournaments.  Make sure to register properly in advance. Communicate with your church and parents of teens regarding all costs and scheduling for the trip, travel arrangements, etc.  It is suggested that a Parental Permission slip be collected from all parents." }
@@ -495,26 +511,26 @@ Android Only app for scoring Only
             //***************************************************************************
 			h2 { "4.  RESOURCES:  QUIZMASTERS" }
 			h3 { "4.1  QUIZMASTERING" }
-			h4 { "4.1.1 Note to the quizmaster: As the key official in every quiz, you have the responsibility to see that the quiz is conducted smoothly, efficiently, and fairly. This means, first, that you will need to become familiar with all rules and procedures outlined in this Rulebook. Second, resist the natural tendency to be defensive in judgments and attitudes. Relax, be confident in your own abilities and in the knowledge that God will help you. And yet be open and honest when faced with an appeal or criticism. The rules provide for reversing decisions which are clearly in error. Be gracious in reversing incorrect decisions and upholding right ones. Your goal should always be two-fold: 
-			1) to fairly award points according to the rules, honoring the team which has most effectively mastered the content of God\'s Word, and 
+			h4 { "4.1.1 Note to the quizmaster: As the key official in every quiz, you have the responsibility to see that the quiz is conducted smoothly, efficiently, and fairly. This means, first, that you will need to become familiar with all rules and procedures outlined in this Rulebook. Second, resist the natural tendency to be defensive in judgments and attitudes. Relax, be confident in your own abilities and in the knowledge that God will help you. And yet be open and honest when faced with an appeal or criticism. The rules provide for reversing decisions which are clearly in error. Be gracious in reversing incorrect decisions and upholding right ones. Your goal should always be two-fold:
+			1) to fairly award points according to the rules, honoring the team which has most effectively mastered the content of God\'s Word, and
 			2) to edify and strengthen in faith the hearts and minds of all those participating.
 			" }
 			h4 { "4.1.2 Demeanor.  Your attitude will communicate itself to the teams, officials, and audience. So be relaxed, make no hasty decisions, proceed efficiently, and SMILE!  Frequently quizzers are scared stiff. Your smile, with a little humor mixed in, will go a long way toward reducing the pressure and making a better quiz. Enjoy your ministry! You are working with teenagers of amazing potential and ability, and God will bless your efforts. In moments of tense decision-making, it will help to remember the ultimate aim and purpose of Bible quizzing.  The mission of Free Methodist Bible Quizzing is \"to instill biblical truths in the heart of teens, establish them in their faith, and prepare them for Christian service through the systematic study, meaningful application, and memorization of the word of God.\" Bible Quizzing is an avenue for hiding away the living Word of God in the minds and hearts of youth to equip them to live a life of love and service to Christ. Therefore, prayerfully seek and expect the help of the Holy Spirit in performing this task. Please execute faithfully the following responsibilities, and consult the sections referred to in parentheses when clarification is needed.
 			" }
-			h4 { "4.1.3 Preparation.  The Quizmaster\'s responsibilities for each quiz include personal preparation, appointing the necessary contest officials, mobilizing quizzers and testing jump equipment, and conducting a fair and impartial quiz within the time limit and conditions prescribed by the tournament coordinator. 
+			h4 { "4.1.3 Preparation.  The Quizmaster\'s responsibilities for each quiz include personal preparation, appointing the necessary contest officials, mobilizing quizzers and testing jump equipment, and conducting a fair and impartial quiz within the time limit and conditions prescribed by the tournament coordinator.
 			" }
-			h4 { "4.1.4 Learn the rules.  In preparing for the quiz, Quizmasters must first become familiar with all regulations and procedures contained in this Rulebook. Next, they must secure the questions and scoresheets from the tournament coordinator. Quizmasters should then read the questions silently before the quiz to familiarize themselves with the phraseology and punctuation.  The scoresheet should be marked with the date, name of tournament, round number, room number, and name of the officiating Quizmaster.  Later the team and quizzer information will be recorded during introductions.  Team information includes both the team number and name. 
+			h4 { "4.1.4 Learn the rules.  In preparing for the quiz, Quizmasters must first become familiar with all regulations and procedures contained in this Rulebook. Next, they must secure the questions and scoresheets from the tournament coordinator. Quizmasters should then read the questions silently before the quiz to familiarize themselves with the phraseology and punctuation.  The scoresheet should be marked with the date, name of tournament, round number, room number, and name of the officiating Quizmaster.  Later the team and quizzer information will be recorded during introductions.  Team information includes both the team number and name.
 			" }
 			h4 { "4.1.5 Other officials.  The Quizmaster is to appoint a scorekeeper and a timekeeper and make sure they are familiar with all rules pertaining to their position. Appoint answer consultants if appropriate.  If comfortable doing so, or if no other persons are available to help, the Quizmaster may keep score and/or time, unless directed otherwise by the Tournament Director.  Trophy rounds should be planned in such a way that a scorekeeper is always available.
 			" }
-			h4 { "4.1.6 Checklist.  Before a quiz begins, Quizmasters should: 
-			1) Have the captains choose sides on the basis of a coin toss or mutual agreement. 
-			2) Have captains introduce themselves, their team members, and their coaches. As this occurs, the scorekeeper will write the names on the scoresheet and Quizmasters should write the quizzers\' names in the mini scoresheet on the question page to enable them to call on the quizzers by name for answering. 
-			3) Introduce themselves and all assisting officials. 
+			h4 { "4.1.6 Checklist.  Before a quiz begins, Quizmasters should:
+			1) Have the captains choose sides on the basis of a coin toss or mutual agreement.
+			2) Have captains introduce themselves, their team members, and their coaches. As this occurs, the scorekeeper will write the names on the scoresheet and Quizmasters should write the quizzers\' names in the mini scoresheet on the question page to enable them to call on the quizzers by name for answering.
+			3) Introduce themselves and all assisting officials.
 			" }
-			h4 { "4.1.7 Testing equipment.  After the quizmaster directs all quizzers to take their seats, the jump chairs should be tested to see that they are all working properly by giving quizzers some practice jumps on numbers, colors, claps, etc. The Quizmaster and timekeeper should now position themselves so that both can see the lights clearly. If some of the chairs are not working properly, one of three things should be done: 
-			1) fix the problem, if the repair is as simple as securing a loose wire or resetting the box; 
-			2) If it is a single pad malfunctioning, check the carrying case for a spare pad or consult the tournament coordinator to find another set of jump sets as a replacement; or 
+			h4 { "4.1.7 Testing equipment.  After the quizmaster directs all quizzers to take their seats, the jump chairs should be tested to see that they are all working properly by giving quizzers some practice jumps on numbers, colors, claps, etc. The Quizmaster and timekeeper should now position themselves so that both can see the lights clearly. If some of the chairs are not working properly, one of three things should be done:
+			1) fix the problem, if the repair is as simple as securing a loose wire or resetting the box;
+			2) If it is a single pad malfunctioning, check the carrying case for a spare pad or consult the tournament coordinator to find another set of jump sets as a replacement; or
 			3) work out a fair and just solution with both coaches which will allow for the accurate recording of jumping order or which will at least spread the handicap evenly to both teams (like switching sides at Half-time, if one team perceives a disadvantage).
 			" }
 			h4 { "4.1.8 Pray and begin.  After beginning the contest with prayer, the Quizmaster shall conduct the quiz fairly and efficiently according to all rules contained in this Rulebook.
@@ -532,7 +548,7 @@ Android Only app for scoring Only
 			(a) Secure copy of the Rulebook and read thoroughly.
 			(b) Get questions and official scoresheets from tournament coordinator.
 			(c) Familiarize yourself with the reading of the questions.
-			(d) Mark Scoresheet with pertinent data. 
+			(d) Mark Scoresheet with pertinent data.
 			(e) Appoint Scorekeeper and Timekeeper (and others if needed).
 			(f) Have captains pick sides, teams sit on quiz chairs, and the captains introduce their teammates.
 			(g) Record names of quizzers on the Question sheet and have the scorekeeper write the names on the Scoresheet.
@@ -551,14 +567,14 @@ Android Only app for scoring Only
 			(d) In the case of a prejump, a Quizmaster shall stop the reading of a question immediately. (See Prejumping.)
 			(e) If no correct answer is given (or if no answers are given aloud in the case of a tie), it is a courtesy to give the correct answer to the quizzers and audience after the question is closed.
 			(f) A question is closed after:
-			   1) a Time-out has been granted by the Quizmaster, 
-			   2) the Quizmaster starts the next question, or 
+			   1) a Time-out has been granted by the Quizmaster,
+			   2) the Quizmaster starts the next question, or
 			   3) the Quizmaster announces \"The question is closed.\" After a question is closed, no appeals will be accepted and no rulings will be changed.
 			" }
 			h4 { "4.1.12 Procedures.  The Quizmaster is to observe proper procedures for reading questions, acknowledging jumps, ruling on Answers, and upholding all other rules during a quiz. If in error, the Quizmaster is to do whatever is necessary to see that points are awarded fairly." }
-			h4 { "4.1.13 Quizmaster\'s Prerogative: A Quizmaster may change normal procedure (before the start of the next question) under either of these two conditions: 
-			1) if it is necessary for the fair awarding of points in situations where following the rules would lead to an injustice; or 
-			2) for personal preferences on procedures which are \"peripheral\" and not essential to the fair awarding of points.  
+			h4 { "4.1.13 Quizmaster\'s Prerogative: A Quizmaster may change normal procedure (before the start of the next question) under either of these two conditions:
+			1) if it is necessary for the fair awarding of points in situations where following the rules would lead to an injustice; or
+			2) for personal preferences on procedures which are \"peripheral\" and not essential to the fair awarding of points.
 			In cases of personal preference, the Quizmaster must specify in advance the modification he or she is going to make so that all coaches and quizzers are aware of the difference in style. Prerogative of personal preference may obviously not be used to change \"basic rules\" on ruling, answering, etc. Only \"procedures\" may be adjusted. However, in adjusting normal procedure to make things fair (i.e. throwing out a question one quizzer has already heard, sending those participating in the appeal into the hall instead of those still eligible to answer when answers might be heard from another room, etc.), the Quizmaster may act without advance notice. Apart from these two conditions, however, a Quizmaster must go by the rules as closely as possible or be subject to an appeal of procedure.
 			" }
 
@@ -581,10 +597,10 @@ Android Only app for scoring Only
 			h4 { "5.1.2.2 Tournament Questions.  It is the responsibility of the Conference Bible Quiz Director to secure Official Tournament Questions from the Denominational Director and to keep them confidential at all times. These questions should be given only to a designated Tournament Coordinator who has the job of overseeing a tournament, the Quizmasters involved in that tournament, and answer consultants (if they are used)." }
 			h4 { "5.1.2.3 Schedules.  In addition to securing tournament questions, an annual schedule of conference competition should be compiled, seeking guidance from the Regional Director and considering the suggestions and input of area coaches. (It is wise to consult with neighboring conference directors to schedule tournaments to better coordinate planning, and to alternate \"conference\" with \"regional\" tournaments.) Tournament Coordinators should be appointed for each tournament. The tournament schedule should be publicized as soon as it is confirmed so that coaches can plan accordingly." }
 
-			h4 { "5.1.2.4 Communication.  The Conference Director is to represent quizzing in the assigned area by regular communication with 
-			1) the area\'s Regional Bible Quiz Coordinator, 
-			2) local pastors in the Annual Conference, 
-			3) the Denominational Director, and 
+			h4 { "5.1.2.4 Communication.  The Conference Director is to represent quizzing in the assigned area by regular communication with
+			1) the area\'s Regional Bible Quiz Coordinator,
+			2) local pastors in the Annual Conference,
+			3) the Denominational Director, and
 			4) any others who need updates in various areas so that they can provide effective help and support." }
 
 			h4 { "5.1.3  Regional Bible Quiz Director.  Regional Bible Quiz Directors are appointed by the Denominational Director to promote and oversee Bible Quizzing in their regions. They shall pray for and communicate frequently with the Conference Bible Quiz Directors in their region, and report tournament news and ministry needs to the Denominational Director and/or anyone on staff who is responsible for publicizing this news or providing support for the ministry. They shall also serve on the FM Bible Quiz Leadership Team (which shall recommend policy and rule modifications for Bible Quizzing) along with the Denominational Director. A more detailed ministry description is available from the Denominational Director." }

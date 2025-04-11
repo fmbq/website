@@ -86,7 +86,8 @@ CREATE TABLE tournament_conference (
 -- every tournament could have different divisions allowed
 -- divisions apply to teams AND individuals
 -- if using no-count rounds, use the division_id for '999'
-CREATE TABLE tournament_divisions (
+CREATE TABLE tournament_division (
+    id INTEGER NOT NULL PRIMARY KEY,
     tournament_id INTEGER NOT NULL, --FK tournament
     division_id INTEGER NOT NULL, --FK division
     FOREIGN KEY (tournament_id) REFERENCES tournament(id),
@@ -117,18 +118,20 @@ CREATE TABLE registration_quizzer (
     id INTEGER NOT NULL PRIMARY KEY, -- use this for team composition
     registration_id INTEGER NOT NULL, -- FK registration, quizzer is associated with a specific registration
     quizzer_id INTEGER NOT NULL, -- FK season_person, quizzer is registerd to a church, but could be on a mixed team...
-    division_id INTEGER NOT NULL, -- FK division, for individuals, use 999 if not doing individuals
+    tournament_division_id INTEGER NOT NULL, -- FK tournament division, for individuals, use 999 if not doing individuals
     no_show INTEGER NOT NULL DEFAULT 0, -- if the quizzer doesn't show up, use a flag to keep them out of stats and the tournament
     FOREIGN KEY (registration_id) REFERENCES registration(id),
     FOREIGN KEY (quizzer_id) REFERENCES season_person(id),
-    FOREIGN KEY (division_id) REFERENCES division(id)
+    FOREIGN KEY (tournament_division_id) REFERENCES tournament_division(id)
 );
 
 -- teams are composed of up to 6 individuals
 -- team members might be from different churches, so take that into account
 CREATE TABLE registration_team (
     id INTEGER NOT NULL PRIMARY KEY, -- use for results
-    name TEXT -- with multiple teams in the same division from the same church, provide a unique (fun) name to seperate them
+    name TEXT NOT NULL, -- with multiple teams in the same division from the same church, provide a unique (fun) name
+    tournament_division_id INTEGER NOT NULL, -- FK tournament division
+    FOREIGN KEY (tournament_division_id) REFERENCES tournament_division(id)
 );
 
 -- quizzers on a team in a different table because we don't know the exact number
@@ -164,7 +167,7 @@ CREATE TABLE tournament_round_team (
     round INTEGER NOT NULL, -- 1..n
     room_id INTEGER NOT NULL, -- FK tournament_room
     quizmaster_id INTEGER NOT NULL, -- FK registration_quizmaster, primary quizmaster
-    consultant_id INTEGER NOT NULL, -- FK registration_quizmaster, quizmaster acting as a consultant
+    consultant_id INTEGER, -- FK registration_quizmaster, quizmaster acting as a consultant
     scorekeeper TEXT, -- just keep the data since this could be anybody
     division_id INTEGER NOT NULL, -- FK tournament_division, could be a no-count or mixed divisions so we can't rely on the teams division, no count is always a division of '999'
     team1_id INTEGER NOT NULL, -- FK registration_team
@@ -180,7 +183,7 @@ CREATE TABLE tournament_round_team (
     FOREIGN KEY (room_id) REFERENCES tournament_room(id),
     FOREIGN KEY (quizmaster_id) REFERENCES registration_quizmaster(id),
     FOREIGN KEY (consultant_id) REFERENCES registration_quizmaster(id),
-    FOREIGN KEY (division_id) REFERENCES division(id),
+    FOREIGN KEY (division_id) REFERENCES tournament_division(id),
     FOREIGN KEY (team1_id) REFERENCES registration_team(id),
     FOREIGN KEY (team2_id) REFERENCES registration_team(id)
 );
@@ -191,7 +194,7 @@ CREATE TABLE tournament_round_individuals (
     round INTEGER NOT NULL, -- 1 => prelim, 2=> semi-final 3=> final, basically, the highest number is the final round
     room_id INTEGER NOT NULL, -- FK tournament_room
     quizmaster_id INTEGER NOT NULL, -- FK registration_quizmaster
-    consultant_id INTEGER NOT NULL, -- FK registration_quizmaster, quizmaster acting as a consultant
+    consultant_id INTEGER, -- FK registration_quizmaster, quizmaster acting as a consultant
     scorekeeper TEXT, -- just keep the data since this could be anybody
     division_id INTEGER NOT NULL, -- FK tournament_division, could be a no-count or mixed divisions so we can't rely on the teams division, no count is always a division of '999'
     questions INTEGER NOT NULL DEFAULT 0, -- in case we want to publish real time scores, this is the current or final question number
@@ -201,7 +204,7 @@ CREATE TABLE tournament_round_individuals (
     FOREIGN KEY (room_id) REFERENCES tournament_room(id),
     FOREIGN KEY (quizmaster_id) REFERENCES registration_quizmaster(id),
     FOREIGN KEY (consultant_id) REFERENCES registration_quizmaster(id),
-    FOREIGN KEY (division_id) REFERENCES division(id)
+    FOREIGN KEY (division_id) REFERENCES tournament_division(id)
 );
 
 CREATE TABLE tournament_round_individuals_quizzers (

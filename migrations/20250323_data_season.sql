@@ -105,7 +105,14 @@ INSERT INTO season_person VALUES(6,(SELECT id FROM season WHERE year = 2025),
                                    (SELECT id FROM person WHERE common_name = "Charlotte"),
                                    (SELECT id FROM church WHERE name="Janesville"),
                                    (SELECT id FROM division WHERE name="YTV"));
-
+INSERT INTO season_person VALUES(7,(SELECT id FROM season WHERE year = 2025),
+                                   (SELECT id FROM person WHERE common_name = "Joy"),
+                                   (SELECT id FROM church WHERE name="Alton"),
+                                   (SELECT id FROM division WHERE name="STV"));
+INSERT INTO season_person VALUES(8,(SELECT id FROM season WHERE year = 2025),
+                                   (SELECT id FROM person WHERE common_name = "Grant"),
+                                   (SELECT id FROM church WHERE name="Alton"),
+                                   (SELECT id FROM division WHERE name="STV"));
 
 
 INSERT INTO season_church VALUES(1,(SELECT id FROM season WHERE year = 2025),4/*todd*/,(SELECT id FROM church WHERE name="Alton"));
@@ -129,27 +136,65 @@ INSERT INTO tournament_conference VALUES(0,0,(SELECT id FROM conference WHERE na
 INSERT INTO tournament_conference VALUES(1,0,(SELECT id FROM conference WHERE name="North Central"));
 
 -- these are the divisions allowed for the tournament
-INSERT INTO tournament_divisions VALUES(0,(SELECT id FROM division WHERE name="JR"));
-INSERT INTO tournament_divisions VALUES(0,(SELECT id FROM division WHERE name="Rookie"));
-INSERT INTO tournament_divisions VALUES(0,(SELECT id FROM division WHERE name="YTV"));
-INSERT INTO tournament_divisions VALUES(0,(SELECT id FROM division WHERE name="STV"));
+INSERT INTO tournament_division VALUES(1,0,(SELECT id FROM division WHERE name="Rookie"));
+INSERT INTO tournament_division VALUES(2,0,(SELECT id FROM division WHERE name="YTV"));
+INSERT INTO tournament_division VALUES(3,0,(SELECT id FROM division WHERE name="STV"));
+INSERT INTO tournament_division VALUES(4,0,(SELECT id FROM division WHERE name="NA")); /*999 for no-count*/
 
 -- Janesville registration
 INSERT INTO registration VALUES(0,"J241130ZY7AA876JH199",0, -- id, code, tournament id
                                 0, --(SELECT id FROM season_church WHERE name="Janesville"),
                                 (SELECT id FROM season_person WHERE person_id=(SELECT id FROM person WHERE common_name="Matt")),
                                 1,17);--seats, meal count
-INSErT INTO registration_quizzer VALUES(0,0,2/*harmony*/,(SELECT id FROM division WHERE name="STV"),0);
-INSErT INTO registration_quizzer VALUES(1,0,3/*payton*/,(SELECT id FROM division WHERE name="STV"),0);
-INSErT INTO registration_quizzer VALUES(2,0,4/*titus*/,(SELECT id FROM division WHERE name="YTV"),0);
-INSErT INTO registration_quizzer VALUES(3,0,5/*elliott*/,(SELECT id FROM division WHERE name="YTV"),0);
-INSErT INTO registration_quizzer VALUES(4,0,6/*charlotte*/,(SELECT id FROM division WHERE name="YTV"),0);
+INSERT INTO registration_quizzer VALUES(0,0,2/*harmony*/,3/*STV*/,0);
+INSERT INTO registration_quizzer VALUES(1,0,3/*payton*/,3/*STV*/,0);
+
+INSERT INTO registration_quizzer VALUES(3,0,5/*elliott*/,2/*YTV*/,0);
+INSERT INTO registration_quizzer VALUES(4,0,6/*charlotte*/,2/*YTV*/,0);
+
+INSERT INTO registration_team VALUES(0,"Janesville",3/*STV*/);
+INSERT INTO registration_team VALUES(1,"Janesville",2/*YTV*/);
+
+INSERT INTO registration_team_quizzer(team_id, quizzer_id) VALUES(0,0); /*harmony*/
+INSERT INTO registration_team_quizzer(team_id, quizzer_id) VALUES(0,1); /*payton*/
+INSERT INTO registration_team_quizzer(team_id, quizzer_id) VALUES(1,3); /*elliott*/
+INSERT INTO registration_team_quizzer(team_id, quizzer_id) VALUES(1,4); /*charlotte*/
 
 -- Alton registration
-INSERT INTO registration VALUES(1,"A241204ZY71A8K6J0199",0, -- id, code, tournament id
-                               2, --(SELECT id FROM season_church WHERE name="Janesville"),
+INSERT INTO registration VALUES(1,"K241204ZZ71B886J9900",0, -- id, code, tournament id
+                               2, --(SELECT id FROM season_church WHERE name="Alton"),
                                (SELECT id FROM season_person WHERE person_id=(SELECT id FROM person WHERE common_name="Todd")),
                                3,22);--seats, meal count
+INSERT INTO registration_quizzer VALUES(5,1,7/*joy*/,3/*STV*/,0);
+INSERT INTO registration_quizzer VALUES(6,1,8/*grant*/,3/*STV*/,0);
 
+INSERT INTO registration_team VALUES(2,"Alton",3/*STV*/);
+
+INSERT INTO registration_team_quizzer(team_id, quizzer_id) VALUES(2,5); /*joy*/
+INSERT INTO registration_team_quizzer(team_id, quizzer_id) VALUES(2,6); /*grant*/
+
+-- Quizmasters
+INSERT INTO registration_quizmaster(id,registration_id,quizmaster_id) VALUES(0,0,0); /*matt*/
+INSERT INTO registration_quizmaster(id,registration_id,quizmaster_id) VALUES(1,0,1); /*stephen*/
+INSERT INTO registration_quizmaster(id,registration_id,quizmaster_id) VALUES(2,1,10); /*todd*/
+
+-----------------------------------------------------------------------
+-- Tournament Schedule
+INSERT INTO tournament_room(id,name) VALUES(0,"A");
+INSERT INTO tournament_room(id,name) VALUES(1,"B");
+INSERT INTO tournament_room(id,name) VALUES(2,"C");
+
+INSERT INTO tournament_round_team (id, round, room_id, quizmaster_id, division_id, team1_id, team2_id)
+    VALUES (0, 1, 0/*A*/, 1/*stephen*/, 3/*STV*/, 0/*janesville*/, 2/*alton*/);
+
+INSERT INTO tournament_round_team (id, round, room_id, quizmaster_id, division_id, team1_id, team2_id)
+    VALUES (1, 2, 1/*B*/, 0/*matt*/, 4/*NA-999-nocount*/, 2/*janesville*/, 2/*alton*/);
+
+INSERT INTO tournament_round_individuals (id, round, room_id, quizmaster_id, division_id)
+    VALUES (8888, 1, 0/*A*/, 0/*matt*/, 3/*STV*/);
+INSERT INTO tournament_round_individuals_quizzers (id, individuals_id, quizzer_id) VALUES (0, 8888, 0/*harmony*/);
+INSERT INTO tournament_round_individuals_quizzers (id, individuals_id, quizzer_id) VALUES (1, 8888, 1/*payton*/);
+INSERT INTO tournament_round_individuals_quizzers (id, individuals_id, quizzer_id) VALUES (2, 8888, 5/*joy*/);
+INSERT INTO tournament_round_individuals_quizzers (id, individuals_id, quizzer_id) VALUES (3, 8888, 6/*grant*/);
 
 
