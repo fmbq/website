@@ -7,6 +7,9 @@ pub struct Configuration {
     #[serde(default)]
     pub deployment_environment: DeploymentEnvironment,
 
+    #[serde(default)]
+    pub dynamic_image_conversions: bool,
+
     #[serde(default = "default_listen_addr")]
     pub listen_addr: String,
 
