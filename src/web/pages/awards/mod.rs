@@ -1,6 +1,14 @@
 use crate::web::components::{cards::{BigImageCard, ImageAlignment}, layout::layout};
 use maud::{html, Markup};
 
+pub mod hall_of_fame;
+pub mod dave_markell;
+pub mod alpha_omega;
+pub mod individuals;
+pub mod benson;
+pub mod spitshine;
+pub mod finals;
+
 pub fn render() -> Markup {
     layout(
         "Awards",
@@ -14,7 +22,7 @@ pub fn render() -> Markup {
                 body: html! {
                     p { "The Alpha-Omega award is for STV teams that win at finals." }
                     p {
-                        a href="/alphaomega" {"Past Winners"}
+                        a href="/awards/alpha-omega" {"Past Winners"}
                     }
                 },
             })
@@ -25,6 +33,9 @@ pub fn render() -> Markup {
                 alignment: ImageAlignment::Right,
                 body: html! {
                     p { "The Benson award was started in 2015 for YTV teams that win at finals." }
+                    p {
+                        a href="/awards/benson" {"Past Winners"}
+                    }
                 },
             })
 
@@ -34,6 +45,9 @@ pub fn render() -> Markup {
                 alignment: ImageAlignment::Left,
                 body: html! {
                     p { "Scholarships are awarded to the top finishers in STV." }
+                    p {
+                        a href="/awards/individuals" {"Past Winners"}
+                    }
                 },
             })
 
@@ -44,7 +58,7 @@ pub fn render() -> Markup {
                 body: html! {
                     p { "Each year at Quiz Finals, a graduating senior is honored for their excellence in attitude. This award is named in honor of Dave Markell. Rev. David Markell served as the Director of Youth Ministries during the 1980's, before his untimely death from leukemia. His leadership and advocacy of quizzing lives on through the lives of hundreds of quizzers, officials and coaches to whom he ministered. His attitude, even as he faced death, was always one of calm, wisdom and strength. His family has consented to the use of his name to honor the quizzer who most exemplifies the life of Christ through their attitudes and behavior in quizzing."}
                     p{"Directors, coaches and leaders are invited to nominate a graduating senior who will be in attendance at Quiz Finals."}
-                    br {a href="/markell" {"Dave Markell Attitude in Excellence Award Recipients"}}
+                    br {a href="/awards/dave-markell" {"Dave Markell Attitude in Excellence Award Recipients"}}
                 },
             })
 
@@ -54,6 +68,9 @@ pub fn render() -> Markup {
                 alignment: ImageAlignment::Left,
                 body: html! {
                     p { "This is our award for the best uniform. Quizmasters, Conference Directors and Regional Directors vote for their favorite look. This does not have to be a T-shirt design (but it can be). Team names and individual names are not required elements. Teams are encouraged to “look sharp” in whatever way they choose to interpret that. An eye-catching, uniform Look may include elements like hats, vests, suspenders, handkerchiefs, footwear, ect. Be creative! Props should not distract or interfere with normal quizzing." }
+                    p {
+                        a href="/awards/spitshine" {"Past Winners"}
+                    }
                 },
             })
 
@@ -79,7 +96,7 @@ pub fn render() -> Markup {
                         li { "Quiz leadership that never competed as teens might also be considered." }
                     }
 
-                    a href="/hall-of-fame" {"Hall of Fame Members"}
+                    a href="/awards/hall-of-fame" {"Hall of Fame Members"}
                 },
             })
 

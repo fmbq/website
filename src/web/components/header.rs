@@ -19,8 +19,8 @@ pub fn header() -> Markup {
                     a href="/about" {
                         span { "About" }
                     }
-                    a href="/schedule" {
-                        span { "Schedule" }
+                    a href="/seasons" {
+                        span { "Seasons" }
                     }
                     a href="/resources" {
                         span { "Resources" }

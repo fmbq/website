@@ -7,7 +7,7 @@ use maud::{html, Markup};
 
 pub fn render() -> Markup {
     let hof = get_halloffame();
-    let hof_image_folder = "./static/resources/photos/hall-of-fame/";
+    let hof_image_folder = "/static/resources/photos/hall-of-fame/";
     layout(
         "Hall of Fame Members",
         html! {

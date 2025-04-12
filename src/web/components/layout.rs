@@ -3,7 +3,8 @@ use maud::{html, Markup, DOCTYPE};
 
 const GLOBAL_TITLE: &str = "Free Methodist Bible Quizzing";
 
-pub fn layout(title: &str, body: Markup) -> Markup {
+pub fn layout(title: impl AsRef<str>, body: Markup) -> Markup {
+    let title = title.as_ref();
     html! {
         (DOCTYPE)
         head lang="en" {

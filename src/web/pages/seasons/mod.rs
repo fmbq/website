@@ -1,6 +1,14 @@
 use crate::web::components::layout::layout;
 use maud::{html, Markup};
 
+pub mod quotes;
+pub mod finals;
+pub mod finals_awards;
+pub mod finals_news;
+pub mod finals_registration;
+pub mod finals_schedule;
+pub mod finals_tournament;
+
 pub fn render() -> Markup {
     layout(
         "Schedule",
@@ -30,7 +38,9 @@ pub fn render() -> Markup {
             h1 { "Finals" }
             p {
                 div { "Something about finals."}
-                a href="/finals" { "Finals"}
+                a href="/seasons/finals" { "Finals"}
+                br;
+                "Link to past finals"
             }
 
             h1 { "The Study Cycle"}

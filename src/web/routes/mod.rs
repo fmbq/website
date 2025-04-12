@@ -11,6 +11,8 @@ use poem::{
 pub mod admin;
 pub mod article_images;
 pub mod articles;
+pub mod awards;
+pub mod seasons;
 pub mod css;
 pub mod errors;
 pub mod photos;
@@ -28,18 +30,8 @@ pub fn about() -> Markup {
 }
 
 #[handler]
-pub fn schedule() -> Markup {
-    pages::schedule::render()
-}
-
-#[handler]
 pub fn resources() -> Markup {
     pages::resources::render()
-}
-
-#[handler]
-pub fn awards() -> Markup {
-    pages::awards::render()
 }
 
 #[handler]
@@ -59,32 +51,17 @@ pub fn playground() -> Markup {
 
 #[handler]
 pub fn quotes_root() -> impl IntoResponse {
-    Redirect::see_other(format!("/quotes/{}", OffsetDateTime::now_utc().year()))
+    Redirect::see_other(format!("/seasons/{}/quotes", OffsetDateTime::now_utc().year()))
 }
 
 #[handler]
 pub fn quotes_for_year(Path(year): Path<u64>) -> Markup {
-    pages::quotes::render(year)
-}
-
-#[handler]
-pub fn hall_of_fame() -> Markup {
-    pages::hall_of_fame::render()
-}
-
-#[handler]
-pub fn markell() -> Markup {
-    pages::markell::render()
+    pages::seasons::quotes::render(year)
 }
 
 #[handler]
 pub fn material() -> Markup {
     pages::material::render()
-}
-
-#[handler]
-pub fn finals() -> Markup {
-    pages::finals::render()
 }
 
 #[handler]
