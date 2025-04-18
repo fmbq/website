@@ -50,6 +50,10 @@ pub fn root() -> impl IntoEndpoint {
             StaticFileEndpoint::new("wwwroot/favicon.ico"),
         )
         .at(
+            "/icon.svg",
+            StaticFileEndpoint::new("wwwroot/icon.svg"),
+        )
+        .at(
             "/apple-touch-icon.png",
             StaticFileEndpoint::new("wwwroot/apple-touch-icon.png"),
         )
