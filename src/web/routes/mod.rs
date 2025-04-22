@@ -4,7 +4,7 @@ use ::time::{format_description::well_known::Rfc2822, OffsetDateTime};
 use maud::Markup;
 use poem::{
     handler,
-    web::{sse::SSE, Data, Path, Redirect},
+    web::{sse::SSE, Data},
     IntoResponse,
 };
 
@@ -47,16 +47,6 @@ pub fn contacts() -> Markup {
 #[handler]
 pub fn playground() -> Markup {
     pages::playground::render()
-}
-
-#[handler]
-pub fn quotes_root() -> impl IntoResponse {
-    Redirect::see_other(format!("/seasons/{}/quotes", OffsetDateTime::now_utc().year()))
-}
-
-#[handler]
-pub fn quotes_for_year(Path(year): Path<u64>) -> Markup {
-    pages::seasons::quotes::render(year)
 }
 
 #[handler]

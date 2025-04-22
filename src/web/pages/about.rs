@@ -51,10 +51,27 @@ pub fn render() -> Markup {
             }
 
             h2 { "The Schedule" }
+            h3 { "Competitions" }
             p {
                 "Monthly competitions run from October to April. Competitions a held a participating churches across the country. Online competitions are also available. A regional finals prep quiz is held in May. Finals is an annual week-long competition that occurs at the end of June. Teams start studying in September."
             }
             div.about-map { }
+            h3 { "The Study Cycle"}
+            p{
+                ul {
+                    li { "Ruth, Luke 1-10" }
+                    li { "Jonah, Luke 11-24"}
+                    li { "1 & 2 Corinthians"}
+                    li { "John"}
+                    li { "Hebrews, 1 & 2 Peter, Jude"}
+                    li { "1 & 2 Timothy, Titus, Matthew 1-13"}
+                    li { "Matthew 14-28, 1 & 2 Thessalonians"}
+                    li { "Romans & James"}
+                    li { "Acts 1-14, Galatians, Colossians, Philemon"}
+                    li { "Acts 15-28, Ephesians, Philippians"}
+                    li { "1 John, 2 John, 3 John, Revelation"}
+                }
+            }
 
             h2 { "The Expenses" }
             h3 { "Season"}

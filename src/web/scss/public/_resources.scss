@@ -8,18 +8,18 @@
         margin: 4rem 0;
         border-radius: 6px;
         width: 50%;
-        display: inline-block;        
+        display: inline-block;
     }
 }
 
 .resources-teams {
     @extend .resources-section;
-    background-image: url("/static/resources/photos/about-teams.jpg");
+    background-image: url("/static/resources/photos/about-teams.webp");
 }
 
 .resources-qm {
     @extend .resources-section;
-    background-image: url("/static/resources/photos/about-qm.jpg");
+    background-image: url("/static/resources/photos/about-qm.webp");
     justify-content: flex-end;
 
     p {
@@ -29,12 +29,12 @@
 
 .resources-questions {
     @extend .resources-section;
-    background-image: url("/static/resources/photos/about-questions.jpg");
+    background-image: url("/static/resources/photos/about-questions.webp");
 }
 
 .resources-jumping {
     @extend .resources-section;
-    background-image: url("/static/resources/photos/about-jumping.jpg");
+    background-image: url("/static/resources/photos/about-jumping.webp");
     justify-content: flex-end;
 
     p {
@@ -44,14 +44,14 @@
 
 .resources-map {
     height: 400px;
-    background-image: url("/static/resources/photos/map.png");
+    background-image: url("/static/resources/photos/map.webp");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .resources-scholarships {
     height: 400px;
-    background-image: url("/static/resources/photos/scholarships.png");
+    background-image: url("/static/resources/photos/scholarships.webp");
     background-size: contain;
     background-repeat: no-repeat;
 }

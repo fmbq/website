@@ -15,12 +15,12 @@
 
 .home-teams {
     @extend .home-section;
-    background-image: url("/static/resources/photos/about-teams.jpg");
+    background-image: url("/static/resources/photos/about-teams.webp");
 }
 
 .home-qm {
     @extend .home-section;
-    background-image: url("/static/resources/photos/about-qm.jpg");
+    background-image: url("/static/resources/photos/about-qm.webp");
     justify-content: flex-end;
 
     p {
@@ -30,12 +30,12 @@
 
 .home-questions {
     @extend .home-section;
-    background-image: url("/static/resources/photos/about-questions.jpg");
+    background-image: url("/static/resources/photos/about-questions.webp");
 }
 
 .home-jumping {
     @extend .home-section;
-    background-image: url("/static/resources/photos/about-jumping.jpg");
+    background-image: url("/static/resources/photos/about-jumping.webp");
     justify-content: flex-end;
 
     p {

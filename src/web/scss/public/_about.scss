@@ -15,12 +15,12 @@
 
 .about-teams {
     @extend .about-section;
-    background-image: url("/static/resources/photos/about-teams.jpg");
+    background-image: url("/static/resources/photos/about-teams.webp");
 }
 
 .about-qm {
     @extend .about-section;
-    background-image: url("/static/resources/photos/about-qm.jpg");
+    background-image: url("/static/resources/photos/about-qm.webp");
     justify-content: flex-end;
 
     p {
@@ -30,12 +30,12 @@
 
 .about-questions {
     @extend .about-section;
-    background-image: url("/static/resources/photos/about-questions.jpg");
+    background-image: url("/static/resources/photos/about-questions.webp");
 }
 
 .about-jumping {
     @extend .about-section;
-    background-image: url("/static/resources/photos/about-jumping.jpg");
+    background-image: url("/static/resources/photos/about-jumping.webp");
     justify-content: flex-end;
 
     p {
@@ -45,14 +45,14 @@
 
 .about-map {
     height: 400px;
-    background-image: url("/static/resources/photos/map.png");
+    background-image: url("/static/resources/photos/map.webp");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .about-scholarships {
     height: 400px;
-    background-image: url("/static/resources/photos/scholarships.png");
+    background-image: url("/static/resources/photos/scholarships.webp");
     background-size: contain;
     background-repeat: no-repeat;
 }

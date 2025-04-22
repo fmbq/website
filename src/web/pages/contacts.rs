@@ -72,7 +72,7 @@ pub fn render() -> Markup {
             a href="mailto:hassl425@comcast.net" { "hassl425@comcast.net" }
 
             p {
-                img src="/static/resources/photos/fmc-conference-map.png" {""}
+                img src="/static/resources/photos/fmc-conference-map.webp" {""}
             }
         },
     )

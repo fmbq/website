@@ -27,8 +27,6 @@ pub fn root() -> impl IntoEndpoint {
         .at("/resources", get(routes::resources))
         .at("/support-us", get(routes::support_us))
         .at("/contacts", get(routes::contacts))
-        .at("/quotes", get(routes::quotes_root))
-        .at("/quotes/:year", get(routes::quotes_for_year))
         .at("/rules", get(routes::rules::get_html))
         .at("/rules/rules.pdf", get(routes::rules::get_pdf))
         .at("/material", get(routes::material))

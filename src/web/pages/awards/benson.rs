@@ -8,7 +8,7 @@ pub fn render() -> Markup {
         "Benson",
         html! {
             h1 { "Benson" }
-            img src={(image_folder)("benson-2015.jpg")} height="300px" {""}
+            img src={(image_folder)("benson-2015.webp")} height="300px" {""}
             br;
             p{}
             p{}
