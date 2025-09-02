@@ -53,7 +53,7 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository_owner }}/website
           tags: |
-            type=sha,format=short,prefix=
+            type=sha,format=short,prefix=,suffix=-{{date 'X'}}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
