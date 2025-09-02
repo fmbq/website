@@ -74,25 +74,3 @@ jobs:
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-  deploy-testing:
-    name: Deploy to DigitalOcean
-    if: github.ref_name == 'master'
-    needs: [image]
-    environment:
-      name: 'testing'
-      url: 'https://testing.fmbq.org'
-    concurrency:
-      group: testing
-      cancel-in-progress: true
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy to DigitalOcean testing environment
-        id: deploy
-        uses: digitalocean/app_action/deploy@v2
-        env:
-          DOCKER_TAG: ${{ needs.image.outputs.tag }}
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
