@@ -75,7 +75,7 @@ version = "0.3"
 features = ["formatting", "serde-well-known"]
 
 [dependencies.tokio]
-version = "1.32"
+version = "1.44"
 features = ["rt-multi-thread", "macros", "signal", "sync"]
 
 [dependencies.tokio-stream]
