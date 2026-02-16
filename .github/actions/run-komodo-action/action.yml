@@ -1,6 +1,15 @@
 name: Run Komodo Action
 description: Run a Komodo action
 inputs:
+  komodo-url:
+    description: URL of the Komodo instance to connect to
+    required: true
+  komodo-api-key:
+    description: API key for authenticating with the Komodo instance
+    required: true
+  komodo-api-secret:
+    description: API secret for authenticating with the Komodo instance
+    required: true
   action:
     description: Name or ID of Komodo action to run
     required: true
@@ -14,7 +23,7 @@ runs:
     - name: Invoke action
       shell: bash
       run: |
-        curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
-          --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
+        curl --header "X-Api-Key: ${{ inputs.komodo-api-key }}" \
+          --header "X-Api-Secret: ${{ inputs.komodo-api-secret }}" \
           --json '{"type": "RunAction", "params": {"action": "${{ inputs.action }}", "args": ${{ inputs.args }}}}' \
-          ${{ vars.KOMODO_URL }}/execute
+          ${{ inputs.komodo-url }}/execute

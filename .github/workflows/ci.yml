@@ -89,6 +89,9 @@ jobs:
       - name: Update tag in Komodo
         uses: ./.github/actions/run-komodo-action
         with:
+          komodo-url: ${{ vars.KOMODO_URL }}
+          komodo-api-key: ${{ secrets.KOMODO_API_KEY }}
+          komodo-api-secret: ${{ secrets.KOMODO_API_SECRET }}
           action: Update Website Testing Tag
           args: |
             {
