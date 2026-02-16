@@ -78,26 +78,18 @@ jobs:
   deploy-testing:
     name: Deploy to testing
     if: github.ref_name == 'master'
-    needs: [image]
-    environment:
-      name: testing
-      url: 'https://testing.fmbq.org'
+    needs: [test, image]
     concurrency:
       group: testing
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - name: Update tag in Komodo
-        id: deploy
-        run: |
-          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
-            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
-            --json '{"type": "UpdateStack", "params": {"id": "website-testing", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
-            ${{ vars.KOMODO_URL }}/write
-          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
-            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
-            --json '{"type": "DeployStack", "params": {"stack": "website-testing"}}' \
-            ${{ vars.KOMODO_URL }}/execute
+        uses: ./.github/actions/run-komodo-action
+        with:
+          action: Update Website Testing Tag
+          args:
+            tag: ${{ needs.image.outputs.tag }}
 
   deploy-production:
     name: Deploy to production
