@@ -1,0 +1,19 @@
+services:
+  fmbq-website-testing:
+    image: ghcr.io/fmbq/website:$TAG
+    environment:
+      LISTEN_ADDR: 0.0.0.0:8080
+      DATABASE_URL: sqlite:///data/sqlite.db
+      DEPLOYMENT_ENVIRONMENT: production
+    volumes:
+      - data:/data
+    networks:
+      - cloudflare
+
+volumes:
+  data:
+
+networks:
+  cloudflare:
+    name: cloudflare
+    external: true
