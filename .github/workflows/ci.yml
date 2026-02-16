@@ -75,7 +75,24 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Deploy to testing
+  deploy-testing:
+    name: Deploy to testing
+    # if: github.ref_name == 'master'
+    needs: [image]
+    environment:
+      name: 'testing'
+      url: 'https://testing2.fmbq.org'
+    concurrency:
+      group: testing
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update tag in Komodo
+        id: deploy
         uses: docker://ghcr.io/moghtech/komodo-cli
         with:
-          args: km update stack website-testing environment=TAG=${{ steps.meta.outputs.tags }}
+          args: km update stack --yes website-testing environment=TAG=${{ needs.image.outputs.tag }}
+        env:
+          KOMODO_CLI_HOST: ${{ vars.KOMODO_CLI_HOST }}
+          KOMODO_CLI_KEY: ${{ secrets.KOMODO_CLI_KEY }}
+          KOMODO_CLI_SECRET: ${{ secrets.KOMODO_CLI_SECRET }}
