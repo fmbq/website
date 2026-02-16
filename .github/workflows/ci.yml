@@ -74,3 +74,7 @@ jobs:
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Deploy to testing
+        uses: docker://ghcr.io/moghtech/komodo-cli
+        run: km update stack website-testing environment=TAG=${{ steps.meta.outputs.tags }}
