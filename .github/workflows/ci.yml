@@ -89,10 +89,9 @@ jobs:
     steps:
       - name: Update tag in Komodo
         id: deploy
-        uses: docker://ghcr.io/moghtech/komodo-cli
-        with:
-          args: km update stack --yes website-testing environment=TAG=${{ needs.image.outputs.tag }}
-        env:
-          KOMODO_CLI_HOST: ${{ vars.KOMODO_CLI_HOST }}
-          KOMODO_CLI_KEY: ${{ secrets.KOMODO_CLI_KEY }}
-          KOMODO_CLI_SECRET: ${{ secrets.KOMODO_CLI_SECRET }}
+        run: |
+          curl --header "Content-Type: application/json" \
+            --header "X-Api-Key: ${{ secrets.KOMODO_CLI_KEY }}" \
+            --header "X-Api-Secret: ${{ secrets.KOMODO_CLI_SECRET }}" \
+            --data '{"type": "UpdateStack", "params": {"id": "website-testing", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
+            ${{ vars.KOMODO_CLI_HOST }}/write
