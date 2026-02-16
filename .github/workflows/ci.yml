@@ -110,14 +110,16 @@ jobs:
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
+
       - name: Update tag in Komodo
-        id: deploy
-        run: |
-          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
-            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
-            --json '{"type": "UpdateStack", "params": {"id": "website", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
-            ${{ vars.KOMODO_URL }}/write
-          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
-            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
-            --json '{"type": "DeployStack", "params": {"stack": "website"}}' \
-            ${{ vars.KOMODO_URL }}/execute
+        uses: ./.github/actions/run-komodo-action
+        with:
+          komodo-url: ${{ vars.KOMODO_URL }}
+          komodo-api-key: ${{ secrets.KOMODO_API_KEY }}
+          komodo-api-secret: ${{ secrets.KOMODO_API_SECRET }}
+          action: Update Website Tag
+          args: |
+            {
+              "tag": "${{ needs.image.outputs.tag }}"
+            }
