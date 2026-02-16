@@ -77,11 +77,11 @@ jobs:
 
   deploy-testing:
     name: Deploy to testing
-    # if: github.ref_name == 'master'
+    if: github.ref_name == 'master'
     needs: [image]
     environment:
-      name: 'testing'
-      url: 'https://testing2.fmbq.org'
+      name: testing
+      url: 'https://testing.fmbq.org'
     concurrency:
       group: testing
       cancel-in-progress: true
@@ -95,3 +95,8 @@ jobs:
             --header "X-Api-Secret: ${{ secrets.KOMODO_CLI_SECRET }}" \
             --data '{"type": "UpdateStack", "params": {"id": "website-testing", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
             ${{ vars.KOMODO_CLI_HOST }}/write
+          curl --header "Content-Type: application/json" \
+            --header "X-Api-Key: ${{ secrets.KOMODO_CLI_KEY }}" \
+            --header "X-Api-Secret: ${{ secrets.KOMODO_CLI_SECRET }}" \
+            --data '{"type": "DeployStack", "params": {"stack": "website-testing"}}' \
+            ${{ vars.KOMODO_CLI_HOST }}/execute
