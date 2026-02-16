@@ -77,4 +77,5 @@ jobs:
 
       - name: Deploy to testing
         uses: docker://ghcr.io/moghtech/komodo-cli
-        run: km update stack website-testing environment=TAG=${{ steps.meta.outputs.tags }}
+        with:
+          args: km update stack website-testing environment=TAG=${{ steps.meta.outputs.tags }}
