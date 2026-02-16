@@ -12,6 +12,7 @@ runs:
   using: composite
   steps:
     - name: Invoke action
+      shell: bash
       run: |
         curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
           --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
