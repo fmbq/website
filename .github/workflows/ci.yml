@@ -90,13 +90,35 @@ jobs:
       - name: Update tag in Komodo
         id: deploy
         run: |
-          curl --header "Content-Type: application/json" \
-            --header "X-Api-Key: ${{ secrets.KOMODO_CLI_KEY }}" \
-            --header "X-Api-Secret: ${{ secrets.KOMODO_CLI_SECRET }}" \
-            --data '{"type": "UpdateStack", "params": {"id": "website-testing", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
-            ${{ vars.KOMODO_CLI_HOST }}/write
-          curl --header "Content-Type: application/json" \
-            --header "X-Api-Key: ${{ secrets.KOMODO_CLI_KEY }}" \
-            --header "X-Api-Secret: ${{ secrets.KOMODO_CLI_SECRET }}" \
-            --data '{"type": "DeployStack", "params": {"stack": "website-testing"}}' \
-            ${{ vars.KOMODO_CLI_HOST }}/execute
+          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
+            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
+            --json '{"type": "UpdateStack", "params": {"id": "website-testing", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
+            ${{ vars.KOMODO_URL }}/write
+          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
+            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
+            --json '{"type": "DeployStack", "params": {"stack": "website-testing"}}' \
+            ${{ vars.KOMODO_URL }}/execute
+
+  deploy-production:
+    name: Deploy to production
+    if: github.ref_name == 'master'
+    needs: [test, image]
+    environment:
+      name: production
+      url: 'https://fmbq.org'
+    concurrency:
+      group: production
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update tag in Komodo
+        id: deploy
+        run: |
+          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
+            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
+            --json '{"type": "UpdateStack", "params": {"id": "website", "config": {"environment": "TAG=${{ needs.image.outputs.tag }}"}}}' \
+            ${{ vars.KOMODO_URL }}/write
+          curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
+            --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
+            --json '{"type": "DeployStack", "params": {"stack": "website"}}' \
+            ${{ vars.KOMODO_URL }}/execute
