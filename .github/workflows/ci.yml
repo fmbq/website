@@ -15,7 +15,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Rust toolchain
         run: rustup update stable && rustup default stable
@@ -45,7 +45,7 @@ jobs:
     outputs:
       tag: ${{ steps.meta.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Generate Docker image metadata
         id: meta
