@@ -5,9 +5,9 @@ inputs:
     description: Name or ID of Komodo action to run
     required: true
   args:
-    description: Arguments to pass into the Komodo action
+    description: Arguments to pass into the Komodo action, in JSON format
     required: false
-    default: {}
+    default: '{}'
 runs:
   using: composite
   steps:
@@ -15,5 +15,5 @@ runs:
       run: |
         curl --header "X-Api-Key: ${{ secrets.KOMODO_API_KEY }}" \
           --header "X-Api-Secret: ${{ secrets.KOMODO_API_SECRET }}" \
-          --json '{"type": "RunAction", "params": {"action": "${{ inputs.action }}", "args": ${{ toJson(inputs.args) }}}}' \
+          --json '{"type": "RunAction", "params": {"action": "${{ inputs.action }}", "args": ${{ inputs.args }}}}' \
           ${{ vars.KOMODO_URL }}/execute

@@ -88,8 +88,10 @@ jobs:
         uses: ./.github/actions/run-komodo-action
         with:
           action: Update Website Testing Tag
-          args:
-            tag: ${{ needs.image.outputs.tag }}
+          args: |
+            {
+              "tag": "${{ needs.image.outputs.tag }}"
+            }
 
   deploy-production:
     name: Deploy to production
