@@ -84,6 +84,8 @@ jobs:
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
+
       - name: Update tag in Komodo
         uses: ./.github/actions/run-komodo-action
         with:
