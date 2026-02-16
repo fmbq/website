@@ -1,5 +1,5 @@
 services:
-  fmbq-website-testing:
+  fmbq-website:
     image: ghcr.io/fmbq/website:$TAG
     environment:
       LISTEN_ADDR: 0.0.0.0:8080
