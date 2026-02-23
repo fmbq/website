@@ -12,10 +12,12 @@ pub fn render() -> Markup {
             .section.dark {
                 p {
                     "Looking to start Bible Quizzing in your church?"
+                    p {
 
                     a.button href="/get-started" {
                         "Get Started"
                     }
+                }
                 }
             }
 

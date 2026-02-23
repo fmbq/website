@@ -11,4 +11,4 @@ pub mod markell;
 pub mod material;
 pub mod finals;
 pub mod user;
-
+pub mod seasons;
