@@ -17,11 +17,15 @@ pub struct Materialitem {
 
 #[derive(Clone, Debug, Deserialize)]
 pub struct Material {
-
     #[serde(rename = "material")]
     pub materials: Vec<Materialitem>,
 }
 
+impl Material {
+    pub fn for_season_year(&self, year: u16) -> Option<&Materialitem> {
+        self.materials.iter().find(|m| m.year == year)
+    }
+}
 
 pub fn get_material() -> &'static Material {
     MATERIAL.get_or_init(load)
