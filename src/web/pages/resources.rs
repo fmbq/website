@@ -68,7 +68,7 @@ pub fn render() -> Markup {
             })
 
 
-            h2 { "Study Supplies" }
+            h2 id="study-supplies" { "Study Supplies" }
             (BigImageCard {
                 title: "QuizOut Publications",
                 image_src: "/static/resources/photos/laura-book-1.webp",

@@ -1,78 +1,79 @@
 <finals updated="2/22/2026">
-    <location year="2026" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
-    <location year="2025" place="Seattle Pacific University" city="Seattle " state="WA"/>
+    <location year="2026" place="Spring Arbor University" city="Spring Arbor" state="MI" start-date="2026-06-29" end-date="2026-07-03"/>
 
-    <location year="2024" place="Waynesburg University" city="Waynesburg " state="PA"/>
-    <location year="2023" place="Greenville University" city="Greenville " state="IL"/>
-    <location year="2022" place="Asbury University" city="Wilmore " state="KY"/>
-    <location year="2021" place="Olivet Nazarene University" city="Bourbonnais " state="IL"/>
+    <location year="2025" place="Seattle Pacific University" city="Seattle" state="WA"/>
+
+    <location year="2024" place="Waynesburg University" city="Waynesburg" state="PA"/>
+    <location year="2023" place="Greenville University" city="Greenville" state="IL"/>
+    <location year="2022" place="Asbury University" city="Wilmore" state="KY"/>
+    <location year="2021" place="Olivet Nazarene University" city="Bourbonnais" state="IL"/>
     <location year="2020" place="ONLINE" city="NA" state="NA"/>
 
     <location year="2019" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
-    <location year="2018" place="Greenville University" city="Greenville " state="IL"/>
-    <location year="2017" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="2016" place="Seattle Pacific University" city="Seattle " state="WA"/>
-    <location year="2015" place="Spring Arbor University" city="Spring Arbor " state="MI"/>
-    <location year="2014" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="2013" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="2012" place="Seattle Pacific University" city="Seattle " state="WA"/>
-    <location year="2011" place="Spring Arbor University" city="Spring Arbor " state="MI"/>
-    <location year="2010" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="2009" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="2008" place="Spring Arbor University" city="Spring Arbor " state="MI"/>
-    <location year="2007" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="2006" place="Spring Arbor University" city="Spring Arbor " state="MI"/>
-    <location year="2005" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="2004" place="Spring Arbor University" city="Spring Arbor " state="MI"/>
-    <location year="2003" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="2002" place="Seattle Pacific University" city="Seattle " state="WA"/>
-    <location year="2001" place="Central Christian College" city="McPherson " state="KS"/>
-    <location year="2000" place="Spring Arbor College" city="Spring Arbor " state="MI"/>
-    <location year="1999" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="1998" place="Spring Arbor College" city="Spring Arbor " state="MI"/>
-    <location year="1997" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="1996" place="Warm Beach Camp" city="Stanwood " state="WA"/>
-    <location year="1995" place="Anderson University" city="Anderson " state="IN"/>
-    <location year="1994" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="1993" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="1992" place="Spring Arbor College" city="Spring Arbor " state="MI"/>
-    <location year="1991" place="Central College" city="McPherson " state="KS"/>
-    <location year="1990" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="1989" place="Seattle Pacific University" city="Seattle " state="WA"/>
-    <location year="1988" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="1987" place="Spring Arbor College" city="Spring Arbor " state="MI"/>
-    <location year="1986" place="Central College" city="McPherson " state="KS"/>
-    <location year="1985" place="IYC" city="Estes Park " state="CO"/>
-    <location year="1984" place="Roberts Wesleyan College" city="Rochester " state="NY"/>
-    <location year="1983" place="Seattle Pacific University" city="Seattle " state="WA"/>
-    <location year="1982" place="Greenville College" city="Greenville " state="IL"/>
-    <location year="1981" place="IYC" city="Estes Park " state="CO"/>
-    <location year="1980" place="Spring Arbor College" city="Spring Arbor " state="MI"/>
-    <location year="1979" place="Winona Lake" city="Winona Lake " state="IN"/>
-    <location year="1978" place="Winona Lake" city="Winona Lake " state="IN"/>
-    <location year="1977" place="Winona Lake" city="Winona Lake " state="IN"/>
-    <location year="1976" place="Winona Lake" city="Winona Lake " state="IN"/>
+    <location year="2018" place="Greenville University" city="Greenville" state="IL"/>
+    <location year="2017" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="2016" place="Seattle Pacific University" city="Seattle" state="WA"/>
+    <location year="2015" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
+    <location year="2014" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="2013" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="2012" place="Seattle Pacific University" city="Seattle" state="WA"/>
+    <location year="2011" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
+    <location year="2010" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="2009" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="2008" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
+    <location year="2007" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="2006" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
+    <location year="2005" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="2004" place="Spring Arbor University" city="Spring Arbor" state="MI"/>
+    <location year="2003" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="2002" place="Seattle Pacific University" city="Seattle" state="WA"/>
+    <location year="2001" place="Central Christian College" city="McPherson" state="KS"/>
+    <location year="2000" place="Spring Arbor College" city="Spring Arbor" state="MI"/>
+    <location year="1999" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="1998" place="Spring Arbor College" city="Spring Arbor" state="MI"/>
+    <location year="1997" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="1996" place="Warm Beach Camp" city="Stanwood" state="WA"/>
+    <location year="1995" place="Anderson University" city="Anderson" state="IN"/>
+    <location year="1994" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="1993" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="1992" place="Spring Arbor College" city="Spring Arbor" state="MI"/>
+    <location year="1991" place="Central College" city="McPherson" state="KS"/>
+    <location year="1990" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="1989" place="Seattle Pacific University" city="Seattle" state="WA"/>
+    <location year="1988" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="1987" place="Spring Arbor College" city="Spring Arbor" state="MI"/>
+    <location year="1986" place="Central College" city="McPherson" state="KS"/>
+    <location year="1985" place="IYC" city="Estes Park" state="CO"/>
+    <location year="1984" place="Roberts Wesleyan College" city="Rochester" state="NY"/>
+    <location year="1983" place="Seattle Pacific University" city="Seattle" state="WA"/>
+    <location year="1982" place="Greenville College" city="Greenville" state="IL"/>
+    <location year="1981" place="IYC" city="Estes Park" state="CO"/>
+    <location year="1980" place="Spring Arbor College" city="Spring Arbor" state="MI"/>
+    <location year="1979" place="Winona Lake" city="Winona Lake" state="IN"/>
+    <location year="1978" place="Winona Lake" city="Winona Lake" state="IN"/>
+    <location year="1977" place="Winona Lake" city="Winona Lake" state="IN"/>
+    <location year="1976" place="Winona Lake" city="Winona Lake" state="IN"/>
     <location year="1975" place="NA" city="NA" state="CO"/>
-    <location year="1974" place="Winona Lake" city="Winona Lake " state="IN"/>
-    <location year="1973" place="Westland" city="Westland " state="MI"/>
-    <location year="1972" place="University of Illinois at Champaign-Urbana" city="Champaign " state="IL"/>
-    <location year="1970" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1969" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1968" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1967" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1966" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1965" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1964" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1963" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1962" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1961" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1960" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1959" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1958" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1957" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1956" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1955" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1954" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
-    <location year="1953" place="Winona Lake Youth Camp" city="Winona Lake " state="IN"/>
+    <location year="1974" place="Winona Lake" city="Winona Lake" state="IN"/>
+    <location year="1973" place="Westland" city="Westland" state="MI"/>
+    <location year="1972" place="University of Illinois at Champaign-Urbana" city="Champaign" state="IL"/>
+    <location year="1970" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1969" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1968" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1967" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1966" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1965" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1964" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1963" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1962" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1961" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1960" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1959" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1958" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1957" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1956" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1955" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1954" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
+    <location year="1953" place="Winona Lake Youth Camp" city="Winona Lake" state="IN"/>
 
 </finals>

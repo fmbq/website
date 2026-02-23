@@ -1,7 +1,12 @@
-use crate::web::components::layout::layout;
+use crate::{
+    domain::{finals::get_current_finalsitem, material::get_current_material},
+    web::components::layout::layout,
+};
 use maud::{html, Markup};
 
 pub fn render() -> Markup {
+    let material_this_season = get_current_material();
+    let finals_this_season = get_current_finalsitem();
     layout(
         "Free Methodist Bible Quizzing",
         html! {
@@ -37,15 +42,25 @@ pub fn render() -> Markup {
                 }
             }
 
-           h2 { "2024-2025 Season Information" }
-           p {
-                "Romans & James, quote list link, purchase link"
-           }
-           p {
-               br{"2025 Quiz Finals is scheduled to take place on the west coast (tenatively Seattle Pacific University)"}
-               br{"Sunday, June 29, 2025 - Thursday, July 3, 2025"}
-           }
-           h2 { "Free Methodist Denomination" }
+            @if let Some(material) = material_this_season {
+                  h2 { (material.title()) " Season Information" }
+                  p {
+                    (material.books)
+                    br;
+                    a.button href={"/seasons/"(material.year)"/quotes"}{"Quote List"}
+                    "  "
+                    a.button href={"/resources#study-supplies"}{"Study Supplies"}
+                  }
+                  @if let Some(finals) = finals_this_season {
+                    p {
+                        br{"Quiz Finals will be at " (finals.formatted_venue())}
+                        br{(finals.event_date())}
+                    }
+                  }
+
+            } @else {
+                p {"Season not found!"}
+            }
         },
     )
 }
