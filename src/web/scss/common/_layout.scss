@@ -25,7 +25,7 @@
         [breakout-end]
         $gutter-min-width
         [full-width-end];
-
+    grid-auto-rows: min-content;
     --content-width: content;
 
     & > * {
