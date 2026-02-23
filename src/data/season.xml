@@ -1,0 +1,34 @@
+<seasons>
+    <season id="2025">
+        <material books="Acts 1-14 Galatians, Colossians and Philemon" verses="788" pdf="2025 Quote List AGCP.pdf" txt="2025 Quote List AGCP.txt"/>
+        <finals place="Spring Arbor University" city="Spring Arbor" state="MI" start-date="2026-06-29" end-date="2026-07-03"/>
+        <schedule>
+        	<month id="1" name="October" material="Acts 1-4" verses="136">
+                <tournament conf="North Central" date="2025-10-04" city="Alton" state="IL"/>
+                <tournament conf="Gateway" date="2025-10-04" city="Alton" state="IL"/>
+		    </month>
+        	<month id="2" name="November">
+                <tournament conf="North Central" date="2025-11-01" city="Alton" state="IL"/>
+                <tournament conf="Gateway" date="2025-11-01" city="Alton" state="IL"/>
+		    </month>
+        	<month id="3" name="December">
+                <tournament conf="North Central" date="2025-12-06" city="Janesville" state="WI"/>
+                <tournament conf="Gateway" date="2025-12-06" city="Janesville" state="WI"/>
+		    </month>
+        	<month id="4" name="January">
+                <tournament conf="North Central" date="2026-01-10" city="Bloomington" state="IN"/>
+                <tournament conf="Gateway" date="2026-01-10" city="Bloomington" state="IN"/>
+		    </month>
+        	<month id="5" name="February">
+                <tournament conf="North Central" date="2026-02-14" city="Wilmore" state="KY"/>
+                <tournament conf="Gateway" date="2026-02-14" city="Wilmore" state="KY"/>
+                <tournament conf="Wabash" date="2026-02-14" city="Wilmore" state="KY"/>
+                <tournament conf="New South" date="2026-02-14" city="Wilmore" state="KY"/>
+                <tournament conf="Genesis" date="2026-02-14" city="Wilmore" state="KY"/>
+		    </month>
+        </schedule>
+
+    </season>
+
+
+</seasons>
