@@ -1,5 +1,5 @@
 use maud::Markup;
-use poem::{get, handler, web::Path, IntoEndpoint, Route};
+use poem::{IntoEndpoint, Route, error::NotFoundError, get, handler, web::Path};
 
 use crate::web::pages;
 
@@ -7,6 +7,7 @@ use crate::web::pages;
 pub fn routes() -> impl IntoEndpoint {
     Route::new()
         .at("/", get(seasons))
+        .at("/:year", get(season_for_year))
         .at("/:year/quotes", get(season_quotes_for_year))
         .at("/:year/finals", get(season_finals_for_year))
         .at("/:year/finals/awards", get(season_finals_awards_for_year))
@@ -19,6 +20,11 @@ pub fn routes() -> impl IntoEndpoint {
 #[handler]
 pub fn seasons() -> Markup {
     pages::seasons::render()
+}
+
+#[handler]
+pub fn season_for_year(Path(year): Path<u64>) -> Result<Markup, NotFoundError> {
+    pages::seasons::render_year(year).ok_or(NotFoundError)
 }
 
 #[handler]
