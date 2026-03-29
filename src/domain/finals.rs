@@ -8,7 +8,7 @@ static FINALS_XML: &str = include_str!("../data/finals.xml");
 static FINALS: OnceLock<Finals> = OnceLock::new();
 
 #[derive(Clone, Debug, Deserialize)]
-pub struct Finalsitem {
+pub struct FinalsItem {
     #[serde(default)]
     #[serde(rename = "@place")]
     pub place: String,
@@ -25,7 +25,7 @@ pub struct Finalsitem {
     pub end_date: Option<NaiveDate>,
 }
 
-impl Finalsitem {
+impl FinalsItem {
     pub fn event_date(&self) -> String {
         if let (Some(start), Some(end)) = (self.start_date, self.end_date) {
             format!("{} to {}", start, end)
@@ -39,18 +39,16 @@ impl Finalsitem {
     }
 }
 
-
 #[derive(Clone, Debug, Deserialize)]
 pub struct Finals {
-
     #[serde(rename = "location")]
-    pub finals: Vec<Finalsitem>,
+    pub finals: Vec<FinalsItem>,
 }
 
 impl Finals {
     // in the xml file, the year represents the year the finals ACTUALLY took place, not the season year
     // in our coding, we are using the season year, so we need to take that into account
-    pub fn for_season_year(&self, year: u16) -> Option<&Finalsitem> {
+    pub fn for_season_year(&self, year: u16) -> Option<&FinalsItem> {
         self.finals.iter().find(|f| f.year == year + 1)
     }
 }
@@ -58,7 +56,7 @@ pub fn get_finals() -> &'static Finals {
     FINALS.get_or_init(load)
 }
 
-pub fn get_current_finalsitem() -> Option<&'static Finalsitem> {
+pub fn get_current_finalsitem() -> Option<&'static FinalsItem> {
     let year = get_current_season_year();
     get_finals().for_season_year(year)
 }
@@ -66,7 +64,6 @@ pub fn get_current_finalsitem() -> Option<&'static Finalsitem> {
 fn load() -> Finals {
     quick_xml::de::from_str(FINALS_XML).unwrap()
 }
-
 
 #[cfg(test)]
 mod tests {}
